@@ -4,37 +4,43 @@ public class Tabuleiro implements Exibivel {
 
     private TipoTabuleiro tipoTabuleiro;
     private Quadrado[] quadrado;
-    private ExibivelInterface exibivelInterface;
-    private ExibivelInterface exibivelInterface;
     private DistribuidorMinasInterface distribuidorMinasInterface;
     private Jogada jogada;
     private TipoConteudo tipoConteudo;
 
     /**
-     * Constrói um novo tabuleiro com base no tipo recebido. Após identificar
-     * qual é o tipo, inicializa o tabuleiro, insere as minas e, por fim, regula
-     * o tabuleiro com os números indicadores de minas na vizinhança.
+     * Constrói um novo tabuleiro com base no tipo recebido.
+     *
+     * @param tipo Tipo do tabuleiro.
      */
     public void Tabuleiro(TipoTabuleiro tipo) {
+        //Após identificar qual é o tipo, inicializa o tabuleiro, insere as minas e, por fim, regula o tabuleiro com os números indicadores de minas na vizinhança.
     }
 
+    /**
+     * Executa uma jogada no tabuleiro.
+     *
+     * @param jogada Jogada a ser executada no tabuleiro.
+     * @return FALSE caso a jogada tenha sido abrir e o quadrado tinha uma mina,
+     * ou TRUE para jogadas de marcação e/ou com o quadrado que não tinha mina.
+     */
     public boolean executarJogada(Jogada jogada) {
+        //deixa pra eu, cleber, implementar *-*
         return false;
-    }
-
-    public void exibir() {
     }
 
     /**
      * Inicializa o tabuleiro com quadrados vazios.
      */
     private void inicializarTabuleiro() {
+        //com base nas dimensões, criar quadrados e colocá-los na matriz
     }
 
     /**
      * Distribui as minas pelo tabuleiro.
      */
     private void distribuirMinas() {
+        //usar a distribuição pela interface.
     }
 
     /**
@@ -52,14 +58,36 @@ public class Tabuleiro implements Exibivel {
     }
 
     /**
-     * Abre um quadrado. Se o quadrado conter uma mina, retorna false. Se tiver
-     * um número, retorna true, se tiver vazio, chama a mesma função para a
-     * abertura de cada um dos vizinhos.
+     * Abre um quadrado.
+     *
+     * @param linha Número da linha onde o quadrado está localizado no
+     * tabuleiro.
+     * @param coluna Número da coluna onde o quadrado está localizado no
+     * tabuleiro.
+     * @return FALSE, caso o quadrado contenha uma mina, ou TRUE, caso
+     * contrário.
      */
     private boolean abrirQuadrado(int linha, int coluna) {
+        //deixa pra eu, cleber, implementar *-*
+        //Se o quadrado conter uma mina, retorna false. Se tiver um número, retorna true, se tiver vazio, chama a mesma função para a abertura de cada um dos vizinhos.
         return false;
     }
 
+    /**
+     * Marca um quadrado.
+     *
+     * @param linha Número da linha onde o quadrado está localizado no
+     * tabuleiro.
+     * @param coluna Número da coluna onde o quadrado está localizado no
+     * tabuleiro.
+     */
     private void marcarQuadrado(int linha, int coluna) {
+    }
+
+    /**
+     * @see model.Exibivel#exibir()
+     */
+    public void exibir() {
+        //exibe botão por botão até terminar a linha e depois quebra ela.
     }
 }

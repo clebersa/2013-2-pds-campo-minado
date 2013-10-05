@@ -13,10 +13,10 @@ public class Quadrado implements Exibivel {
      * com nenhuma mina vizinha contabilizada.
      */
     public void Quadrado() {
-		this.conteudo = new Conteudo();
-		this.marcacao = new Marcacao();
-		this.aberto = false;
-		this.minasVizinhas = 0;
+        this.conteudo = new Conteudo();
+        this.marcacao = new Marcacao();
+        this.aberto = false;
+        this.minasVizinhas = 0;
     }
 
     /**
@@ -25,7 +25,7 @@ public class Quadrado implements Exibivel {
      * @return Tipo do conteúdo do quadrado.
      */
     public TipoConteudo abrir() {
-		this.aberto = true;
+        this.aberto = true;
         return conteudo.getTipo();
     }
 
@@ -33,14 +33,14 @@ public class Quadrado implements Exibivel {
      * Marca o quadrado.
      */
     public void marcar() {
-		this.marcacao.marcar();
+        this.marcacao.marcar();
     }
 
     /**
      * Adiciona uma mina a este quadrado, modificando seu conteúdo.
      */
     public void adicionarMina() {
-		this.conteudo.adicionarMina();
+        this.conteudo.adicionarMina();
     }
 
     /**
@@ -48,29 +48,31 @@ public class Quadrado implements Exibivel {
      * quadrado, incrementando esse número em 1 (uma) unidade.
      */
     public void contabilizarMinaVizinha() {
-		this.minasVizinhas++;
+        this.minasVizinhas++;
     }
 
     /**
-     * Exibe um quadrado.
+     * @see model.Exibivel#exibir()
      */
     public void exibir() {
-    
-		if(this.aberto == true){
-			System.out.print("[" + this.conteudo + "]");
-		}else{
-			System.out.print("[" + this.marcacao + "]");
-		}
+
+        if (this.aberto == true) {
+            System.out.print("[" + this.conteudo + "]");
+        } else {
+            System.out.print("[" + this.marcacao + "]");
+        }
     }
 
     /**
      * Indica se o quadrado contém uma mina ou não.
+     *
      * @return TRUE se o quadrado contém uma mina ou FALSE, caso contrário.
      */
     public boolean contemMina() {
-		if(this.conteudo.getTipo() == TipoConteudo.MINA){
-			return true;
-		else
-			return false;
+        if (this.conteudo.getTipo() == TipoConteudo.MINA) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

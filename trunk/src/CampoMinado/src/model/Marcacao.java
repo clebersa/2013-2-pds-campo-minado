@@ -9,21 +9,32 @@ public class Marcacao {
      * Cria uma nova marcação com tipo NENHUMA.
      */
     public void Marcacao() {
-		String.format(this.icone,"");
-		this.tipoMarcacao = TipoMarcacao.NENHUMA;
+        icone = String.format("%d", " ");
+        this.tipoMarcacao = TipoMarcacao.NENHUMA;
     }
 
+    /**
+     * Obtém o ícone (representação) da marcação.
+     *
+     * @return Ícone (representação) da marcação.
+     */
     public String getIcone() {
         return this.icone;
     }
 
+    /**
+     * Define o ícone (representação) da marcação e o tipo da marcação.
+     */
     public void marcar() {
-		if(this.icone = ""){
-			String.format(this.icone,"?");
-			this.tipoMarcacao = TipoMarcacao.DUVIDA;
-		else{
-			String.format(this.icone,"B");
-			this.tipoMarcacao = TipoMarcacao.BANDEIRA;
-		}
+        if (icone == " ") {
+            icone = "B";
+            tipoMarcacao = TipoMarcacao.BANDEIRA;
+        } else if (icone == "B") {
+            icone = "?";
+            tipoMarcacao = TipoMarcacao.DUVIDA;
+        } else {
+            icone = " ";
+            tipoMarcacao = TipoMarcacao.DUVIDA;
+        }
     }
 }
