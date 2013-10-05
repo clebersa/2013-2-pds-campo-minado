@@ -9,12 +9,21 @@ public class Marcacao {
      * Cria uma nova marcação com tipo NENHUMA.
      */
     public void Marcacao() {
+		String.format(this.icone,"");
+		this.tipoMarcacao = TipoMarcacao.NENHUMA;
     }
 
     public String getIcone() {
-        return null;
+        return this.icone;
     }
 
     public void marcar() {
+		if(this.icone = ""){
+			String.format(this.icone,"?");
+			this.tipoMarcacao = TipoMarcacao.DUVIDA;
+		else{
+			String.format(this.icone,"B");
+			this.tipoMarcacao = TipoMarcacao.BANDEIRA;
+		}
     }
 }
