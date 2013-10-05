@@ -15,7 +15,6 @@ public class Conteudo {
      * Cria um novo conteúdo com tipo VAZIO.
      */
     public void Conteudo() {
-        //fazer o que está descrito no comentário.
         this.Conteudo = TipoConteudo.VAZIO;
     }
 
@@ -37,7 +36,6 @@ public class Conteudo {
      */
     public void setIcone(int minasVizinhas) {
 		String.format(this.icone,minasVizinhas);
-        //converter o int para string usando o String.format
     }
 
     /**
@@ -55,7 +53,5 @@ public class Conteudo {
     public void adicionarMina() {
 		this.tipoConteudo = TipoConteudo.MINA;
 		String.format(this.icone,"M");
-        //mudar o tipo do conteúdo
-        //mudar o ícone para "M"
     }
 }

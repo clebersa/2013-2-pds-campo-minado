@@ -17,7 +17,6 @@ public class Quadrado implements Exibivel {
 		this.marcacao = new Marcacao();
 		this.aberto = false;
 		this.minasVizinhas = 0;
-        //implementar conforme a descrição
     }
 
     /**
@@ -35,7 +34,6 @@ public class Quadrado implements Exibivel {
      */
     public void marcar() {
 		this.marcacao.marcar();
-        //marcar o quadrado usando a referência de marcação
     }
 
     /**
@@ -43,7 +41,6 @@ public class Quadrado implements Exibivel {
      */
     public void adicionarMina() {
 		this.conteudo.adicionarMina();
-        //modificar o conteúdo para mina usando a referência de conteúdo
     }
 
     /**
@@ -52,7 +49,6 @@ public class Quadrado implements Exibivel {
      */
     public void contabilizarMinaVizinha() {
 		this.minasVizinhas++;
-        //incrementar +1 no número de minas vizinhas.
     }
 
     /**
@@ -65,9 +61,6 @@ public class Quadrado implements Exibivel {
 		}else{
 			System.out.print("[" + this.marcacao + "]");
 		}
-        //A exibição deve ser feita com System.out.print, segundo o formato [L],
-        //onde L representa o q será apresentado. No caso, se o quadrado estiver fechado, exibe a marcação
-        // se estiver aberto, exibe o conteúdo.
     }
 
     /**
@@ -79,6 +72,5 @@ public class Quadrado implements Exibivel {
 			return true;
 		else
 			return false;
-        //verificar conteudo para retornar a informação correta
     }
 }

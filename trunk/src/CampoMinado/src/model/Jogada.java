@@ -14,7 +14,9 @@ public class Jogada {
      * @param tipo Tipo da jogada que será realizada sobre o quadrado.
      */
     public void Jogada(int linha, int coluna, TipoJogada tipo) {
-        //atribuir a cada uma das variáveis.
+		this.linha = linha;
+		this.coluna = coluna;
+		this.tipoJogada = tipo;
     }
 
     /**
@@ -23,7 +25,7 @@ public class Jogada {
      * @return Número da linha do quadrado.
      */
     public int getLinha() {
-        return 0;
+        return linha;
     }
 
     /**
@@ -32,7 +34,7 @@ public class Jogada {
      * @return Número da coluna do quadrado.
      */
     public int getColuna() {
-        return 0;
+        return coluna;
     }
 
     /**
@@ -41,6 +43,6 @@ public class Jogada {
      * @return Tipo da jogada.
      */
     public TipoJogada getTipo() {
-        return null;
+        return this.tipoJogada;
     }
 }

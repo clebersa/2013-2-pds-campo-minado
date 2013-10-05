@@ -15,7 +15,6 @@ public enum TipoTabuleiro {
      * Obtém o número de linhas do tipo do tabuleiro.
      */
     public int getLinhas() {
-        //retornar as linhas
         return infoTipoTabuleiro.linhas;
     }
 
@@ -23,14 +22,14 @@ public enum TipoTabuleiro {
      * Obtém o número de colunas do tipo do tabuleiro.
      */
     public int getColunas() {
-        //retornar as colunas
+        return infoTipoTabuleiro.colunas;
     }
 
     /**
      * Obtém o número de minas do tipo do tabuleiro.
      */
     public int getMinas() {
-        //retornar as minas
+       return infoTipoTabuleiro.minas;
     }
 
     private static class InfoTipoTabuleiro {
@@ -40,6 +39,9 @@ public enum TipoTabuleiro {
         private int minas;
 
         public InfoTipoTabuleiro(int linhas, int colunas, int minas) {
+			this.linhas = linhas;
+			this.colunas = colunas;
+			this.minas = minas;
         }
     }
 }
