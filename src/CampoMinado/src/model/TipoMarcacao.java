@@ -2,9 +2,12 @@ package model;
 
 public enum TipoMarcacao {
 
-    ;
+	;
 
-	private int DUVIDA;
-    private int BANDEIRA;
-    private int NENHUMA;
+	public int DUVIDA;
+
+	public int BANDEIRA;
+
+	public int NENHUMA;
+
 }

@@ -13,10 +13,11 @@ public class Quadrado implements Exibivel {
      * com nenhuma mina vizinha contabilizada.
      */
     public void Quadrado() {
+        //implementar conforme a descrição
     }
 
     /**
-     * Abre o quadrado, mudando o valor da variável "aberto" para true. Se o
+     * Abre o quadrado, mudando o valor da variável @see #aberto para true. Se o
      * quadrado tiver uma mina, o método retorna false. Caso contrário, retorna
      * true.
      */
@@ -28,6 +29,7 @@ public class Quadrado implements Exibivel {
      * Marca o quadrado
      */
     public void marcar() {
+        abrir();
     }
 
     public void adicionarMina() {
