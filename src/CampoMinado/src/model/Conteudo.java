@@ -15,7 +15,7 @@ public class Conteudo {
      * Cria um novo conteúdo com tipo VAZIO.
      */
     public void Conteudo() {
-        this.Conteudo = TipoConteudo.VAZIO;
+        this.tipoConteudo = TipoConteudo.VAZIO;
     }
 
     /**
@@ -35,7 +35,7 @@ public class Conteudo {
      * exceto quando o quadrado contiver uma mina.
      */
     public void setIcone(int minasVizinhas) {
-		String.format(this.icone,minasVizinhas);
+        String.format(this.icone, minasVizinhas);
     }
 
     /**
@@ -51,7 +51,7 @@ public class Conteudo {
      * Adiciona uma mina ao conteúdo, mudando assim, seu tipo e seu ícone.
      */
     public void adicionarMina() {
-		this.tipoConteudo = TipoConteudo.MINA;
-		String.format(this.icone,"M");
+        this.tipoConteudo = TipoConteudo.MINA;
+        String.format(this.icone, "M");
     }
 }
