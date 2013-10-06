@@ -2,22 +2,29 @@ package model;
 
 public class CampoMinado {
 
-    private Tabuleiro tabuleiro;
-    private Jogada[] jogada;
+	private Tabuleiro tabuleiro;
+	private Jogada[] jogada;
 
-    public static void main() {
-    }
+	public static void main() {
+		//fluxo principal do jogo.
+	}
 
-    /**
-     * Solicita ao usuário qual o tipo de tabuleiro que ele deseja. Em seguida,
-     * cria um tabuleiro de acordo com a escolha do usuário e então retorna este
-     * novo tabuleiro para o fluxo principal do programa.
-     */
-    public Tabuleiro iniciarNovoJogo() {
-        return null;
-    }
+	/**
+	 * Inicia um novo jogo.
+	 */
+	private static void iniciarNovoJogo() {
+		/*
+		 * Solicita ao usuário qual o tipo de tabuleiro que ele deseja. Em
+		 * seguida, cria um tabuleiro de acordo com a escolha do usuário e então
+		 * retorna este novo tabuleiro para o fluxo principal do programa.
+		 */
+	}
 
-    public boolean jogar() {
-        return false;
-    }
+	/**
+	 * Lê uma jogada do usuário e executa a mesma.
+	 * @return O resultado da jogada.
+	 */
+	private boolean jogar() {
+		return false;
+	}
 }
