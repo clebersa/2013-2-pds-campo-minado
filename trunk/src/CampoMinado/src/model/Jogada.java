@@ -1,5 +1,10 @@
 package model;
 
+/**
+ * Define os atributos e métodos para uma jogada.
+ *
+ * @author Cleber, Samuel
+ */
 public class Jogada {
 
 	private int linha;

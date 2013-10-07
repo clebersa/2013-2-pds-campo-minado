@@ -10,3 +10,9 @@ ser mantidas no projeto. Ex.: ExibivelInterface.
 - Implementar a classe Tabuleiro.
 
 - Implementar a classe Principal.
+
+- Verificar se na classe principal (CampoMinado.java) o ideal é utilizar 
+composição ou agregação, ou seja, deixar como está ou não ter atributos globais.
+
+- Atualizar javadoc no que diz respeito à definição das classes. A definição
+deve ser mais completa. Atualmente só fala que define atributos e métodos.

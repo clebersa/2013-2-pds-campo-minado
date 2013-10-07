@@ -1,5 +1,10 @@
 package model;
 
+/**
+ * Define os tipos possíveis para uma jogada.
+ *
+ * @author Cleber
+ */
 public enum TipoJogada {
 
 	/**
