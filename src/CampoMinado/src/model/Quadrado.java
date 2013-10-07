@@ -53,6 +53,15 @@ public class Quadrado implements Exibivel {
 	public void contabilizarMinaVizinha() {
 		conteudo.setIcone(++minasVizinhas);
 	}
+	
+	/**
+	 * Indica se o quadrado está aberto ou não.
+	 * @return <tt>TRUE</tt> se o quadrado está aberto ou <tt>FALSE</tt>,
+	 * caso contrário.
+	 */
+	public boolean estaAberto(){
+		return aberto;
+	}
 
 	/**
 	 * Indica se o quadrado contém uma mina ou não.
@@ -69,7 +78,7 @@ public class Quadrado implements Exibivel {
 	}
 
 	/**
-	 * Exibe um quadrado.
+	 * Exibe o quadrado.
 	 *
 	 * @see model.Exibivel#exibir()
 	 */

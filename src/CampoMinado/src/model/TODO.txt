@@ -4,3 +4,9 @@ cada atributo seja feita através desses métodos.
 
 - Verificar se é necessário que as classes principais das interfaces precisam
 ser mantidas no projeto. Ex.: ExibivelInterface.
+
+- Implementar a distribuição das minas.
+
+- Implementar a classe Tabuleiro.
+
+- Implementar a classe Principal.
