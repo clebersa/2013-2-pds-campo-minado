@@ -2,56 +2,86 @@ package model;
 
 public class Conteudo {
 
-    /**
-     * Representação de um conteúdo.
-     */
-    private String icone;
-    /**
-     * Tipo do conteúdo.
-     */
-    private TipoConteudo tipoConteudo;
+	/**
+	 * Representação de um conteúdo. Os possíveis valores que esta variável pode
+	 * assumir são:<br/>
+	 * 'M' - Ícone que representa a presença de uma mina.<br/>
+	 * '&nbsp' - Ícone que representa um conteúdo vazio.<br/>
+	 * '1' ... '8' - Ícone que presenta a quantidade de minas vizinhas.
+	 */
+	private String icone;
+	/**
+	 * Tipo do conteúdo.
+	 *
+	 * @see model.TipoTabuleiro
+	 */
+	private TipoConteudo tipoConteudo;
 
-    /**
-     * Cria um novo conteúdo com tipo VAZIO.
-     */
-    public void Conteudo() {
-        this.tipoConteudo = TipoConteudo.VAZIO;
-    }
+	/**
+	 * Cria um novo conteúdo.
+	 */
+	public void Conteudo() {
+		setIcone(0);
+	}
 
-    /**
-     * Obtém o ícone (representação) do conteúdo.
-     *
-     * @return Ícone (representação) do conteúdo.
-     */
-    public String getIcone() {
-        return icone;
-    }
+	/**
+	 * Obtém o ícone do conteúdo.
+	 *
+	 * @return Ícone do conteúdo.
+	 */
+	public String getIcone() {
+		return icone;
+	}
 
-    /**
-     * Define o ícone (representação) do conteúdo.
-     *
-     * @param minasVizinhas A quantidade de minas presentes na vizinhança do
-     * botão. Esse número será utilizado como ícone do conteúdo do quadrado,
-     * exceto quando o quadrado contiver uma mina.
-     */
-    public void setIcone(int minasVizinhas) {
-        String.format(this.icone, minasVizinhas);
-    }
+	/**
+	 * Define o ícone do conteúdo.
+	 *
+	 * @param minasVizinhas A quantidade de minas presentes na vizinhança do
+	 * quadrado.<br/>
+	 * Quando <tt>minasVizinhas &lt; 0</tt>, o tipo do conteúdo será definido
+	 * para <tt>TipoConteudo.MINA</tt> e o ícone para '<tt>M</tt>'.<br/>
+	 * Quando <tt>minasVizinhas = 0</tt>, o tipo do conteúdo será definido para
+	 * <tt>TipoConteudo.VAZIO</tt> e o ícone para '<tt>&nbsp;</tt>'.<br/>
+	 * Quando <tt>minasVizinhas &gt 0</tt>, o tipo do conteúdo será definido
+	 * para <tt>TipoConteudo.NUMERO</tt> e o ícone para um número representando
+	 * a quantidade de minas, que pode ir de <tt>1</tt> a <tt>8</tt>.
+	 */
+	public void setIcone(int minasVizinhas) {
+		if (minasVizinhas > 0) {
+			setTipo(TipoConteudo.NUMERO);
+			icone = String.format("%d", minasVizinhas);
+		} else if (minasVizinhas == 0) {
+			setTipo(TipoConteudo.VAZIO);
+			icone = " ";
+		} else {
+			setTipo(TipoConteudo.MINA);
+			icone = "M";
+		}
+	}
 
-    /**
-     * Obtém o tipo do conteúdo.
-     *
-     * @return Tipo do conteúdo.
-     */
-    public TipoConteudo getTipo() {
-        return tipoConteudo;
-    }
+	/**
+	 * Obtém o tipo do conteúdo.
+	 *
+	 * @return Tipo do conteúdo.
+	 * @see model.TipoConteudo
+	 */
+	public TipoConteudo getTipo() {
+		return tipoConteudo;
+	}
 
-    /**
-     * Adiciona uma mina ao conteúdo, mudando assim, seu tipo e seu ícone.
-     */
-    public void adicionarMina() {
-        this.tipoConteudo = TipoConteudo.MINA;
-        String.format(this.icone, "M");
-    }
+	/**
+	 * Define o tipo da mina.
+	 *
+	 * @see model.TipoConteudo
+	 */
+	private void setTipo(TipoConteudo tipoConteudo) {
+		this.tipoConteudo = tipoConteudo;
+	}
+
+	/**
+	 * Adiciona uma mina ao conteúdo, mudando assim, seu tipo e ícone.
+	 */
+	public void adicionarMina() {
+		setIcone(-1);
+	}
 }
