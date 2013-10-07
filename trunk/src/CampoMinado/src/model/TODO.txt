@@ -1,0 +1,6 @@
+- Verificar as classes com os atributos e fazer com que elas tenham os métdos
+que cumprem a função de get e set para permitir que a obtenção e definição de 
+cada atributo seja feita através desses métodos.
+
+- Verificar se é necessário que as classes principais das interfaces precisam
+ser mantidas no projeto. Ex.: ExibivelInterface.

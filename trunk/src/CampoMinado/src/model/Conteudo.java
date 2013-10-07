@@ -20,6 +20,8 @@ public class Conteudo {
 
 	/**
 	 * Cria um novo conteúdo.
+	 * Na criação, o conteúdo é criado com o ícone <tt>'&nbsp;'</tt> e conteúdo
+	 * <tt>TipoConteudo.VAZIO</tt>.
 	 */
 	public void Conteudo() {
 		setTipo(TipoConteudo.VAZIO);
