@@ -2,77 +2,83 @@ package model;
 
 public class Quadrado implements Exibivel {
 
-    private boolean aberto;
-    private int minasVizinhas;
-    private Conteudo conteudo;
-    private Marcacao marcacao;
-    private ExibivelInterface exibivelInterface;
+	/**
+	 * Indicador se o quadrado está aberto (<tt>TRUE</tt>) ou vazio
+	 * (<tt>FALSE</tt>).
+	 */
+	private boolean aberto;
+	private int minasVizinhas;
+	private Conteudo conteudo;
+	private Marcacao marcacao;
 
-    /**
-     * Cria um quadrado padrão, com conteúdo padrão, marcação padrão, fechado e
-     * com nenhuma mina vizinha contabilizada.
-     */
-    public void Quadrado() {
-        this.conteudo = new Conteudo();
-        this.marcacao = new Marcacao();
-        this.aberto = false;
-        this.minasVizinhas = 0;
-    }
+	/**
+	 * Cria um quadrado. Na criação, o quadrado é criado fechado, com nenhuma
+	 * mina vizinha contabilizada e com conteúdo e marcação padrões.
+	 */
+	public void Quadrado() {
+		conteudo = new Conteudo();
+		marcacao = new Marcacao();
+		aberto = false;
+		minasVizinhas = 0;
+	}
 
-    /**
-     * Abre o quadrado, mudando o valor de aberto para true.
-     *
-     * @return Tipo do conteúdo do quadrado.
-     */
-    public TipoConteudo abrir() {
-        this.aberto = true;
-        return conteudo.getTipo();
-    }
+	/**
+	 * Abre o quadrado.
+	 *
+	 * @return Tipo do conteúdo do quadrado.
+	 */
+	public TipoConteudo abrir() {
+		aberto = true;
+		return conteudo.getTipo();
+	}
 
-    /**
-     * Marca o quadrado.
-     */
-    public void marcar() {
-        this.marcacao.marcar();
-    }
+	/**
+	 * Marca o quadrado.
+	 */
+	public void marcar() {
+		marcacao.marcar();
+	}
 
-    /**
-     * Adiciona uma mina a este quadrado, modificando seu conteúdo.
-     */
-    public void adicionarMina() {
-        this.conteudo.adicionarMina();
-    }
+	/**
+	 * Adiciona uma mina ao quadrado.
+	 */
+	public void adicionarMina() {
+		conteudo.adicionarMina();
+	}
 
-    /**
-     * Contabiliza o número de minas que estão presentes na vizinhança do
-     * quadrado, incrementando esse número em 1 (uma) unidade.
-     */
-    public void contabilizarMinaVizinha() {
-        this.minasVizinhas++;
-    }
+	/**
+	 * Contabiliza o número de minas que estão presentes na vizinhança do
+	 * quadrado, incrementando esse número em 1 (uma) unidade.
+	 */
+	public void contabilizarMinaVizinha() {
+		conteudo.setIcone(++minasVizinhas);
+	}
 
-    /**
-     * @see model.Exibivel#exibir()
-     */
-    public void exibir() {
+	/**
+	 * Indica se o quadrado contém uma mina ou não.
+	 *
+	 * @return <tt>TRUE</tt> se o quadrado contém uma mina ou <tt>FALSE</tt>,
+	 * caso contrário.
+	 */
+	public boolean contemMina() {
+		if (this.conteudo.getTipo() == TipoConteudo.MINA) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
-        if (this.aberto == true) {
-            System.out.print("[" + this.conteudo + "]");
-        } else {
-            System.out.print("[" + this.marcacao + "]");
-        }
-    }
-
-    /**
-     * Indica se o quadrado contém uma mina ou não.
-     *
-     * @return TRUE se o quadrado contém uma mina ou FALSE, caso contrário.
-     */
-    public boolean contemMina() {
-        if (this.conteudo.getTipo() == TipoConteudo.MINA) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+	/**
+	 * Exibe um quadrado.
+	 *
+	 * @see model.Exibivel#exibir()
+	 */
+	@Override
+	public void exibir() {
+		if (aberto) {
+			System.out.print("[" + conteudo + "]");
+		} else {
+			System.out.print("[" + marcacao + "]");
+		}
+	}
 }
