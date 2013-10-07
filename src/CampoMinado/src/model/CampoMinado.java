@@ -1,10 +1,18 @@
 package model;
 
+/**
+ * Define os atributos e métodos para a execução da aplicação Campo Minado.
+ *
+ * @author Cleber, Samuel
+ */
 public class CampoMinado {
 
 	private Tabuleiro tabuleiro;
 	private Jogada[] jogada;
 
+	/**
+	 * Executa o fluxo principal da aplicação Campo Minado
+	 */
 	public static void main() {
 		//fluxo principal do jogo.
 	}
@@ -22,6 +30,7 @@ public class CampoMinado {
 
 	/**
 	 * Lê uma jogada do usuário e executa a mesma.
+	 *
 	 * @return O resultado da jogada.
 	 */
 	private boolean jogar() {

@@ -1,14 +1,22 @@
 package model;
 
+/**
+ * Define os atributos e métodos para um conteúdo de um quadrado.
+ *
+ * @author Cleber, Samuel
+ */
 public class Conteudo {
 
 	/**
 	 * Representação de um conteúdo. Os possíveis valores que esta variável pode
 	 * assumir são:<br/>
-	 * '<tt>M</tt>' - Ícone que representa a presença de uma mina.<br/>
-	 * '<tt>&nbsp;</tt>' - Ícone que representa um conteúdo vazio.<br/>
-	 * '<tt>1</tt>' ... '<tt>8</tt>' - Ícone que representa a quantidade de
-	 * minas vizinhas.
+	 * '
+	 * <code>M</code>' - Ícone que representa a presença de uma mina.<br/>
+	 * '
+	 * <code>&nbsp;</code>' - Ícone que representa um conteúdo vazio.<br/>
+	 * '
+	 * <code>1</code>' ... '
+	 * <code>8</code>' - Ícone que representa a quantidade de minas vizinhas.
 	 */
 	private String icone;
 	/**
@@ -19,9 +27,9 @@ public class Conteudo {
 	private TipoConteudo tipoConteudo;
 
 	/**
-	 * Cria um novo conteúdo.
-	 * Na criação, o conteúdo é criado com o ícone <tt>'&nbsp;'</tt> e conteúdo
-	 * <tt>TipoConteudo.VAZIO</tt>.
+	 * Cria um novo conteúdo. Na criação, o conteúdo é criado com o ícone
+	 * <code>'&nbsp;'</code> e conteúdo
+	 * <code>TipoConteudo.VAZIO</code>.
 	 */
 	public void Conteudo() {
 		setTipo(TipoConteudo.VAZIO);
@@ -42,13 +50,16 @@ public class Conteudo {
 	 *
 	 * @param minasVizinhas A quantidade de minas presentes na vizinhança do
 	 * quadrado.<br/>
-	 * Quando <tt>minasVizinhas &lt; 0</tt>, o tipo do conteúdo será definido
-	 * para <tt>TipoConteudo.MINA</tt> e o ícone para '<tt>M</tt>'.<br/>
-	 * Quando <tt>minasVizinhas = 0</tt>, o tipo do conteúdo será definido para
-	 * <tt>TipoConteudo.VAZIO</tt> e o ícone para '<tt>&nbsp;</tt>'.<br/>
-	 * Quando <tt>minasVizinhas &gt 0</tt>, o tipo do conteúdo será definido
-	 * para <tt>TipoConteudo.NUMERO</tt> e o ícone para um número representando
-	 * a quantidade de minas, que pode ir de <tt>1</tt> a <tt>8</tt>.
+	 * Quando <code>minasVizinhas &lt; 0</code>, o tipo do conteúdo será
+	 * definido para <code>TipoConteudo.MINA</code> e o ícone para
+	 * '<code>M</code>'.<br/>
+	 * Quando <code>minasVizinhas = 0</code>, o tipo do conteúdo será definido
+	 * para <code>TipoConteudo.VAZIO</code> e o ícone para
+	 * '<code>&nbsp;</code>'.<br/>
+	 * Quando <code>minasVizinhas &gt 0</code>, o tipo do conteúdo será definido
+	 * para <code>TipoConteudo.NUMERO</code> e o ícone para um número
+	 * representando a quantidade de minas, que pode ir de <code>1</code>
+	 * a <code>8</code>.
 	 */
 	public void setIcone(int minasVizinhas) {
 		if (minasVizinhas < 0) {

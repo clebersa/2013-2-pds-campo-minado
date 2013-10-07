@@ -1,5 +1,10 @@
 package model;
 
+/**
+ * Define os tipos possíveis para um conteúdo.
+ *
+ * @author Cleber
+ */
 public enum TipoConteudo {
 
 	/**

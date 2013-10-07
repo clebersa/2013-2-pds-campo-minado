@@ -1,5 +1,10 @@
 package model;
 
+/**
+ * Define a implementação da distribuição de minas de forma aleatória.
+ *
+ * @author Cleber, Samuel
+ */
 public class DistribuiAleatorio implements DistribuidorMinas {
 
 	/**

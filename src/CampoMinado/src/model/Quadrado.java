@@ -1,10 +1,16 @@
 package model;
 
+/**
+ * Define os atributos e métodos de um quadrado.
+ *
+ * @author Cleber, Samuel
+ */
 public class Quadrado implements Exibivel {
 
 	/**
-	 * Indicador se o quadrado está aberto (<tt>TRUE</tt>) ou vazio
-	 * (<tt>FALSE</tt>).
+	 * Indicador se o quadrado está aberto (
+	 * <code>TRUE</code>) ou vazio (
+	 * <code>FALSE</code>).
 	 */
 	private boolean aberto;
 	private int minasVizinhas;
@@ -53,21 +59,22 @@ public class Quadrado implements Exibivel {
 	public void contabilizarMinaVizinha() {
 		conteudo.setIcone(++minasVizinhas);
 	}
-	
+
 	/**
 	 * Indica se o quadrado está aberto ou não.
-	 * @return <tt>TRUE</tt> se o quadrado está aberto ou <tt>FALSE</tt>,
-	 * caso contrário.
+	 *
+	 * @return <code>TRUE</code> se o quadrado está aberto
+	 * ou <code>FALSE</code>, caso contrário.
 	 */
-	public boolean estaAberto(){
+	public boolean estaAberto() {
 		return aberto;
 	}
 
 	/**
 	 * Indica se o quadrado contém uma mina ou não.
 	 *
-	 * @return <tt>TRUE</tt> se o quadrado contém uma mina ou <tt>FALSE</tt>,
-	 * caso contrário.
+	 * @return <code>TRUE</code> se o quadrado contém uma mina
+	 * ou <code>FALSE</code>, caso contrário.
 	 */
 	public boolean contemMina() {
 		if (this.conteudo.getTipo() == TipoConteudo.MINA) {

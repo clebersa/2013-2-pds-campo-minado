@@ -1,5 +1,10 @@
 package model;
 
+/**
+ * Define os atributos e métodos de um tabuleiro.
+ *
+ * @author Cleber, Samuel
+ */
 public class Tabuleiro implements Exibivel {
 
 	/**
@@ -34,13 +39,14 @@ public class Tabuleiro implements Exibivel {
 	 * Executa uma jogada no tabuleiro.
 	 *
 	 * @param jogada Jogada a ser executada no tabuleiro.
-	 * @return <tt>FALSE</tt> caso a jogada seja <tt>TipoJogada.ABRIR</tt> e o
-	 * quadrado continha uma mina, ou <tt>TRUE</tt> para jogadas do tipo
-	 * <tt>TipoJogada.MARCAR</tt> e/ou com o quadrado não continha mina.
+	 * @return <code>FALSE</code> caso a jogada
+	 * seja <code>TipoJogada.ABRIR</code> e o quadrado continha uma mina,
+	 * ou <code>TRUE</code> para jogadas do tipo <code>TipoJogada.MARCAR</code>
+	 * e/ou com o quadrado não continha mina.
 	 */
 	public boolean executarJogada(Jogada jogada) {
 		boolean resultado;
-		switch(jogada.getTipo()){
+		switch (jogada.getTipo()) {
 			case ABRIR:
 				resultado = abrirQuadrado(jogada.getLinha(), jogada.getColuna());
 				break;
@@ -96,8 +102,8 @@ public class Tabuleiro implements Exibivel {
 	 * tabuleiro.
 	 * @param coluna Número da coluna onde o quadrado está localizado no
 	 * tabuleiro.
-	 * @return <tt>FALSE</tt>, caso o quadrado contenha uma mina; ou
-	 * <tt>TRUE</tt>, caso contrário.
+	 * @return <code>FALSE</code>, caso o quadrado contenha uma mina; ou
+	 * <code>TRUE</code>, caso contrário.
 	 */
 	private boolean abrirQuadrado(int linha, int coluna) {
 		boolean resultado = false;

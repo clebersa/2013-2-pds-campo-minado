@@ -1,5 +1,10 @@
 package model;
 
+/**
+ * Define os tipos de marcação possíveis para um quadrado.
+ *
+ * @author Cleber
+ */
 public enum TipoMarcacao {
 
 	/**
