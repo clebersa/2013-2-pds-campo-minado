@@ -5,9 +5,10 @@ public class Conteudo {
 	/**
 	 * Representação de um conteúdo. Os possíveis valores que esta variável pode
 	 * assumir são:<br/>
-	 * 'M' - Ícone que representa a presença de uma mina.<br/>
-	 * '&nbsp' - Ícone que representa um conteúdo vazio.<br/>
-	 * '1' ... '8' - Ícone que presenta a quantidade de minas vizinhas.
+	 * '<tt>M</tt>' - Ícone que representa a presença de uma mina.<br/>
+	 * '<tt>&nbsp;</tt>' - Ícone que representa um conteúdo vazio.<br/>
+	 * '<tt>1</tt>' ... '<tt>8</tt>' - Ícone que representa a quantidade de
+	 * minas vizinhas.
 	 */
 	private String icone;
 	/**
