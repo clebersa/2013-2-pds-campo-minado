@@ -1,5 +1,13 @@
 package model;
 
 public enum TipoJogada {
-	ABRIR, MARCAR;
+
+	/**
+	 * Indica que a jogada é de abertura.
+	 */
+	ABRIR,
+	/**
+	 * Indica que a jogada é de marcação.
+	 */
+	MARCAR;
 }
