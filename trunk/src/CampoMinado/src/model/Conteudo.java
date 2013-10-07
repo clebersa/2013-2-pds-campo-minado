@@ -21,6 +21,7 @@ public class Conteudo {
 	 * Cria um novo conteúdo.
 	 */
 	public void Conteudo() {
+		setTipo(TipoConteudo.VAZIO);
 		setIcone(0);
 	}
 
@@ -47,15 +48,15 @@ public class Conteudo {
 	 * a quantidade de minas, que pode ir de <tt>1</tt> a <tt>8</tt>.
 	 */
 	public void setIcone(int minasVizinhas) {
-		if (minasVizinhas > 0) {
-			setTipo(TipoConteudo.NUMERO);
-			icone = String.format("%d", minasVizinhas);
-		} else if (minasVizinhas == 0) {
-			setTipo(TipoConteudo.VAZIO);
-			icone = " ";
-		} else {
+		if (minasVizinhas < 0) {
 			setTipo(TipoConteudo.MINA);
 			icone = "M";
+		} else if (minasVizinhas == 0 && getTipo() != TipoConteudo.MINA) {
+			setTipo(TipoConteudo.VAZIO);
+			icone = " ";
+		} else if (getTipo() != TipoConteudo.MINA) {
+			setTipo(TipoConteudo.NUMERO);
+			icone = String.format("%d", minasVizinhas);
 		}
 	}
 
