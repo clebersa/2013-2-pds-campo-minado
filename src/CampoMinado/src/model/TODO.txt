@@ -16,3 +16,5 @@ composição ou agregação, ou seja, deixar como está ou não ter atributos gl
 
 - Atualizar javadoc no que diz respeito à definição das classes. A definição
 deve ser mais completa. Atualmente só fala que define atributos e métodos.
+
+- Criar testes para get e set?
