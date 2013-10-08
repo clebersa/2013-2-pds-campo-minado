@@ -18,7 +18,7 @@ public class Jogada {
 	 * @param coluna Número da coluna do quadrado.
 	 * @param tipo Tipo da jogada que será realizada sobre o quadrado.
 	 */
-	public void Jogada(int linha, int coluna, TipoJogada tipo) {
+	Jogada(int linha, int coluna, TipoJogada tipo) {
 		setLinha(linha);
 		setColuna(coluna);
 		setTipo(tipo);
