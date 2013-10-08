@@ -27,16 +27,6 @@ public class MarcacaoTest {
 	}
 
 	/**
-	 * Test of Marcacao method, of class Marcacao.
-	 */
-	@Test
-	public void testMarcacao() {
-		System.out.println("Marcacao");
-		Marcacao instance = new Marcacao();
-		assertEquals(" ", instance.getIcone());
-	}
-
-	/**
 	 * Test of marcar method, of class Marcacao.
 	 */
 	@Test
@@ -51,5 +41,17 @@ public class MarcacaoTest {
 		assertEquals(" ", instance.getIcone());
 		instance.marcar();
 		assertEquals("B", instance.getIcone());
+	}
+
+	/**
+	 * Test of getIcone method, of class Marcacao.
+	 */
+	@Test
+	public void testGetIcone() {
+		System.out.println("getIcone");
+		Marcacao instance = new Marcacao();
+		String expResult = " ";
+		String result = instance.getIcone();
+		assertEquals(expResult, result);
 	}
 }
