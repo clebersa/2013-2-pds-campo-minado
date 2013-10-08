@@ -32,7 +32,7 @@ public class Marcacao {
 	 * <code>&nbsp;</code>' e tipo
 	 * <code>TipoMarcacao.NENHUMA</code>.
 	 */
-	public void Marcacao() {
+	Marcacao() {
 		icone = " ";
 		tipoMarcacao = TipoMarcacao.NENHUMA;
 	}
