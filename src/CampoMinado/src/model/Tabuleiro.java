@@ -20,7 +20,7 @@ public class Tabuleiro implements Exibivel {
 	/**
 	 * Distribuidor de minas.
 	 */
-	private DistribuidorMinasInterface distribuidorMinasInterface;
+	private DistribuidorMinas distribuidorMinasInterface;
 
 	/**
 	 * Constrói um novo tabuleiro com base no tipo recebido.
