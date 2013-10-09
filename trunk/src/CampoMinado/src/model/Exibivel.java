@@ -5,7 +5,7 @@ package model;
  *
  * @author Cleber
  */
-public interface Exibivel extends ExibivelInterface {
+public interface Exibivel {
 
 	/**
 	 * Exibe um elemento.

@@ -6,7 +6,7 @@ package model;
  *
  * @author Cleber
  */
-public interface DistribuidorMinas extends DistribuidorMinasInterface {
+public interface DistribuidorMinas {
 
 	/**
 	 * Distribui as minas sobre um tabuleiro.
