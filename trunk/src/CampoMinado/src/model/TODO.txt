@@ -15,3 +15,6 @@ deve ser mais completa. Atualmente só fala que define atributos e métodos.
 
 - Desacoplar mais as enums. Utilizar métodos nelas para isso. Deve-se analizar
 mais cautelosamente essa mudança.
+
+- Atualizar geração de builds para também executar os testes e outras atividades
+ necessárias para o projeto. Isso deve equivaler ao makefile em C.
