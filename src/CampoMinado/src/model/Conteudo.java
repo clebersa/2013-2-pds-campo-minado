@@ -31,7 +31,7 @@ public class Conteudo {
 	 * <code>'&nbsp;'</code> e conteúdo
 	 * <code>TipoConteudo.VAZIO</code>.
 	 */
-	public void Conteudo() {
+	Conteudo() {
 		setTipo(TipoConteudo.VAZIO);
 		setIcone(0);
 	}
