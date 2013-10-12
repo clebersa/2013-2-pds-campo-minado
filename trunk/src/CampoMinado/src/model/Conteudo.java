@@ -65,10 +65,10 @@ public class Conteudo {
 		if (minasVizinhas < 0) {
 			setTipo(TipoConteudo.MINA);
 			icone = "M";
-		} else if (minasVizinhas == 0 && getTipo() != TipoConteudo.MINA) {
+		} else if (minasVizinhas == 0 && !tipoConteudo.isMINA()) {
 			setTipo(TipoConteudo.VAZIO);
 			icone = " ";
-		} else if (getTipo() != TipoConteudo.MINA) {
+		} else if (!tipoConteudo.isMINA()) {
 			setTipo(TipoConteudo.NUMERO);
 			icone = String.format("%d", minasVizinhas);
 		}
@@ -98,5 +98,16 @@ public class Conteudo {
 	 */
 	public void adicionarMina() {
 		setIcone(-1);
+	}
+	
+	/**
+	 * Verifica se o conteúdo é do tipo
+	 * <code>MINA</code>.
+	 * 
+	 * @return <code>TRUE</code> se o conteúdo é do tipo <code>MINA</code>
+	 * ou <code>FALSE</code>, caso contrário.
+	 */
+	public boolean isMINA(){
+		return tipoConteudo.isMINA();
 	}
 }

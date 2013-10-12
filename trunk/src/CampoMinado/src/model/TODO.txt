@@ -11,10 +11,11 @@ cada atributo seja feita através desses métodos.
 - Atualizar javadoc no que diz respeito à definição das classes. A definição
 deve ser mais completa. Atualmente só fala que define atributos e métodos.
 
-- Criar testes para get e set?
-
 - Desacoplar mais as enums. Utilizar métodos nelas para isso. Deve-se analizar
 mais cautelosamente essa mudança.
+
+- A enum de TipoTabuleiro deve ser analizada. Caso seja permitido um tamanho 
+personalizado de tabuleiro, a classe deve ser capaz de se adaptar a isso.
 
 - Atualizar geração de builds para também executar os testes e outras atividades
  necessárias para o projeto. Isso deve equivaler ao makefile em C.
