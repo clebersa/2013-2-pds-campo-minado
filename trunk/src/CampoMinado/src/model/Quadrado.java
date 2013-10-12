@@ -21,7 +21,7 @@ public class Quadrado implements Exibivel {
 	 * Cria um quadrado. Na criação, o quadrado é criado fechado, com nenhuma
 	 * mina vizinha contabilizada e com conteúdo e marcação padrões.
 	 */
-	public void Quadrado() {
+	Quadrado() {
 		conteudo = new Conteudo();
 		marcacao = new Marcacao();
 		aberto = false;
@@ -66,7 +66,7 @@ public class Quadrado implements Exibivel {
 	 * @return <code>TRUE</code> se o quadrado está aberto
 	 * ou <code>FALSE</code>, caso contrário.
 	 */
-	public boolean estaAberto() {
+	public boolean isAberto() {
 		return aberto;
 	}
 
@@ -77,11 +77,7 @@ public class Quadrado implements Exibivel {
 	 * ou <code>FALSE</code>, caso contrário.
 	 */
 	public boolean contemMina() {
-		if (conteudo.isMINA()) {
-			return true;
-		} else {
-			return false;
-		}
+		return conteudo.isMINA();
 	}
 
 	/**
@@ -91,10 +87,10 @@ public class Quadrado implements Exibivel {
 	 */
 	@Override
 	public void exibir() {
-		if (aberto) {
-			System.out.print("[" + conteudo + "]");
+		if (isAberto()) {
+			System.out.print("[" + conteudo.getIcone() + "]");
 		} else {
-			System.out.print("[" + marcacao + "]");
+			System.out.print("[" + marcacao.getIcone() + "]");
 		}
 	}
 }

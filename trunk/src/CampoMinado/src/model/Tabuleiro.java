@@ -105,7 +105,7 @@ public class Tabuleiro implements Exibivel {
 	private boolean abrirQuadrado(int linha, int coluna) {
 		boolean resultado = false;
 		try {
-			if (quadrados[linha][coluna].estaAberto()) {
+			if (quadrados[linha][coluna].isAberto()) {
 				resultado = true;
 			}
 		} catch (IndexOutOfBoundsException excecao) {
