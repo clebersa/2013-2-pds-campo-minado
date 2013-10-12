@@ -53,11 +53,8 @@ public class TipoJogadaTest {
 	@Test
 	public void testIsABRIR() {
 		System.out.println("isABRIR");
-		TipoJogada instance = null;
-		try {
-			assertFalse(instance.isABRIR());
-		} catch (NullPointerException exception) {
-		}
+		TipoJogada instance;
+		
 		instance = TipoJogada.ABRIR;
 		assertTrue(instance.isABRIR());
 
@@ -71,11 +68,8 @@ public class TipoJogadaTest {
 	@Test
 	public void testIsMARCAR() {
 		System.out.println("isMARCAR");
-		TipoJogada instance = null;
-		try {
-			assertFalse(instance.isMARCAR());
-		} catch (NullPointerException exception) {
-		}
+		TipoJogada instance; 
+		
 		instance = TipoJogada.ABRIR;
 		assertFalse(instance.isMARCAR());
 

@@ -114,9 +114,11 @@ public class Tabuleiro implements Exibivel {
 		if (!resultado) {
 			TipoConteudo tipoConteudo;
 			tipoConteudo = quadrados[linha][coluna].abrir();
-			if (tipoConteudo == TipoConteudo.MINA) {
+			if (tipoConteudo.isMINA()) {
 				resultado = false;
-			} else {
+			} else if(tipoConteudo.isNUMERO()){
+				resultado = true;
+			}else{
 				linha -= 1;
 				coluna -= 1;
 				for (int counter = 0; counter < 3; counter++, coluna++) {

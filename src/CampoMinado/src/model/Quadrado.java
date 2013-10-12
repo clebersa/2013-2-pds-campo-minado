@@ -77,7 +77,7 @@ public class Quadrado implements Exibivel {
 	 * ou <code>FALSE</code>, caso contrário.
 	 */
 	public boolean contemMina() {
-		if (this.conteudo.getTipo() == TipoConteudo.MINA) {
+		if (conteudo.isMINA()) {
 			return true;
 		} else {
 			return false;

@@ -54,11 +54,7 @@ public class TipoMarcacaoTest {
 	@Test
 	public void testIsDUVIDA() {
 		System.out.println("isDUVIDA");
-		TipoMarcacao instance = null;
-		try {
-			assertFalse(instance.isDUVIDA());
-		} catch (NullPointerException exception) {
-		}
+		TipoMarcacao instance;
 
 		instance = TipoMarcacao.DUVIDA;
 		assertTrue(instance.isDUVIDA());
@@ -76,11 +72,8 @@ public class TipoMarcacaoTest {
 	@Test
 	public void testIsBANDEIRA() {
 		System.out.println("isBANDEIRA");
-		TipoMarcacao instance = null;
-		try {
-			assertFalse(instance.isBANDEIRA());
-		} catch (NullPointerException exception) {
-		}
+		TipoMarcacao instance;
+		
 		instance = TipoMarcacao.DUVIDA;
 		assertFalse(instance.isBANDEIRA());
 
@@ -97,11 +90,8 @@ public class TipoMarcacaoTest {
 	@Test
 	public void testIsNENHUMA() {
 		System.out.println("isNENHUMA");
-		TipoMarcacao instance = null;
-		try {
-			assertFalse(instance.isNENHUMA());
-		} catch (NullPointerException exception) {
-		}
+		TipoMarcacao instance;
+		
 		instance = TipoMarcacao.DUVIDA;
 		assertFalse(instance.isNENHUMA());
 
