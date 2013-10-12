@@ -53,22 +53,18 @@ public class Marcacao {
 	 * assumindo uma marcação vazia.
 	 */
 	public void marcar() {
-		switch (tipoMarcacao) {
-			case NENHUMA:
-				icone = "B";
-				tipoMarcacao = TipoMarcacao.BANDEIRA;
-				break;
-			case BANDEIRA:
-				icone = "?";
-				tipoMarcacao = TipoMarcacao.DUVIDA;
-				break;
-			case DUVIDA:
-				icone = " ";
-				tipoMarcacao = TipoMarcacao.NENHUMA;
-				break;
-			default:
-				icone = " ";
-				tipoMarcacao = TipoMarcacao.NENHUMA;
+		if (tipoMarcacao.isNENHUMA()) {
+			icone = "B";
+			tipoMarcacao = TipoMarcacao.BANDEIRA;
+		} else if (tipoMarcacao.isBANDEIRA()) {
+			icone = "?";
+			tipoMarcacao = TipoMarcacao.DUVIDA;
+		} else if (tipoMarcacao.isDUVIDA()) {
+			icone = " ";
+			tipoMarcacao = TipoMarcacao.NENHUMA;
+		} else {
+			icone = " ";
+			tipoMarcacao = TipoMarcacao.NENHUMA;
 		}
 	}
 }

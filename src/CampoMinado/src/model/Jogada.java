@@ -61,12 +61,25 @@ public class Jogada {
 	}
 
 	/**
-	 * Obtém o tipo da jogada.
+	 * Verifica se a jogada é do tipo
+	 * <code>ABRIR</code>.
 	 *
-	 * @return Tipo da jogada.
+	 * @return <code>TRUE</code> se a joagada é do tipo <code>ABRIR</code>
+	 * ou <code>FALSE</code>, caso contrário.
 	 */
-	public TipoJogada getTipo() {
-		return this.tipoJogada;
+	public boolean isABRIR() {
+		return this.tipoJogada.isABRIR();
+	}
+
+	/**
+	 * Verifica se a jogada é do tipo
+	 * <code>MARCAR</code>.
+	 *
+	 * @return <code>TRUE</code> se a joagada é do tipo <code>MARCAR</code>
+	 * ou <code>FALSE</code>, caso contrário.
+	 */
+	public boolean isMARCAR() {
+		return this.tipoJogada.isMARCAR();
 	}
 
 	/**

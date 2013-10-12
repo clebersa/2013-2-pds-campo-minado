@@ -32,7 +32,7 @@ public class JogadaTest {
 	@Test
 	public void testGetLinha() {
 		System.out.println("getLinha");
-		Jogada instance = null;
+		Jogada instance;
 		instance = new Jogada(1, 2, TipoJogada.ABRIR);
 		assertEquals(1, instance.getLinha());
 	}
@@ -43,21 +43,36 @@ public class JogadaTest {
 	@Test
 	public void testGetColuna() {
 		System.out.println("getColuna");
-		Jogada instance = null;
+		Jogada instance;
 		instance = new Jogada(1, 2, TipoJogada.ABRIR);
 		assertEquals(2, instance.getColuna());
 	}
 
 	/**
-	 * Test of getTipo method, of class Jogada.
+	 * Test of isABRIR method, of class Jogada.
 	 */
 	@Test
-	public void testGetTipo() {
-		System.out.println("getTipo");
-		Jogada instance = null;
+	public void testIsABRIR() {
+		System.out.println("isABRIR");
+		Jogada instance;
 		instance = new Jogada(1, 2, TipoJogada.ABRIR);
-		assertEquals(TipoJogada.ABRIR, instance.getTipo());
+		assertTrue(instance.isABRIR());
 		instance = new Jogada(1, 2, TipoJogada.MARCAR);
-		assertEquals(TipoJogada.MARCAR, instance.getTipo());
+		assertFalse(instance.isABRIR());
 	}
+
+	/**
+	 * Test of isMARCAR method, of class Jogada.
+	 */
+	@Test
+	public void testIsMARCAR() {
+		System.out.println("isMARCAR");
+		Jogada instance;
+		instance = new Jogada(1, 2, TipoJogada.ABRIR);
+		assertFalse(instance.isMARCAR());
+		instance = new Jogada(1, 2, TipoJogada.MARCAR);
+		assertTrue(instance.isMARCAR());
+	}
+
+	
 }
