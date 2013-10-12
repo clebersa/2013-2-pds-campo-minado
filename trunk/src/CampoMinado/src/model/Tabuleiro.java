@@ -46,16 +46,13 @@ public class Tabuleiro implements Exibivel {
 	 */
 	public boolean executarJogada(Jogada jogada) {
 		boolean resultado;
-		switch (jogada.getTipo()) {
-			case ABRIR:
-				resultado = abrirQuadrado(jogada.getLinha(), jogada.getColuna());
-				break;
-			case MARCAR:
-				marcarQuadrado(jogada.getLinha(), jogada.getColuna());
-				resultado = true;
-				break;
-			default:
-				resultado = false;
+		if (jogada.isABRIR()) {
+			resultado = abrirQuadrado(jogada.getLinha(), jogada.getColuna());
+		} else if (jogada.isMARCAR()) {
+			marcarQuadrado(jogada.getLinha(), jogada.getColuna());
+			resultado = true;
+		} else {
+			resultado = false;
 		}
 		return resultado;
 	}
