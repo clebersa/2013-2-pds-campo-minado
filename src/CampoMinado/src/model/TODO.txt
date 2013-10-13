@@ -1,9 +1,3 @@
-- Verificar as classes com os atributos e fazer com que elas tenham os métdos
-que cumprem a função de get e set para permitir que a obtenção e definição de 
-cada atributo seja feita através desses métodos.
-
-- Implementar a distribuição das minas.
-
 - Implementar a classe Tabuleiro.
 
 - Implementar a classe Principal.
@@ -11,11 +5,21 @@ cada atributo seja feita através desses métodos.
 - Atualizar javadoc no que diz respeito à definição das classes. A definição
 deve ser mais completa. Atualmente só fala que define atributos e métodos.
 
-- Desacoplar mais as enums. Utilizar métodos nelas para isso. Deve-se analizar
-mais cautelosamente essa mudança.
-
 - A enum de TipoTabuleiro deve ser analizada. Caso seja permitido um tamanho 
 personalizado de tabuleiro, a classe deve ser capaz de se adaptar a isso.
 
 - Atualizar geração de builds para também executar os testes e outras atividades
  necessárias para o projeto. Isso deve equivaler ao makefile em C.
+
+- Falta para o samuel:
+	- Terminar de implementar o método construtor de Tabuleiro. O método ainda
+	tem que contabilizar as minas vizinhas.
+	- Implementar contabilizarMinasVizinhasQuadrado() de Tabuleiro
+	- Implementar exibir de Tabuleiro()
+	- Corrigir a implementação de adicionarMina() em Tabuleiro. O método deve
+	tratar quando o quadrado onde a mina está sendo adicionada já contiver uma mina.
+	O método retorna TRUE quando a mina é instalada com sucesso e FALSE quando
+	já existe uma mina onde a mesma foi adicionada.
+	- Corrigir a implementação de distribuirMinas() nos distribuidores para
+	tratar as mudança na implementação acima.
+	- Remover função getTipoTabuleiro() de tabuleiro. Não será necessário utilizar a mesma.
