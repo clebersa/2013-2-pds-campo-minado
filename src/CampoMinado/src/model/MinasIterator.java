@@ -1,6 +1,12 @@
 package model;
 
-public class MinasIterator implements Iterator<Quadrado> {
+public class MinasIterator implements Iterator {
+
+	private Tabuleiro tabuleiro;
+
+	public void Tabuleiro(Tabuleiro tabuleiro) {
+
+	}
 
 
 	/**
@@ -14,7 +20,7 @@ public class MinasIterator implements Iterator<Quadrado> {
 	/**
 	 * @see model.Iterator#next()
 	 */
-	public Quadrado next() {
+	public Iterator.E next() {
 		return null;
 	}
 
