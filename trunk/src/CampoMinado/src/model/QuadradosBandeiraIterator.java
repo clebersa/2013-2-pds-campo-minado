@@ -1,6 +1,12 @@
 package model;
 
-public class QuadradosBandeiraIterator implements Iterator<Quadrado> {
+public class QuadradosBandeiraIterator implements Iterator {
+
+	private Tabuleiro tabuleiro;
+
+	public void QuadradosBandeirasIterator(Tabuleiro tabuleiro) {
+
+	}
 
 
 	/**
@@ -14,7 +20,7 @@ public class QuadradosBandeiraIterator implements Iterator<Quadrado> {
 	/**
 	 * @see model.Iterator#next()
 	 */
-	public Quadrado next() {
+	public Iterator.E next() {
 		return null;
 	}
 
