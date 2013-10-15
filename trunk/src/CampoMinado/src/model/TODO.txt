@@ -15,11 +15,11 @@ personalizado de tabuleiro, a classe deve ser capaz de se adaptar a isso.
 	- Terminar de implementar o método construtor de Tabuleiro. O método ainda
 	tem que contabilizar as minas vizinhas.
 	- Implementar contabilizarMinasVizinhasQuadrado() de Tabuleiro
-	- Implementar exibir de Tabuleiro()
-	- Corrigir a implementação de adicionarMina() em Tabuleiro. O método deve
+	- Implementar exibir de Tabuleiro() - Feito
+	- Corrigir a implementação de adicionarMina() em Tabuleiro. O método deve - Feito
 	tratar quando o quadrado onde a mina está sendo adicionada já contiver uma mina.
 	O método retorna TRUE quando a mina é instalada com sucesso e FALSE quando
-	já existe uma mina onde a mesma foi adicionada.
+	já existe uma mina onde a mesma foi adicionada. - Feito
 	- Corrigir a implementação de distribuirMinas() nos distribuidores para
-	tratar as mudança na implementação acima.
-	- Remover função getTipoTabuleiro() de tabuleiro. Não será necessário utilizar a mesma.
+	tratar as mudança na implementação acima. - Feito
+	- Remover função getTipoTabuleiro() de tabuleiro. Não será necessário utilizar a mesma - Feito
