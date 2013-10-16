@@ -215,20 +215,20 @@ public class Tabuleiro implements Exibivel {
     }
 	
 		
-	public BandeirasIterator createBandeirasIterator(Quadrado quadrados[][]){
+	public BandeirasIterator createBandeirasIterator(){
 		return new BandeirasIterator(quadrados);
 	}
 
-	public VizinhosIterator createVizinhosIterator(Quadrado quadrados[][], 
-			int linhaQuadrado, int colunaQuadrado){
+	public VizinhosIterator createVizinhosIterator(int linhaQuadrado, 
+			int colunaQuadrado){
 		return new VizinhosIterator(quadrados, linhaQuadrado, colunaQuadrado);
 	}
 	
-	public MinasIterator createMinasIterator(Quadrado quadrados[][]){
+	public MinasIterator createMinasIterator(){
 		return new MinasIterator(quadrados);
 	}
 	
-	public TabuleiroIterator createTabuleiroIterator(Quadrado quadrados[][]){
+	public TabuleiroIterator createTabuleiroIterator(){
 		return new TabuleiroIterator(quadrados);
 	}
 
