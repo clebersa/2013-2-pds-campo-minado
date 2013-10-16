@@ -1,31 +1,48 @@
 package model;
 
+import java.util.Iterator;
+
 public class TabuleiroIterator implements Iterator<Quadrado> {
 
-	private Tabuleiro tabuleiro;
+	private Quadrado quadrados[][];
+
 	private int linha;
+
 	private int coluna;
 
-	public void TabuleiroIterator(Tabuleiro tabuleiro) {
-		this.tabuleiro = tabuleiro;
+	TabuleiroIterator(Quadrado quadrados[][]) {
+		this.quadrados = quadrados;
 		linha = 0;
 		coluna = 0;
+
 	}
 
 
-	/**
-	 * @see model.Iterator#hasNext()
-	 */
+	@Override
 	public boolean hasNext() {
-		return false;
+		if(coluna < quadrados[linha].length){
+			return true;
+		}else{
+			if(linha + 1 < quadrados.length){
+				return false;
+			}else{
+				linha++;
+				coluna = 0;
+				return true;
+			}
+		}
 	}
 
-
-	/**
-	 * @see model.Iterator#next()
-	 */
+	@Override
 	public Quadrado next() {
-		return null;
+		Quadrado quadrado = quadrados[linha][coluna];
+		coluna++;
+		return quadrado;
+	}
+
+	@Override
+	public void remove() {
+		throw new UnsupportedOperationException("Not supported.");
 	}
 
 }

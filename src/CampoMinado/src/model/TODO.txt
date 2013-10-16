@@ -1,5 +1,7 @@
 - Implementar a classe Tabuleiro.
 
+Adicionando classes do padrão Iterator. As classes ainda não foram comentadas com o padrão javadoc. A classe TabuleiroIterator já está implementada para servir de exemplo. A implementação dela serve como base, mas cada caso é um caso. Deve-se analizar cautelosamente os outros casos de iteração e, quando necessário, adaptar a implementação base.
+
 - Implementar a classe Principal.
 
 - Atualizar javadoc no que diz respeito à definição das classes. A definição

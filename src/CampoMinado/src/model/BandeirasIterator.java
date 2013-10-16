@@ -2,15 +2,13 @@ package model;
 
 import java.util.Iterator;
 
-public class VizinhosIterator implements Iterator<Quadrado> {
+public class BandeirasIterator implements Iterator<Quadrado> {
 
 	private Quadrado quadrados[][];
 	private int linha;
 	private int coluna;
-	private int linhaQuadrado;
-	private int colunaQuadrado;
 
-	public void VizinhosIterator(Quadrado quadrados[][], int linhaQuadrado, int colunaQuadrado) {
+	public void BandeirasIterator(Quadrado quadrados[][]) {
 	}
 
 	@Override
