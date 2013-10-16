@@ -1,27 +1,26 @@
 package model;
 
-public class MinasIterator implements Iterator {
+import java.util.Iterator;
 
-	private Tabuleiro tabuleiro;
+public class MinasIterator implements Iterator<Quadrado> {
 
-	public void Tabuleiro(Tabuleiro tabuleiro) {
+	private Quadrado quadrados[][];
+	private int linha;
+	private int coluna;
 
+	public void Tabuleiro(Quadrado quadrados[][]) {
 	}
 
-
-	/**
-	 * @see model.Iterator#hasNext()
-	 */
+	@Override
 	public boolean hasNext() {
 		return false;
 	}
 
-
-	/**
-	 * @see model.Iterator#next()
-	 */
-	public Iterator.E next() {
+	public Quadrado next() {
 		return null;
 	}
 
+	@Override
+	public void remove() {
+	}
 }

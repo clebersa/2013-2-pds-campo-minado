@@ -213,6 +213,24 @@ public class Tabuleiro implements Exibivel {
     private void marcarQuadrado(int linha, int coluna) {
         quadrados[linha][coluna].marcar();
     }
+	
+		
+	public BandeirasIterator createBandeirasIterator(Quadrado quadrados[][]){
+		return new BandeirasIterator(quadrados);
+	}
+
+	public VizinhosIterator createVizinhosIterator(Quadrado quadrados[][], 
+			int linhaQuadrado, int colunaQuadrado){
+		return new VizinhosIterator(quadrados, linhaQuadrado, colunaQuadrado);
+	}
+	
+	public MinasIterator createMinasIterator(Quadrado quadrados[][]){
+		return new MinasIterator(quadrados);
+	}
+	
+	public TabuleiroIterator createTabuleiroIterator(Quadrado quadrados[][]){
+		return new TabuleiroIterator(quadrados);
+	}
 
     /**
      * Exibe o tabuleiro.
