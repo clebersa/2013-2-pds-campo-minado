@@ -21,7 +21,7 @@ public class VizinhosIterator implements Iterator<Quadrado> {
 
 	@Override
 	public boolean hasNext() {
-		while (linha != linhaQuadrado + 1 || coluna != colunaQuadrado + 2) {
+		while (linha <= linhaQuadrado + 1) {
 			if (linha < 0) {
 				linha = 0;
 			} else if (coluna < 0) {
@@ -38,27 +38,6 @@ public class VizinhosIterator implements Iterator<Quadrado> {
 			}
 		}
 		return false;
-
-//		//Código de iteração da classe legada
-//		for (int counter = 0; counter < 3; counter++, coluna++) {
-//			abrirQuadrado(linha, coluna);
-//		}
-//		linha++;
-//		coluna--;
-//		for (int counter = 0; counter < 2; counter++, linha++) {
-//			abrirQuadrado(linha, coluna);
-//		}
-//		linha--;
-//		coluna--;
-//		for (int counter = 0; counter < 2; counter++, coluna--) {
-//			abrirQuadrado(linha, coluna);
-//		}
-//		linha--;
-//		coluna++;
-//		for (int counter = 0; counter < 1; counter++, linha--) {
-//			abrirQuadrado(linha, coluna);
-//		}
-
 	}
 
 	@Override
