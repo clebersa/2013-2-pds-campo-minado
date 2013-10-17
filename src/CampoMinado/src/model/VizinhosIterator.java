@@ -12,48 +12,84 @@ public class VizinhosIterator implements Iterator<Quadrado> {
     private int contadorVizinhos;
 
     VizinhosIterator(Quadrado quadrados[][], int linhaQuadrado, int colunaQuadrado) {
-        this.quadrados = quadrados;
-        this.linhaQuadrado = linhaQuadrado;
-        this.colunaQuadrado = colunaQuadrado;
-        linha = this.linhaQuadrado - 1;
-        coluna = this.colunaQuadrado - 1;
-        contadorVizinhos = 0;
-    }
+		this.quadrados = quadrados;
+		this.linhaQuadrado = linhaQuadrado;
+		this.colunaQuadrado = colunaQuadrado;
+		linha = linhaQuadrado - 1;
+		coluna = colunaQuadrado - 1;
+	}
 
-    @Override
-    public boolean hasNext() {
-        if (linha == linhaQuadrado + 1 && coluna == colunaQuadrado + 1) {
-            return false;
-        }
-        return true;
-    }
+	@Override
+	public boolean hasNext() {
+		while (linha != linhaQuadrado + 1 || coluna != colunaQuadrado + 2) {
+			if (linha < 0) {
+				linha = 0;
+			} else if (coluna < 0) {
+				coluna = 0;
+			} else if (linha >= quadrados.length) {
+				break;
+			} else if (coluna >= quadrados[linha].length || coluna > colunaQuadrado + 1) {
+				coluna = colunaQuadrado - 1;
+				linha++;
+			} else if (linha == linhaQuadrado && coluna == colunaQuadrado) {
+				coluna++;
+			} else {
+				return true;
+			}
+		}
+		return false;
 
-    @Override
-    public Quadrado next() {
+//		//Código de iteração da classe legada
+//		for (int counter = 0; counter < 3; counter++, coluna++) {
+//			abrirQuadrado(linha, coluna);
+//		}
+//		linha++;
+//		coluna--;
+//		for (int counter = 0; counter < 2; counter++, linha++) {
+//			abrirQuadrado(linha, coluna);
+//		}
+//		linha--;
+//		coluna--;
+//		for (int counter = 0; counter < 2; counter++, coluna--) {
+//			abrirQuadrado(linha, coluna);
+//		}
+//		linha--;
+//		coluna++;
+//		for (int counter = 0; counter < 1; counter++, linha--) {
+//			abrirQuadrado(linha, coluna);
+//		}
 
-        int tempContador = 0;
+	}
 
-        for (int cont_1 = linha; cont_1 <= linhaQuadrado + 1; cont_1++) {
-            for (int cont_2 = coluna; cont_2 <= colunaQuadrado + 1; cont_2++) {
-                if (quadrados[cont_1][cont_2] != quadrados[linhaQuadrado][colunaQuadrado] && tempContador == contadorVizinhos) {
+	@Override
+	public Quadrado next() {
+		Quadrado quadrado = quadrados[linha][coluna];
+		coluna++;
+		return quadrado;
 
-                    contadorVizinhos++;
+	}
 
-                    try {
-                        return quadrados[cont_1][cont_2];
-                    } catch (ArrayIndexOutOfBoundsException e) {
-                        return new Quadrado();
-                    }
+	@Override
+	public void remove() {
+		throw new UnsupportedOperationException("Not supported.");
+	}
 
+	/**
+	 * Obtém a linha do vizinho (elemento) atual.
+	 *
+	 * @return Linha do vizinho atual.
+	 */
+	public int getLinhaVizinho() {
+		return linha;
+	}
 
-                }
-                tempContador++;
-            }
-        }
-        return new Quadrado();
-    }
+	/**
+	 * Obtém a coluna do vizinho (elemento) atual.
+	 *
+	 * @return Coluna do vizinho atual.
+	 */
+	public int getColunaVizinho() {
+		return coluna;
 
-    @Override
-    public void remove() {
-    }
+	}
 }
