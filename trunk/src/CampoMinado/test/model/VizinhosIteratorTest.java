@@ -4,10 +4,12 @@
  */
 package model;
 
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Before;
 
 /**
  *
@@ -26,6 +28,15 @@ public class VizinhosIteratorTest {
 	public static void tearDownClass() {
 	}
 
+	@Before
+	public void setUp() throws Exception {
+		
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
 	/**
 	 * Test of hasNext method, of class VizinhosIterator.
 	 */
@@ -34,7 +45,7 @@ public class VizinhosIteratorTest {
 		System.out.println("hasNext");
 		int cadaQuantidadeVizinhos[] = {3, 5, 3, 5, 8, 5, 3, 5, 3};
 		int quantidadeVizinhos;
-		Quadrado quadrados[][] = new Quadrado[4][4];
+		Quadrado quadrados[][] = new Quadrado[3][3];
 		for (int linha = 0; linha < 3; linha++) {
 			for (int coluna = 0; coluna < 3; coluna++) {
 				quadrados[linha][coluna] = new Quadrado();
@@ -88,14 +99,10 @@ public class VizinhosIteratorTest {
 	@Test(expected = UnsupportedOperationException.class)
 	public void testRemove() {
 		System.out.println("remove");
-		Quadrado quadrados[][] = new Quadrado[3][3];
-		for (int linha = 0; linha < 3; linha++) {
-			for (int coluna = 0; coluna < 3; coluna++) {
-				quadrados[linha][coluna] = new Quadrado();
-			}
-		}
+		Quadrado quadrados[][] = new Quadrado[1][1];
+		quadrados[0][0] = new Quadrado();
+		
 		VizinhosIterator instance;
-
 		instance = new VizinhosIterator(quadrados, 0, 0);
 		instance.remove();
 	}
@@ -106,25 +113,29 @@ public class VizinhosIteratorTest {
 	@Test
 	public void testGetLinhaVizinho() {
 		System.out.println("getLinhaVizinho");
-		VizinhosIterator instance = null;
-		int expResult = 0;
-		int result = instance.getLinhaVizinho();
-		assertEquals(expResult, result);
-		// TODO review the generated test code and remove the default call to fail.
-		fail("The test case is a prototype.");
+		Quadrado quadrados[][] = new Quadrado[1][1];
+		quadrados[0][0] = new Quadrado();
+		
+		VizinhosIterator instance;
+		instance = new VizinhosIterator(quadrados, 0, 0);
+		
+		int linhaVizinho = instance.getLinhaVizinho();
+		assertEquals(-1, linhaVizinho);
 	}
-
+	
 	/**
 	 * Test of getColunaVizinho method, of class VizinhosIterator.
 	 */
 	@Test
 	public void testGetColunaVizinho() {
 		System.out.println("getColunaVizinho");
-		VizinhosIterator instance = null;
-		int expResult = 0;
-		int result = instance.getColunaVizinho();
-		assertEquals(expResult, result);
-		// TODO review the generated test code and remove the default call to fail.
-		fail("The test case is a prototype.");
+		Quadrado quadrados[][] = new Quadrado[1][1];
+		quadrados[0][0] = new Quadrado();
+		
+		VizinhosIterator instance;
+		instance = new VizinhosIterator(quadrados, 0, 0);
+		
+		int colunaVizinho = instance.getColunaVizinho();
+		assertEquals(-1, colunaVizinho);
 	}
 }
