@@ -128,10 +128,28 @@ public class Tabuleiro implements Exibivel {
      * há na vizinhança.
      */
     private void contabilizarMinasVizinhas() {
-        for (int linha = 0; linha < getLinhas(); linha++) {
+        /*for (int linha = 0; linha < getLinhas(); linha++) {
             for (int coluna = 0; coluna < getLinhas(); coluna++) {
                 contabilizarMinasVizinhasQuadrado(linha, coluna);
             }
+        }*/
+        
+        VizinhosIterator interadorVizinhos;
+
+        for (int cont = 0; cont < quadrados.length; cont++) {
+            for (int cont2 = 0; cont2 < quadrados.length; cont2++) {
+                
+                interadorVizinhos = new VizinhosIterator(quadrados, cont, cont2);
+
+                while (interadorVizinhos.hasNext()) {
+                    Quadrado tempQuadrado = interadorVizinhos.next();
+                    if (tempQuadrado.contemMina()) {
+                        quadrados[cont][cont2].contabilizarMinaVizinha();
+                    }
+                }
+                
+            }
+
         }
     }
 
@@ -144,9 +162,25 @@ public class Tabuleiro implements Exibivel {
      * @param coluna Número da coluna onde o quadrado está localizado no
      * tabuleiro.
      */
-    private void contabilizarMinasVizinhasQuadrado(int linha, int coluna) {
+    /*private void contabilizarMinasVizinhasQuadrado(int linha, int coluna) {
+        VizinhosIterator interadorVizinhos;
+
+        for (int cont = 0; cont < quadrados.length; cont++) {
+            for (int cont2 = 0; cont2 < quadrados.length; cont2++) {
+                
+                interadorVizinhos = new VizinhosIterator(quadrados, cont, cont2);
+
+                while (interadorVizinhos.hasNext()) {
+                    Quadrado tempQuadrado = interadorVizinhos.next();
+                    if (tempQuadrado.contemMina()) {
+                        quadrados[cont][cont2].contabilizarMinaVizinha();
+                    }
+                }
+            }
+
+        }
         //contabilizar os vizinhos
-    }
+    }*/
 
     /**
      * Abre um quadrado.
@@ -213,24 +247,23 @@ public class Tabuleiro implements Exibivel {
     private void marcarQuadrado(int linha, int coluna) {
         quadrados[linha][coluna].marcar();
     }
-	
-		
-	public BandeirasIterator createBandeirasIterator(){
-		return new BandeirasIterator(quadrados);
-	}
 
-	public VizinhosIterator createVizinhosIterator(int linhaQuadrado, 
-			int colunaQuadrado){
-		return new VizinhosIterator(quadrados, linhaQuadrado, colunaQuadrado);
-	}
-	
-	public MinasIterator createMinasIterator(){
-		return new MinasIterator(quadrados);
-	}
-	
-	public TabuleiroIterator createTabuleiroIterator(){
-		return new TabuleiroIterator(quadrados);
-	}
+    public BandeirasIterator createBandeirasIterator() {
+        return new BandeirasIterator(quadrados);
+    }
+
+    public VizinhosIterator createVizinhosIterator(int linhaQuadrado,
+            int colunaQuadrado) {
+        return new VizinhosIterator(quadrados, linhaQuadrado, colunaQuadrado);
+    }
+
+    public MinasIterator createMinasIterator() {
+        return new MinasIterator(quadrados);
+    }
+
+    public TabuleiroIterator createTabuleiroIterator() {
+        return new TabuleiroIterator(quadrados);
+    }
 
     /**
      * Exibe o tabuleiro.
