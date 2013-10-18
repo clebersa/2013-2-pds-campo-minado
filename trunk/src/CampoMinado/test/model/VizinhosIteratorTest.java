@@ -39,7 +39,7 @@ public class VizinhosIteratorTest {
 		quadrados = new Quadrado[linhas][colunas];
 		for (int linha = 0; linha < linhas; linha++) {
 			for (int coluna = 0; coluna < colunas; coluna++) {
-				quadrados[linha][coluna] = new Quadrado();
+				quadrados[linha][coluna] = new Quadrado(linha, coluna);
 			}
 		}
 	}
@@ -61,7 +61,7 @@ public class VizinhosIteratorTest {
 		for (int linha = 0; linha < linhas; linha++) {
 			for (int coluna = 0; coluna < colunas; coluna++) {
 				quantidadeVizinhos = 0;
-				instance = new VizinhosIterator(quadrados, linha, coluna);
+				instance = new VizinhosIterator(quadrados, quadrados[linha][coluna]);
 				while (instance.hasNext()) {
 					instance.next();
 					quantidadeVizinhos++;
@@ -81,12 +81,11 @@ public class VizinhosIteratorTest {
 		VizinhosIterator instance;
 		for (int linha = 0; linha < linhas; linha++) {
 			for (int coluna = 0; coluna < colunas; coluna++) {
-				instance = new VizinhosIterator(quadrados, linha, coluna);
+				instance = new VizinhosIterator(quadrados, quadrados[linha][coluna]);
 				System.out.println("Vizinhos de (" + linha + "," + coluna + "):");
 				while (instance.hasNext()) {
-					System.out.println("\t(" + instance.getLinhaVizinho() + "," + instance.
-					getColunaVizinho() + ")");
-					instance.next();
+					Quadrado vizinho = instance.next();
+					System.out.println("\t(" + vizinho.getLinha() + "," + vizinho.getColuna() + ")");
 				}
 			}
 		}
@@ -99,42 +98,10 @@ public class VizinhosIteratorTest {
 	public void testRemove() {
 		System.out.println("remove");
 		quadrados = new Quadrado[1][1];
-		quadrados[0][0] = new Quadrado();
+		quadrados[0][0] = new Quadrado(0, 0);
 		
 		VizinhosIterator instance;
-		instance = new VizinhosIterator(quadrados, 0, 0);
+		instance = new VizinhosIterator(quadrados, quadrados[0][0]);
 		instance.remove();
-	}
-
-	/**
-	 * Test of getLinhaVizinho method, of class VizinhosIterator.
-	 */
-	@Test
-	public void testGetLinhaVizinho() {
-		System.out.println("getLinhaVizinho");
-		quadrados = new Quadrado[1][1];
-		quadrados[0][0] = new Quadrado();
-		
-		VizinhosIterator instance;
-		instance = new VizinhosIterator(quadrados, 0, 0);
-		
-		int linhaVizinho = instance.getLinhaVizinho();
-		assertEquals(-1, linhaVizinho);
-	}
-	
-	/**
-	 * Test of getColunaVizinho method, of class VizinhosIterator.
-	 */
-	@Test
-	public void testGetColunaVizinho() {
-		System.out.println("getColunaVizinho");
-		quadrados = new Quadrado[1][1];
-		quadrados[0][0] = new Quadrado();
-		
-		VizinhosIterator instance;
-		instance = new VizinhosIterator(quadrados, 0, 0);
-		
-		int colunaVizinho = instance.getColunaVizinho();
-		assertEquals(-1, colunaVizinho);
 	}
 }

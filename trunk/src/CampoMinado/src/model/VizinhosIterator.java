@@ -5,33 +5,30 @@ import java.util.Iterator;
 public class VizinhosIterator implements Iterator<Quadrado> {
 
     private Quadrado quadrados[][];
+	private Quadrado quadrado;
     private int linha;
     private int coluna;
-    private int linhaQuadrado;
-    private int colunaQuadrado;
-    private int contadorVizinhos;
 
-    VizinhosIterator(Quadrado quadrados[][], int linhaQuadrado, int colunaQuadrado) {
+    VizinhosIterator(Quadrado quadrados[][], Quadrado quadrado) {
 		this.quadrados = quadrados;
-		this.linhaQuadrado = linhaQuadrado;
-		this.colunaQuadrado = colunaQuadrado;
-		linha = linhaQuadrado - 1;
-		coluna = colunaQuadrado - 1;
+		this.quadrado = quadrado;
+		linha = quadrado.getLinha() - 1;
+		coluna = quadrado.getColuna() - 1;
 	}
 
 	@Override
 	public boolean hasNext() {
-		while (linha <= linhaQuadrado + 1) {
+		while (linha <= quadrado.getLinha() + 1) {
 			if (linha < 0) {
 				linha = 0;
 			} else if (coluna < 0) {
 				coluna = 0;
 			} else if (linha >= quadrados.length) {
 				break;
-			} else if (coluna >= quadrados[linha].length || coluna > colunaQuadrado + 1) {
-				coluna = colunaQuadrado - 1;
+			} else if (coluna >= quadrados[linha].length || coluna > quadrado.getColuna() + 1) {
+				coluna = quadrado.getColuna() - 1;
 				linha++;
-			} else if (linha == linhaQuadrado && coluna == colunaQuadrado) {
+			} else if (linha == quadrado.getLinha() && coluna == quadrado.getColuna()) {
 				coluna++;
 			} else {
 				return true;
@@ -42,33 +39,12 @@ public class VizinhosIterator implements Iterator<Quadrado> {
 
 	@Override
 	public Quadrado next() {
-		Quadrado quadrado = quadrados[linha][coluna];
-		coluna++;
-		return quadrado;
+		return quadrados[linha][coluna++];
 
 	}
 
 	@Override
 	public void remove() {
 		throw new UnsupportedOperationException("Not supported.");
-	}
-
-	/**
-	 * Obtém a linha do vizinho (elemento) atual.
-	 *
-	 * @return Linha do vizinho atual.
-	 */
-	public int getLinhaVizinho() {
-		return linha;
-	}
-
-	/**
-	 * Obtém a coluna do vizinho (elemento) atual.
-	 *
-	 * @return Coluna do vizinho atual.
-	 */
-	public int getColunaVizinho() {
-		return coluna;
-
 	}
 }
