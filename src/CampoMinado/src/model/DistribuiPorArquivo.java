@@ -39,14 +39,17 @@ public class DistribuiPorArquivo implements DistribuidorMinas {
         String dadosArquivos;
 
         try {
-            File file = new File("mapadasminas");
+            File file = new File(caminhoArquivo + nomeArquivo);
             FileReader fileReader = null;
             fileReader = new FileReader(file);
             BufferedReader reader = new BufferedReader(fileReader);
+            
             try {
                 while ((dadosArquivos = reader.readLine()) != null) {
-                    linha = Integer.parseInt(dadosArquivos) / 10;
-                    coluna = Integer.parseInt(dadosArquivos) % 10;
+                    int posicaoVirgula = dadosArquivos.indexOf(',');
+                    
+                    linha = Integer.parseInt(dadosArquivos.substring(0,posicaoVirgula));
+                    coluna = Integer.parseInt(dadosArquivos.substring(posicaoVirgula + 1));
                     
                     if (linha <= tabuleiro.getLinhas() - 1 && coluna <= tabuleiro.getColunas() - 1) {
                         tabuleiro.adicionarMina(linha, coluna);

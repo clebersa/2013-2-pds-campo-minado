@@ -19,11 +19,11 @@ public class BandeirasIterator implements Iterator<Quadrado> {
         
         for (int cont_1 = linha; cont_1 < quadrados.length; cont_1++) {
             for (int cont_2 = coluna; cont_2 < quadrados.length; cont_2++) {
-             //   if (quadrados[cont_1][cont_2].) {
+                if (quadrados[cont_1][cont_2].getTipoMarcacao() == TipoMarcacao.BANDEIRA) {
                     linha = cont_1;
                     coluna = cont_2;
                     return true;
-              //  }
+                }
             }
         }
         return false;
@@ -32,7 +32,7 @@ public class BandeirasIterator implements Iterator<Quadrado> {
 
     @Override
     public Quadrado next() {
-        return null;
+        return quadrados[linha][coluna];
     }
 
     @Override

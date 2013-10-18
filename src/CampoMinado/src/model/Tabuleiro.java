@@ -119,6 +119,7 @@ public class Tabuleiro implements Exibivel {
 	 * Inicializa o tabuleiro com quadrados vazios.
 	 */
 	private void inicializarTabuleiro() {
+            
 		quadrados = new Quadrado[getLinhas()][getColunas()];
 
 		TabuleiroIterator tabuleiroIterator = createTabuleiroIterator();
