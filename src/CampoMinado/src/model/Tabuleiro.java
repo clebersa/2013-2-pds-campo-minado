@@ -268,11 +268,24 @@ public class Tabuleiro implements Exibivel {
 	 */
 	@Override
 	public void exibir() {
-		for (int cont = 0; cont < this.getLinhas(); cont++) {
-			for (int cont2 = 0; cont2 < this.getColunas(); cont2++) {
-				this.quadrados[cont][cont2].exibir();
+		TabuleiroIterator tabuleiroIterator = createTabuleiroIterator();
+		int coluna = 0;
+		while(tabuleiroIterator.hasNext()){
+			tabuleiroIterator.next().exibir();
+			coluna++;
+			if(coluna == tipoTabuleiro.getColunas()){
+				coluna = 0;
+				System.out.println();
 			}
-			System.out.println("");
 		}
+		
+		BandeirasIterator bandeirasIterator = createBandeirasIterator();
+		int quantidadeBandeiras = 0;
+		while(bandeirasIterator.hasNext()){
+			bandeirasIterator.next();
+			quantidadeBandeiras++;
+		}
+		System.out.println("Bandeiras: "+quantidadeBandeiras+"/"+
+				tipoTabuleiro.getMinas());
 	}
 }
