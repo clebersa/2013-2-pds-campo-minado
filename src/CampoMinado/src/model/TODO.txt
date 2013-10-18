@@ -1,11 +1,9 @@
-- Implementar a classe Tabuleiro.
-
-Adicionando classes do padrão Iterator. As classes ainda não foram comentadas com o padrão javadoc. A classe TabuleiroIterator já está implementada para servir de exemplo. A implementação dela serve como base, mas cada caso é um caso. Deve-se analizar cautelosamente os outros casos de iteração e, quando necessário, adaptar a implementação base.
-
-- Implementar a classe Principal.
-
+################################################################################
+							TAREFAS CRÍTICAS
 - Atualizar javadoc no que diz respeito à definição das classes. A definição
 deve ser mais completa. Atualmente só fala que define atributos e métodos.
+
+- TODA documentação JAVADOC precisa de revisão!!!
 
 - A enum de TipoTabuleiro deve ser analizada. Caso seja permitido um tamanho 
 personalizado de tabuleiro, a classe deve ser capaz de se adaptar a isso.
@@ -13,15 +11,38 @@ personalizado de tabuleiro, a classe deve ser capaz de se adaptar a isso.
 - Atualizar geração de builds para também executar os testes e outras atividades
  necessárias para o projeto. Isso deve equivaler ao makefile em C.
 
-- Falta para o samuel:
-	- Terminar de implementar o método construtor de Tabuleiro. O método ainda
-	tem que contabilizar as minas vizinhas.
-	- Implementar contabilizarMinasVizinhasQuadrado() de Tabuleiro
-	- Implementar exibir de Tabuleiro() - Feito
-	- Corrigir a implementação de adicionarMina() em Tabuleiro. O método deve - Feito
-	tratar quando o quadrado onde a mina está sendo adicionada já contiver uma mina.
-	O método retorna TRUE quando a mina é instalada com sucesso e FALSE quando
-	já existe uma mina onde a mesma foi adicionada. - Feito
-	- Corrigir a implementação de distribuirMinas() nos distribuidores para
-	tratar as mudança na implementação acima. - Feito
-	- Remover função getTipoTabuleiro() de tabuleiro. Não será necessário utilizar a mesma - Feito
+
+##### Samuel #####
++ Implementação
+	- Corrigir a implementação de distribuirMinas() em DistribuiAleatorio.java.
+Caso tente-se adicioanr uma mina em um lugar que já tenha uma, deve-se sortear
+outro lugar para a mesma ser colocada. Essa informação já é retornada pelo
+método adicionarMina de tabuleiro, bastando assim, só tratar a informação.
+
+	- Corrigir a implementação de DistribuiPorArquivo.java. Deve-se abrir o
+arquivo indicado pelo caminho e nome de arquivos indicados dentro da própria
+classe. Atualmente tenta-se abrir uma arquivo "mapadasminas".
+
+	- Implementar a classe principal (CampoMinado.java, em model). Eu (Cleber) 
+tentei executar a mesma dia 17/10/13 e ela apresentou NullPointerException
+para qualquer um dos tabuleiros informados.
+
++ Teste
+	- Criar testes para DistribuiAleatorio.java
+	- Criar testes para DistribuiPorArquivo.java
+	- Criar testes para BandeirasIterator.java
+	- Criar testes para MinasIterator.java
+	- Criar testes para TabuleiroIterator.java
+
+	
+
+################################################################################
+							SUGESTÕES/PRIORIDADE BAIXA
+- Tratar eventuais erros na leitura do arquivo da distribuição de minas. Assim,
+o método de distribuição deverá lançar alguma(s) exceções caso erros ocorram.
+
+- Adicionar temporizador, pois os recordes são dados através dele.
+
+- Permitir que a quantidade de minas, linhas e colunas seja personalizável.
+
+- Implementar interface gráfica.
