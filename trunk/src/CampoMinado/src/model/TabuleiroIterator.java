@@ -45,4 +45,22 @@ public class TabuleiroIterator implements Iterator<Quadrado> {
 		throw new UnsupportedOperationException("Not supported.");
 	}
 
+	/**
+	 * Obtém a linha do quadrado atual.
+	 *
+	 * @return Linha do quadrado atual.
+	 */
+	public int getLinhaVizinho() {
+		return linha;
+	}
+
+	/**
+	 * Obtém a coluna do quadrado atual.
+	 *
+	 * @return Coluna do quadrado atual.
+	 */
+	public int getColunaVizinho() {
+		return coluna;
+
+	}
 }
