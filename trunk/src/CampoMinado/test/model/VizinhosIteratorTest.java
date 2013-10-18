@@ -17,7 +17,13 @@ import org.junit.Before;
  */
 public class VizinhosIteratorTest {
 
+	Quadrado quadrados[][];
+	int linhas;
+	int colunas;
+	
 	public VizinhosIteratorTest() {
+		linhas = 3;
+		colunas = 3;
 	}
 
 	@BeforeClass
@@ -30,7 +36,12 @@ public class VizinhosIteratorTest {
 
 	@Before
 	public void setUp() throws Exception {
-		
+		quadrados = new Quadrado[linhas][colunas];
+		for (int linha = 0; linha < linhas; linha++) {
+			for (int coluna = 0; coluna < colunas; coluna++) {
+				quadrados[linha][coluna] = new Quadrado();
+			}
+		}
 	}
 
 	@After
@@ -45,23 +56,17 @@ public class VizinhosIteratorTest {
 		System.out.println("hasNext");
 		int cadaQuantidadeVizinhos[] = {3, 5, 3, 5, 8, 5, 3, 5, 3};
 		int quantidadeVizinhos;
-		Quadrado quadrados[][] = new Quadrado[3][3];
-		for (int linha = 0; linha < 3; linha++) {
-			for (int coluna = 0; coluna < 3; coluna++) {
-				quadrados[linha][coluna] = new Quadrado();
-			}
-		}
 		VizinhosIterator instance;
 
-		for (int linha = 0; linha < 3; linha++) {
-			for (int coluna = 0; coluna < 3; coluna++) {
+		for (int linha = 0; linha < linhas; linha++) {
+			for (int coluna = 0; coluna < colunas; coluna++) {
 				quantidadeVizinhos = 0;
 				instance = new VizinhosIterator(quadrados, linha, coluna);
 				while (instance.hasNext()) {
 					instance.next();
 					quantidadeVizinhos++;
 				}
-				assertEquals(cadaQuantidadeVizinhos[linha * 3 + coluna], quantidadeVizinhos);
+				assertEquals(cadaQuantidadeVizinhos[linha * colunas + coluna], quantidadeVizinhos);
 			}
 		}
 
@@ -73,15 +78,9 @@ public class VizinhosIteratorTest {
 	@Test
 	public void testNext() {
 		System.out.println("next");
-		Quadrado quadrados[][] = new Quadrado[3][3];
-		for (int linha = 0; linha < 3; linha++) {
-			for (int coluna = 0; coluna < 3; coluna++) {
-				quadrados[linha][coluna] = new Quadrado();
-			}
-		}
 		VizinhosIterator instance;
-		for (int linha = 0; linha < 3; linha++) {
-			for (int coluna = 0; coluna < 3; coluna++) {
+		for (int linha = 0; linha < linhas; linha++) {
+			for (int coluna = 0; coluna < colunas; coluna++) {
 				instance = new VizinhosIterator(quadrados, linha, coluna);
 				System.out.println("Vizinhos de (" + linha + "," + coluna + "):");
 				while (instance.hasNext()) {
@@ -99,7 +98,7 @@ public class VizinhosIteratorTest {
 	@Test(expected = UnsupportedOperationException.class)
 	public void testRemove() {
 		System.out.println("remove");
-		Quadrado quadrados[][] = new Quadrado[1][1];
+		quadrados = new Quadrado[1][1];
 		quadrados[0][0] = new Quadrado();
 		
 		VizinhosIterator instance;
@@ -113,7 +112,7 @@ public class VizinhosIteratorTest {
 	@Test
 	public void testGetLinhaVizinho() {
 		System.out.println("getLinhaVizinho");
-		Quadrado quadrados[][] = new Quadrado[1][1];
+		quadrados = new Quadrado[1][1];
 		quadrados[0][0] = new Quadrado();
 		
 		VizinhosIterator instance;
@@ -129,7 +128,7 @@ public class VizinhosIteratorTest {
 	@Test
 	public void testGetColunaVizinho() {
 		System.out.println("getColunaVizinho");
-		Quadrado quadrados[][] = new Quadrado[1][1];
+		quadrados = new Quadrado[1][1];
 		quadrados[0][0] = new Quadrado();
 		
 		VizinhosIterator instance;
