@@ -17,7 +17,7 @@ public class DistribuiPorArquivo implements DistribuidorMinas {
      * Indica o caminho, absoluto ou relativo, do arquivo que contém a
      * distribuição das minas.
      */
-    private String caminhoArquivo = ".";
+    private String caminhoArquivo = "./";
     /**
      * Indica o nome do arquivo que contém a distribuição das minas.
      */
@@ -60,6 +60,5 @@ public class DistribuiPorArquivo implements DistribuidorMinas {
         } catch (FileNotFoundException ex) {
             ex.printStackTrace();
         }
-        //Implementar distribuição das minas pora arquivo.
     }
 }
