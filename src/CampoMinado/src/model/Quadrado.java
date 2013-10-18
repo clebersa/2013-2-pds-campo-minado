@@ -35,6 +35,7 @@ public class Quadrado implements Exibivel {
      */
     public TipoConteudo abrir() {
         aberto = true;
+		marcacao.limpar();
         return conteudo.getTipo();
     }
 
