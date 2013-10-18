@@ -24,10 +24,10 @@ import org.junit.runners.Suite;
 	model.TipoMarcacaoTest.class, 
 	model.TipoTabuleiroTest.class, 
 	model.VizinhosIteratorTest.class,
-        model.DistribuiAleatorioTest.class,
-        model.DistribuiPorArquivoTest.class,
-        model.BandeirasIteratorTest.class,
-        model.MinasIteratorTest.class
+	model.DistribuiAleatorioTest.class,
+	model.DistribuiPorArquivoTest.class,
+	model.BandeirasIteratorTest.class,
+	model.MinasIteratorTest.class
 })
 public class TestSuite {
 

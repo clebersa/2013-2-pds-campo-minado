@@ -11,6 +11,9 @@ personalizado de tabuleiro, a classe deve ser capaz de se adaptar a isso.
 - Atualizar geração de builds para também executar os testes e outras atividades
  necessárias para o projeto. Isso deve equivaler ao makefile em C.
 
+- Testar a implementação do método de inicialização do tabuleiro, na criação dos
+quadrados.
+
 
 ##### Samuel #####
 + Implementação
@@ -34,6 +37,15 @@ para qualquer um dos tabuleiros informados.
 	- Criar testes para MinasIterator.java -- OK
 	- Criar testes para TabuleiroIterator.java -- OK
 
+
+################################################################################
+							PERGUNTAS PARA O PROFESSOR
+- Um quadrado não sabe qual é a linha e coluna na qual ele se encontra.
+Entretanto, isso gera um certo problema: sempre que eu vou trabalhar nos
+iteradores, eu acabo ficando dependente dessa linha e coluna para retornar dados
+corretos para os objetos que chamam esses iteradores. Sendo assim, analisando 
+como o projeto está estruturado e implementado, não seria melhor permitir que os
+dados de linha e coluna?
 	
 
 ################################################################################
