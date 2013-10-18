@@ -28,24 +28,48 @@ public class QuadradoTest extends TestCase{
 	}
 
 	/**
+	 * Test of getLinha method, of class Quadrado.
+	 */
+	@Test
+	public void testGetLinha() {
+		System.out.println("getLinha");
+		Quadrado instance = new Quadrado(0, 0);
+		int expResult = 0;
+		int result = instance.getLinha();
+		assertEquals(expResult, result);
+	}
+
+	/**
+	 * Test of getColuna method, of class Quadrado.
+	 */
+	@Test
+	public void testGetColuna() {
+		System.out.println("getColuna");
+		Quadrado instance = new Quadrado(0, 0);
+		int expResult = 0;
+		int result = instance.getColuna();
+		assertEquals(expResult, result);
+	}
+	
+	/**
 	 * Test of abrir method, of class Quadrado.
 	 */
 	@Test
 	public void testAbrir() {
 		System.out.println("abrir");
-		Quadrado instance = new Quadrado();
+		Quadrado instance = new Quadrado(0, 0);
 		
 		assertFalse(instance.isAberto());
 		assertEquals(TipoConteudo.VAZIO, instance.abrir());
 		assertTrue(instance.isAberto());
 		
-		instance = new Quadrado();
+		instance = new Quadrado(0, 0);
 		instance.contabilizarMinaVizinha();
 		assertFalse(instance.isAberto());
 		assertEquals(TipoConteudo.NUMERO, instance.abrir());
 		assertTrue(instance.isAberto());
 		
-		instance = new Quadrado();
+		instance = new Quadrado(0, 0);
 		instance.adicionarMina();
 		assertFalse(instance.isAberto());
 		assertEquals(TipoConteudo.MINA, instance.abrir());
@@ -58,7 +82,7 @@ public class QuadradoTest extends TestCase{
 	@Test
 	public void testMarcar() {
 		System.out.println("marcar");
-		Quadrado instance = new Quadrado();
+		Quadrado instance = new Quadrado(0, 0);
 		
 		System.out.println("\tEsperado: \"[ ]\"");
 		System.out.print("\tObtido:   \"");
@@ -90,7 +114,7 @@ public class QuadradoTest extends TestCase{
 	@Test
 	public void testAdicionarMina() {
 		System.out.println("adicionarMina");
-		Quadrado instance = new Quadrado();
+		Quadrado instance = new Quadrado(0, 0);
 		
 		instance.abrir();
 		System.out.println("\tEsperado: \"[ ]\"");
@@ -111,7 +135,7 @@ public class QuadradoTest extends TestCase{
 	@Test
 	public void testContabilizarMinaVizinha() {
 		System.out.println("contabilizarMinaVizinha");
-		Quadrado instance = new Quadrado();
+		Quadrado instance = new Quadrado(0, 0);
 		
 		instance.abrir();
 		System.out.println("\tEsperado: \"[ ]\"");
@@ -134,7 +158,7 @@ public class QuadradoTest extends TestCase{
 	@Test
 	public void testIsAberto() {
 		System.out.println("isAberto");
-		Quadrado instance = new Quadrado();
+		Quadrado instance = new Quadrado(0, 0);
 		assertFalse(instance.isAberto());
 		instance.abrir();
 		assertTrue(instance.isAberto());
@@ -146,7 +170,7 @@ public class QuadradoTest extends TestCase{
 	@Test
 	public void testContemMina() {
 		System.out.println("contemMina");
-		Quadrado instance = new Quadrado();
+		Quadrado instance = new Quadrado(0, 0);
 		assertFalse(instance.contemMina());
 		instance.adicionarMina();
 		assertTrue(instance.contemMina());
@@ -158,7 +182,7 @@ public class QuadradoTest extends TestCase{
 	@Test
 	public void testExibir() {
 		System.out.println("exibir");
-		Quadrado instance = new Quadrado();
+		Quadrado instance = new Quadrado(0, 0);
 		
 		System.out.println("\tEsperado: \"[ ]\"");
 		System.out.print("\tObtido:   \"");
@@ -178,7 +202,7 @@ public class QuadradoTest extends TestCase{
 	@Test
 	public void testGetTipoMarcacao() {
 		System.out.println("getTipoMarcacao");
-		Quadrado instance = new Quadrado();
+		Quadrado instance = new Quadrado(0, 0);
 		
 		assertEquals(TipoMarcacao.NENHUMA, instance.getTipoMarcacao());
 		instance.marcar();

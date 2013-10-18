@@ -16,17 +16,39 @@ public class Quadrado implements Exibivel {
     private int minasVizinhas;
     private Conteudo conteudo;
     private Marcacao marcacao;
+	private int linha;
+	private int coluna;
 
     /**
      * Cria um quadrado. Na criação, o quadrado é criado fechado, com nenhuma
      * mina vizinha contabilizada e com conteúdo e marcação padrões.
      */
-    Quadrado() {
+    Quadrado(int linha, int coluna) {
+		this.linha = linha;
+		this.coluna = coluna;
         conteudo = new Conteudo();
         marcacao = new Marcacao();
         aberto = false;
         minasVizinhas = 0;
     }
+	
+	/**
+	 * Obtém a linha do quadrado.
+	 * 
+	 * @return Linha do quadrado.
+	 */
+	public int getLinha(){
+		return linha;
+	}
+	
+	/**
+	 * Obtém a coluna do quadrado.
+	 * 
+	 * @return Coluna do quadrado.
+	 */
+	public int getColuna(){
+		return coluna;
+	}
 
     /**
      * Abre o quadrado.
