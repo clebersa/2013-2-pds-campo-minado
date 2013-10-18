@@ -233,9 +233,9 @@ public class Tabuleiro implements Exibivel {
 	/**
 	 * Cria um iterador para os quadrados vizinhos de um quadrado.
 	 *
-	 * @param linhaQuadrado Linha do quadrado sobre o qual vai se iterar sobre
+	 * @param linha Linha do quadrado sobre o qual vai se iterar sobre
 	 * os vizinhos.
-	 * @param colunaQuadrado Coluna do quadrado sobre o qual vai se iterar sobre
+	 * @param coluna Coluna do quadrado sobre o qual vai se iterar sobre
 	 * os vizinhos.
 	 * @return Um iterador para os quadrados vizinhos de <code>quadrado</code>.
 	 */
