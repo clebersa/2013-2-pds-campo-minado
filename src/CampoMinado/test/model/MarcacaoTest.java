@@ -80,4 +80,21 @@ public class MarcacaoTest {
 		instance.limpar();
 		assertEquals(" ", instance.getIcone());
 	}
+
+	/**
+	 * Test of getTipo method, of class Marcacao.
+	 */
+	@Test
+	public void testGetTipo() {
+		System.out.println("getTipo");
+		Marcacao instance = new Marcacao();
+		instance.marcar();
+		assertEquals(TipoMarcacao.BANDEIRA, instance.getTipo());
+		instance.marcar();
+		assertEquals(TipoMarcacao.DUVIDA, instance.getTipo());
+		instance.marcar();
+		assertEquals(TipoMarcacao.NENHUMA, instance.getTipo());
+		instance.marcar();
+		assertEquals(TipoMarcacao.BANDEIRA, instance.getTipo());
+	}
 }

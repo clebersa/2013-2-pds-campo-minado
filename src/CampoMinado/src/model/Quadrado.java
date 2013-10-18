@@ -80,7 +80,14 @@ public class Quadrado implements Exibivel {
     public boolean contemMina() {
         return conteudo.isMINA();
     }
-
+	
+	/**
+	 * Obtém o tipo da marcação.
+	 */
+	public TipoMarcacao getTipoMarcacao(){
+		return marcacao.getTipo();
+	}
+	
     /**
      * Exibe o quadrado.
      *

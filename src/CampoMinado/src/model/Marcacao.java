@@ -47,6 +47,14 @@ public class Marcacao {
 	}
 
 	/**
+	 * Obtém o tipo da marcação.
+	 * @return 
+	 */
+	public TipoMarcacao getTipo(){
+		return tipoMarcacao;
+	}
+	
+	/**
 	 * Define o ícone e o tipo da marcação. Quando se marca um quadrado pela
 	 * primeira vez, ele é marcado com uma Bandeira. Quando marcado novamente,
 	 * ele é marcado com interrogação. Se marcado novamente, ele é desmarcado,

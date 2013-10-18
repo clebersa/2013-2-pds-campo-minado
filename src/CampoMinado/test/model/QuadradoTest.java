@@ -171,4 +171,22 @@ public class QuadradoTest extends TestCase{
 		instance.exibir();
 		System.out.println("\"");
 	}
+
+	/**
+	 * Test of getTipoMarcacao method, of class Quadrado.
+	 */
+	@Test
+	public void testGetTipoMarcacao() {
+		System.out.println("getTipoMarcacao");
+		Quadrado instance = new Quadrado();
+		
+		assertEquals(TipoMarcacao.NENHUMA, instance.getTipoMarcacao());
+		instance.marcar();
+		assertEquals(TipoMarcacao.BANDEIRA, instance.getTipoMarcacao());
+		instance.marcar();
+		assertEquals(TipoMarcacao.DUVIDA, instance.getTipoMarcacao());
+		instance.marcar();
+		assertEquals(TipoMarcacao.NENHUMA, instance.getTipoMarcacao());
+
+	}
 }
