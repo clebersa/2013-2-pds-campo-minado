@@ -54,4 +54,30 @@ public class MarcacaoTest {
 		String result = instance.getIcone();
 		assertEquals(expResult, result);
 	}
+
+	/**
+	 * Test of limpar method, of class Marcacao.
+	 */
+	@Test
+	public void testLimpar() {
+		System.out.println("limpar");
+		Marcacao instance = new Marcacao();
+		instance.limpar();
+		assertEquals(" ", instance.getIcone());
+		
+		instance.marcar();
+		instance.limpar();
+		assertEquals(" ", instance.getIcone());
+		
+		instance.marcar();
+		instance.marcar();
+		instance.limpar();
+		assertEquals(" ", instance.getIcone());
+		
+		instance.marcar();
+		instance.marcar();
+		instance.marcar();
+		instance.limpar();
+		assertEquals(" ", instance.getIcone());
+	}
 }

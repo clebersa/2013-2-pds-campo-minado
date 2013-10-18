@@ -62,9 +62,19 @@ public class Marcacao {
 		} else if (tipoMarcacao.isDUVIDA()) {
 			icone = " ";
 			tipoMarcacao = TipoMarcacao.NENHUMA;
-		} else {
-			icone = " ";
-			tipoMarcacao = TipoMarcacao.NENHUMA;
+		}
+	}
+	
+	/**
+	 * Limpa a marcação, fazendo com que ela tenha o ícone '<code>&nbsp;</code>'
+	 * e tipo <code>TipoMarcacao.NENHUMA</code>.
+	 */
+	public void limpar(){
+		if(tipoMarcacao.isBANDEIRA()){
+			marcar();
+			marcar();
+		}else if(tipoMarcacao.isDUVIDA()){
+			marcar();
 		}
 	}
 }
