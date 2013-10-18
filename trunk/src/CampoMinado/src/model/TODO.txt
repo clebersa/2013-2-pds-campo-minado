@@ -17,22 +17,22 @@ personalizado de tabuleiro, a classe deve ser capaz de se adaptar a isso.
 	- Corrigir a implementação de distribuirMinas() em DistribuiAleatorio.java.
 Caso tente-se adicioanr uma mina em um lugar que já tenha uma, deve-se sortear
 outro lugar para a mesma ser colocada. Essa informação já é retornada pelo
-método adicionarMina de tabuleiro, bastando assim, só tratar a informação.
+método adicionarMina de tabuleiro, bastando assim, só tratar a informação. -- OK
 
 	- Corrigir a implementação de DistribuiPorArquivo.java. Deve-se abrir o
 arquivo indicado pelo caminho e nome de arquivos indicados dentro da própria
-classe. Atualmente tenta-se abrir uma arquivo "mapadasminas".
+classe. Atualmente tenta-se abrir uma arquivo "mapadasminas". -- OK
 
 	- Implementar a classe principal (CampoMinado.java, em model). Eu (Cleber) 
 tentei executar a mesma dia 17/10/13 e ela apresentou NullPointerException
 para qualquer um dos tabuleiros informados.
 
 + Teste
-	- Criar testes para DistribuiAleatorio.java
-	- Criar testes para DistribuiPorArquivo.java
-	- Criar testes para BandeirasIterator.java
-	- Criar testes para MinasIterator.java
-	- Criar testes para TabuleiroIterator.java
+	- Criar testes para DistribuiAleatorio.java --  OK
+	- Criar testes para DistribuiPorArquivo.java --  OK
+	- Criar testes para BandeirasIterator.java -- OK 
+	- Criar testes para MinasIterator.java -- OK
+	- Criar testes para TabuleiroIterator.java -- OK
 
 	
 

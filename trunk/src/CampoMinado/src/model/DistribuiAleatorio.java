@@ -9,22 +9,26 @@ import java.util.Random;
  */
 public class DistribuiAleatorio implements DistribuidorMinas {
 
-	/**
-	 * Distribui as minas de modo aleatório sobre o tabuleiro.
-	 *
-	 * @see model.DistribuidorMinas#distribuirMinas(model.Tabuleiro)
-	 */
-	@Override
-	public void distribuirMinas(Tabuleiro tabuleiro) {
-		int linhaRandom, colunaRandom;
+    /**
+     * Distribui as minas de modo aleatório sobre o tabuleiro.
+     *
+     * @see model.DistribuidorMinas#distribuirMinas(model.Tabuleiro)
+     */
+    @Override
+    public void distribuirMinas(Tabuleiro tabuleiro) {
+        int linhaRandom, colunaRandom;
 
-		Random geradorNumerosRandomico = new Random();
+        Random geradorNumerosRandomico = new Random();
 
-		for (int mina = 0; mina < tabuleiro.getMinas(); mina++) {
-			linhaRandom = geradorNumerosRandomico.nextInt(tabuleiro.getLinhas());
-			colunaRandom = geradorNumerosRandomico.nextInt(tabuleiro.getColunas());
-			tabuleiro.adicionarMina(linhaRandom, colunaRandom);
-			//adicionar tratamento 
-		}
-	}
+        for (int mina = 0; mina < tabuleiro.getMinas(); mina++) {
+            linhaRandom = geradorNumerosRandomico.nextInt(tabuleiro.getLinhas());
+            colunaRandom = geradorNumerosRandomico.nextInt(tabuleiro.getColunas());
+            
+            while (tabuleiro.adicionarMina(linhaRandom, linhaRandom) == false) {
+                linhaRandom = geradorNumerosRandomico.nextInt(tabuleiro.getLinhas());
+                colunaRandom = geradorNumerosRandomico.nextInt(tabuleiro.getColunas());
+            }
+            //adicionar tratamento 
+        }
+    }
 }
