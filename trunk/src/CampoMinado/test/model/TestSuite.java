@@ -15,16 +15,17 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-	model.TipoConteudoTest.class, 
 	model.ConteudoTest.class, 
-	model.QuadradoTest.class, 
-	model.TipoTabuleiroTest.class, 
 	model.JogadaTest.class, 
+	model.MarcacaoTest.class,
+	model.QuadradoTest.class, 
+	model.TipoConteudoTest.class, 
 	model.TipoJogadaTest.class, 
 	model.TipoMarcacaoTest.class, 
-	model.MarcacaoTest.class
+	model.TipoTabuleiroTest.class, 
+	model.VizinhosIteratorTest.class
 })
-public class ModelTest {
+public class TestSuite {
 
 	@BeforeClass
 	public static void setUpClass() throws Exception {
