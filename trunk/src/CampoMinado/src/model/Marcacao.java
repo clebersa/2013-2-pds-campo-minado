@@ -48,7 +48,8 @@ public class Marcacao {
 
 	/**
 	 * Obtém o tipo da marcação.
-	 * @return 
+	 * @return Tipo da marcação.
+	 * @see model.TipoMarcacao
 	 */
 	public TipoMarcacao getTipo(){
 		return tipoMarcacao;
