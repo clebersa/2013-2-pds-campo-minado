@@ -46,10 +46,11 @@ public class Tabuleiro implements Exibivel {
 	 */
 	public boolean executarJogada(Jogada jogada) {
 		boolean resultado;
+		Quadrado quadrado = getQuadrado(jogada.getLinha(), jogada.getColuna());
 		if (jogada.isABRIR()) {
-			resultado = abrirQuadrado(jogada.getLinha(), jogada.getColuna());
+			resultado = abrirQuadrado(quadrado);
 		} else if (jogada.isMARCAR()) {
-			marcarQuadrado(jogada.getLinha(), jogada.getColuna());
+			marcarQuadrado(quadrado);
 			resultado = true;
 		} else {
 			resultado = false;
@@ -121,14 +122,14 @@ public class Tabuleiro implements Exibivel {
 	private void inicializarTabuleiro() {
             
 		quadrados = new Quadrado[getLinhas()][getColunas()];
-
-		TabuleiroIterator tabuleiroIterator = createTabuleiroIterator();
-
-		Quadrado quadrado;
-
-		while (tabuleiroIterator.hasNext()) {
-			quadrado = tabuleiroIterator.next();
-			quadrado = new Quadrado();
+		
+		for(int linha = 0; linha < getLinhas(); linha++){
+			for(int coluna = 0; coluna < getColunas(); coluna++){
+				Quadrado quadrado = getQuadrado(linha, coluna);
+				quadrado = new Quadrado(linha, coluna);
+				// Caso isso não dê certo, deve-se tentar atribuir o novo quadrado
+				//a um quadrado direto na matriz.
+			}
 		}
 	}
 
@@ -146,8 +147,7 @@ public class Tabuleiro implements Exibivel {
 	private void contabilizarMinasVizinhas() {
 		TabuleiroIterator tabuleiroIterator = createTabuleiroIterator();
 		while (tabuleiroIterator.hasNext()) {
-			contabilizarMinasVizinhas(tabuleiroIterator.getLinhaVizinho(),
-					tabuleiroIterator.getColunaVizinho());
+			contabilizarMinasVizinhas(tabuleiroIterator.next());
 		}
 	}
 
@@ -155,17 +155,17 @@ public class Tabuleiro implements Exibivel {
 	 * Para um quadrado específico, contabiliza a quantidade de minas que há na
 	 * vizinhança.
 	 *
-	 * @param linha Linha do quadrado.
-	 * @param coluna Coluna do quadrado.
+	 * @param quadrado Quadrado que servirá como base para que as minhas vizinhas
+	 * sejam contabilizadas.
 	 */
-	private void contabilizarMinasVizinhas(int linha, int coluna) {
+	private void contabilizarMinasVizinhas(Quadrado quadrado) {
 		VizinhosIterator interadorVizinhos;
-		interadorVizinhos = new VizinhosIterator(quadrados, linha, coluna);
+		interadorVizinhos = createVizinhosIterator(quadrado);
 		Quadrado vizinho;
 		while (interadorVizinhos.hasNext()) {
 			vizinho = interadorVizinhos.next();
 			if (vizinho.contemMina()) {
-				getQuadrado(linha, coluna).contabilizarMinaVizinha();
+				quadrado.contabilizarMinaVizinha();
 			}
 		}
 	}
@@ -173,18 +173,13 @@ public class Tabuleiro implements Exibivel {
 	/**
 	 * Abre um quadrado.
 	 *
-	 * @param linha Número da linha onde o quadrado está localizado no
-	 * tabuleiro.
-	 * @param coluna Número da coluna onde o quadrado está localizado no
-	 * tabuleiro.
+	 * @param quadrado Quadrado que será aberto.
 	 * @return <code>FALSE</code>, caso o quadrado contenha uma mina; ou
 	 * <code>TRUE</code>, caso contrário.
 	 */
-	private boolean abrirQuadrado(int linha, int coluna) {
-		Quadrado quadrado;
+	private boolean abrirQuadrado(Quadrado quadrado) {
 		boolean resultado = false;
 
-		quadrado = getQuadrado(linha, coluna);
 		if (quadrado.isAberto()) {
 			resultado = true;
 		}
@@ -196,11 +191,9 @@ public class Tabuleiro implements Exibivel {
 			} else if (tipoConteudo.isNUMERO()) {
 				resultado = true;
 			} else {
-				VizinhosIterator vizinhosIterator = createVizinhosIterator(linha,
-						coluna);
+				VizinhosIterator vizinhosIterator = createVizinhosIterator(quadrado);
 				while (vizinhosIterator.hasNext()) {
-					abrirQuadrado(vizinhosIterator.getLinhaVizinho(),
-							vizinhosIterator.getColunaVizinho());
+					abrirQuadrado(vizinhosIterator.next());
 				}
 				resultado = true;
 			}
@@ -212,13 +205,9 @@ public class Tabuleiro implements Exibivel {
 	/**
 	 * Marca um quadrado.
 	 *
-	 * @param linha Número da linha onde o quadrado está localizado no
-	 * tabuleiro.
-	 * @param coluna Número da coluna onde o quadrado está localizado no
-	 * tabuleiro.
+	 * @param quadrado Quadrado que será marcado.
 	 */
-	private void marcarQuadrado(int linha, int coluna) {
-		Quadrado quadrado = getQuadrado(linha, coluna);
+	private void marcarQuadrado(Quadrado quadrado) {
 		quadrado.marcar();
 	}
 
@@ -234,14 +223,11 @@ public class Tabuleiro implements Exibivel {
 	/**
 	 * Cria um iterador para os quadrados vizinhos de um quadrado.
 	 *
-	 * @param linha Linha do quadrado sobre o qual vai se iterar sobre
-	 * os vizinhos.
-	 * @param coluna Coluna do quadrado sobre o qual vai se iterar sobre
-	 * os vizinhos.
+	 * @param quadrado Quadrado sobre o qual irá se iterar sobre os vizinhos.
 	 * @return Um iterador para os quadrados vizinhos de <code>quadrado</code>.
 	 */
-	public VizinhosIterator createVizinhosIterator(int linha, int coluna) {
-		return new VizinhosIterator(quadrados, linha, coluna);
+	public VizinhosIterator createVizinhosIterator(Quadrado quadrado) {
+		return new VizinhosIterator(quadrados, quadrado);
 	}
 
 	/**
