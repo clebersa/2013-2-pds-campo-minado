@@ -33,9 +33,6 @@ classe. Atualmente tenta-se abrir uma arquivo "mapadasminas". -- OK
 tentei executar a mesma dia 17/10/13 e ela apresentou NullPointerException
 para qualquer um dos tabuleiros informados.
 
-	- Implementar parte do método executarJogada(), de tabuleiro, onde deve-se 
-verificar se o cara venceu.
-
 + Teste
 	- Criar testes para DistribuiAleatorio.java --  OK
 	- Criar testes para DistribuiPorArquivo.java --  OK

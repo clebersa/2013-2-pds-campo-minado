@@ -47,12 +47,19 @@ public class Tabuleiro implements Exibivel {
 	public ResultadoJogada executarJogada(Jogada jogada) {
 		ResultadoJogada resultadoJogada;
 
-		Quadrado quadrado = getQuadrado(jogada.getLinha(), jogada.getColuna());
+		Quadrado quadradoJogada = getQuadrado(jogada.getLinha(), jogada.getColuna());
 		
 		if (jogada.isABRIR()) {
-			if(abrirQuadrado(quadrado)){
-				resultadoJogada = ResultadoJogada.CONTINUA;
-				//Adicionar verificação para ver se o cara venceu
+			if(abrirQuadrado(quadradoJogada)){
+				resultadoJogada = ResultadoJogada.VITORIA;
+				TabuleiroIterator tabuleiroIterator = createTabuleiroIterator();
+				while(tabuleiroIterator.hasNext()){
+					Quadrado quadrado = tabuleiroIterator.next();
+					if(!quadrado.isAberto() && !quadrado.contemMina()){
+						resultadoJogada = ResultadoJogada.CONTINUA;
+						break;
+					}
+				}
 			}else{
 				resultadoJogada = ResultadoJogada.DERROTA;
 				MinasIterator minasIterator = createMinasIterator();
@@ -61,8 +68,8 @@ public class Tabuleiro implements Exibivel {
 				}
 			}
 		} else {
-			if(!quadrado.isAberto()){
-				marcarQuadrado(quadrado);
+			if(!quadradoJogada.isAberto()){
+				marcarQuadrado(quadradoJogada);
 			}
 			resultadoJogada = ResultadoJogada.CONTINUA;
 		}
