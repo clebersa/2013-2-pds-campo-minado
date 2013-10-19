@@ -3,10 +3,10 @@ package model;
 /**
  * Define os tipos de marcação possíveis para um quadrado. Essas marcações podem
  * ser de 3 tipos:<br/>
- * <code>BANDEIRA</code> - Indica que se julga que em um quadrado haja uma mina.
+ * <code>BANDEIRA</code> - Indica que se julga que em um quadrado haja uma mina.<br/>
  * <code>DUVIDA</code> - Indica que não se tem certeza se em um quadrado existe
- * uma mina.
- * <code>NENHUMA</code> - Indica que um quadrado não está marcado.
+ * uma mina.<br/>
+ * <code>NENHUMA</code> - Indica que um quadrado não está marcado.<br/>
  *
  * @author Cleber
  */
