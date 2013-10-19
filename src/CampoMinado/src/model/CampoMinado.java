@@ -89,7 +89,7 @@ public class CampoMinado {
 	 *
 	 * @return O resultado da jogada.
 	 */
-	private static boolean jogar() {
+	private static void jogar() {
 		int opcao, linha, coluna;
 		Jogada jogada;
 		ResultadoJogada resultadoJogada;
