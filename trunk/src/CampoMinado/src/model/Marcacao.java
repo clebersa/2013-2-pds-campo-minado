@@ -37,8 +37,7 @@ public class Marcacao {
 
 	/**
 	 * Cria uma nova marcação. Na criação, a marcação é criada com o ícone '
-	 * <code>&nbsp;</code>' e tipo
-	 * <code>TipoMarcacao.NENHUMA</code>.
+	 * <code>&nbsp;</code>' e tipo {@link model.TipoMarcacao#NENHUMA}.
 	 */
 	Marcacao() {
 		icone = " ";
@@ -97,8 +96,7 @@ public class Marcacao {
 
 	/**
 	 * Limpa a marcação, fazendo com que ela tenha o ícone '
-	 * <code>&nbsp;</code>' e tipo
-	 * <code>TipoMarcacao.NENHUMA</code>.
+	 * <code>&nbsp;</code>' e tipo {@link model.TipoMarcacao#NENHUMA}.
 	 */
 	public void limpar() {
 		if (tipoMarcacao.isBANDEIRA()) {
