@@ -48,7 +48,7 @@ public class CampoMinado {
 	/**
 	 * Inicia um novo jogo.
 	 */
-	public static boolean iniciarNovoJogo() {
+	private static boolean iniciarNovoJogo() {
 		int opcao;
 
 		Scanner leitor = new Scanner(System.in);
