@@ -22,7 +22,7 @@ public class Conteudo {
 	 * <code>&nbsp;</code>' - Ícone que representa um conteúdo vazio. Este ícone
 	 * está associado ao tipo {@link model.TipoConteudo#VAZIO}<br/>
 	 * '
-	 * <code>1</code>' ... '
+	 * <code>1</code>' - '
 	 * <code>8</code>' - Ícone que representa a quantidade de minas na
 	 * vizinhança do quadrado. Este ícone está associado ao tipo
 	 * {@link model.TipoConteudo#NUMERO}
@@ -51,7 +51,7 @@ public class Conteudo {
 	 * '
 	 * <code>&nbsp;</code>' - Ícone que representa um conteúdo vazio.<br/>
 	 * '
-	 * <code>1</code>' ... '
+	 * <code>1</code>' - '
 	 * <code>8</code>' - Ícone que representa a quantidade de minas na
 	 * vizinhança do quadrado.
 	 *
