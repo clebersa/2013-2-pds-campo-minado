@@ -32,7 +32,8 @@ public class TipoMarcacaoTest {
 	@Test
 	public void testValues() {
 		System.out.println("values");
-		TipoMarcacao[] expResult = {TipoMarcacao.DUVIDA, TipoMarcacao.BANDEIRA, TipoMarcacao.NENHUMA};
+		TipoMarcacao[] expResult = {TipoMarcacao.BANDEIRA, TipoMarcacao.DUVIDA,
+			TipoMarcacao.NENHUMA};
 		TipoMarcacao[] result = TipoMarcacao.values();
 		assertArrayEquals(expResult, result);
 	}
