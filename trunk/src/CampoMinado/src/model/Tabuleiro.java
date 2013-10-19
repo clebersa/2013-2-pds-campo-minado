@@ -44,18 +44,29 @@ public class Tabuleiro implements Exibivel {
 	 * <code>TRUE</code> para jogadas do tipo <code>TipoJogada.MARCAR</code>
 	 * e/ou com o quadrado não continha mina.
 	 */
-	public boolean executarJogada(Jogada jogada) {
-		boolean resultado;
+	public ResultadoJogada executarJogada(Jogada jogada) {
+		ResultadoJogada resultadoJogada;
+
 		Quadrado quadrado = getQuadrado(jogada.getLinha(), jogada.getColuna());
+		
 		if (jogada.isABRIR()) {
-			resultado = abrirQuadrado(quadrado);
-		} else if (jogada.isMARCAR()) {
-			marcarQuadrado(quadrado);
-			resultado = true;
+			if(abrirQuadrado(quadrado)){
+				resultadoJogada = ResultadoJogada.CONTINUA;
+				//Adicionar verificação para ver se o cara venceu
+			}else{
+				resultadoJogada = ResultadoJogada.DERROTA;
+				MinasIterator minasIterator = createMinasIterator();
+				while(minasIterator.hasNext()){
+					abrirQuadrado(minasIterator.next());
+				}
+			}
 		} else {
-			resultado = false;
+			if(!quadrado.isAberto()){
+				marcarQuadrado(quadrado);
+			}
+			resultadoJogada = ResultadoJogada.CONTINUA;
 		}
-		return resultado;
+		return resultadoJogada;
 	}
 
 	/**
