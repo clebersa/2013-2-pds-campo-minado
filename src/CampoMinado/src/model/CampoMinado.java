@@ -10,107 +10,145 @@ import java.util.Scanner;
  */
 public class CampoMinado {
 
-    private static Tabuleiro tabuleiro;
-    private static ArrayList<Jogada> jogadas;
+	private static Tabuleiro tabuleiro;
+	private static ArrayList<Jogada> jogadas;
 
-    /**
-     * Executa o fluxo principal da aplicação Campo Minado
-     */
-    public static void main(String args[]) {
-        Scanner leitor = new Scanner(System.in);
-        int tipoJogada, linha, coluna;
-        iniciarNovoJogo();
-        tabuleiro.exibir();
+	/**
+	 * Executa o fluxo principal da aplicação Campo Minado
+	 */
+	public static void main(String args[]) {
+		int opcao;
+		boolean jogoCriado;
 
-        while (true) {
-            System.out.println("Jogadas: 1 - Marcar | 2 - Abrir");
-            tipoJogada = leitor.nextInt();
+		Scanner leitor = new Scanner(System.in);
 
-            if (tipoJogada == 1) {
-                System.out.print("Quadrado: ");
-                int temp = leitor.nextInt();
-                linha = temp / 10;
-                coluna = temp % 10;
+		System.out.println("############### CAMPO MINADO ###############");
+		do {
+			System.out.print("Selecione uma ação:"
+					+ "\t1 - Novo jogo\n\n"
+					+ "\t0 - Sair\n"
+					+ "Opção: ");
+			opcao = leitor.nextInt();
+			switch (opcao) {
+				case 1:
+					jogoCriado = iniciarNovoJogo();
+					if (jogoCriado) {
+						jogar();
+					}
+					break;
+				case 0:
+					System.out.println("Você saiu do jogo!");
+					break;
+				default:
+					System.out.println("Tipo de tabuleiro inválido!");
+			}
+		} while (opcao < 0 || opcao > 1);
+	}
 
-                if (linha <= tabuleiro.getLinhas() || coluna <= tabuleiro.getColunas()) {
-                    linha--;
-                    coluna--;
+	/**
+	 * Inicia um novo jogo.
+	 */
+	public static boolean iniciarNovoJogo() {
+		int opcao;
 
-                    Jogada novaJogada = new Jogada(linha, coluna, TipoJogada.MARCAR);
-                    jogadas.add(novaJogada);
+		Scanner leitor = new Scanner(System.in);
 
-                    tabuleiro.executarJogada(novaJogada);
+		do {
+			System.out.print("Selecione o tipo de tabuleiro:"
+					+ "\t1 - Iniciante\n"
+					+ "\t2 - Intermediário\n"
+					+ "\t3 - Avançado\n\n"
+					+ "\t0 - Cancelar novo jogo\n"
+					+ "Opção: ");
+			opcao = leitor.nextInt();
+			switch (opcao) {
+				case 1:
+					tabuleiro = new Tabuleiro(TipoTabuleiro.INICIANTE);
+					break;
+				case 2:
+					tabuleiro = new Tabuleiro(TipoTabuleiro.INTERMEDIARIO);
+					break;
+				case 3:
+					tabuleiro = new Tabuleiro(TipoTabuleiro.AVANCADO);
+					break;
+				default:
+					System.out.println("Tipo de tabuleiro inválido!");
+			}
+		} while (opcao < 1 || opcao > 3);
 
-                } else {
-                    System.out.println("Quadrado inválido!");
-                }
-                
-                tabuleiro.exibir();
+		if (opcao != 0) {
+			jogadas = new ArrayList<>();
+			return true;
+		} else {
+			return false;
+		}
+	}
 
-            } else if (tipoJogada == 2) {
-                System.out.print("Quadrado: ");
-                int temp = leitor.nextInt();
-                linha = temp / 10;
-                coluna = temp % 10;
+	/**
+	 * Lê uma jogada do usuário e executa a mesma.
+	 *
+	 * @return O resultado da jogada.
+	 */
+	private static boolean jogar() {
+		int opcao, linha, coluna;
+		Jogada jogada;
+		ResultadoJogada resultadoJogada;
 
-                if (linha <= tabuleiro.getLinhas() || coluna <= tabuleiro.getColunas()) {
-                    linha--;
-                    coluna--;
+		Scanner leitor = new Scanner(System.in);
 
-                    Jogada novaJogada = new Jogada(linha, coluna, TipoJogada.ABRIR);
-                    jogadas.add(novaJogada);
+		do {
+			tabuleiro.exibir();
 
-                    tabuleiro.executarJogada(novaJogada);
-
-                } else {
-                    System.out.println("Quadrado inválido!");
-                }
-                tabuleiro.exibir();
-            } else {
-                System.out.println("Tipo de jogada inválida!");
-            }
-        }
-
-        //fluxo principal do jogo.
-    }
-
-    /**
-     * Inicia um novo jogo.
-     */
-    public static void iniciarNovoJogo() {
-        Scanner leitor = new Scanner(System.in);
-        /*
-         * Solicita ao usuário qual o tipo de tabuleiro que ele deseja. Em
-         * seguida, cria um tabuleiro de acordo com a escolha do usuário e então
-         * retorna este novo tabuleiro para o fluxo principal do programa.
-         */
-        jogadas = new ArrayList<>();
-        System.out.println("Tabuleiro: 1 - Iniciante | 2 - Intermediário | 3 - Avançado");
-        while (true) {
-            System.out.print("Tipo: ");
-            int tipo = leitor.nextInt();
-            if (tipo == 1) {
-                tabuleiro = new Tabuleiro(TipoTabuleiro.INICIANTE);
-                break;
-            } else if (tipo == 2) {
-                tabuleiro = new Tabuleiro(TipoTabuleiro.INTERMEDIARIO);
-                break;
-            } else if (tipo == 3) {
-                tabuleiro = new Tabuleiro(TipoTabuleiro.AVANCADO);
-                break;
-            } else {
-                System.out.println("Tabuleiro inválido!");
-            }
-        }
-
-    }
-
-    /**
-     * Lê uma jogada do usuário e executa a mesma.
-     *
-     * @return O resultado da jogada.
-     */
-    private boolean jogar() {
-        return false;
-    }
+			System.out.print("Selecione um tipo de jogada:"
+					+ "\t1 - Abrir\n"
+					+ "\t2 - Marcar\n\n"
+					+ "\t0 - Parar de jogar\n"
+					+ "Opção: ");
+			opcao = leitor.nextInt();
+			switch (opcao) {
+				case 1:
+				case 2:
+					do {
+						System.out.print("Informe a linha do quadrado: (0 - "
+								+ (tabuleiro.getLinhas() - 1) + "): ");
+						linha = leitor.nextInt();
+						if(linha < 0 || linha > tabuleiro.getLinhas() - 1){
+							System.out.println("Valor de linha inválido!");
+						}
+					} while (linha < 0 || linha > tabuleiro.getLinhas() - 1);
+					do {
+						System.out.print("Informe a coluna do quadrado: (0 - "
+								+ (tabuleiro.getColunas() - 1) + "): ");
+						coluna = leitor.nextInt();
+						if(coluna < 0 || coluna > tabuleiro.getColunas() -1){
+							System.out.println("Valor de coluna inválido!");
+						}
+					} while (coluna < 0 || coluna > tabuleiro.getColunas() - 1);
+					
+					if(opcao == 1){
+						jogada = new Jogada(linha, coluna, TipoJogada.ABRIR);
+					}else{
+						jogada = new Jogada(linha, coluna, TipoJogada.MARCAR);
+					}
+					jogadas.add(jogada);
+					
+					resultadoJogada = tabuleiro.executarJogada(jogada);
+					
+					if(resultadoJogada.isVITORIA()){
+						System.out.println("Parabéns! Você venceu!");
+						opcao = 0;
+					}else if(resultadoJogada.isDERROTA()){
+						System.out.println("Pow! Você atingiu uma mina! Você perdeu!");
+						opcao = 0;
+					}else{
+						System.out.println("Continue jogando...");
+					}
+					break;
+				case 0:
+					break;
+				default:
+					System.out.println("Jogada inválida!");
+			}
+		}while(opcao != 0);
+	}
 }
