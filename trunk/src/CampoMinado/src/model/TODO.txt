@@ -31,7 +31,7 @@ classe. Atualmente tenta-se abrir uma arquivo "mapadasminas". -- OK
 
 	- Implementar a classe principal (CampoMinado.java, em model). Eu (Cleber) 
 tentei executar a mesma dia 17/10/13 e ela apresentou NullPointerException
-para qualquer um dos tabuleiros informados.
+para qualquer um dos tabuleiros informados. -- OK
 
 + Teste
 	- Criar testes para DistribuiAleatorio.java --  OK

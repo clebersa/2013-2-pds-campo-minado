@@ -39,7 +39,7 @@ public class DistribuiPorArquivo implements DistribuidorMinas {
         String dadosArquivos;
 
         try {
-            File file = new File(caminhoArquivo + nomeArquivo);
+            File file = new File( caminhoArquivo + nomeArquivo);
             FileReader fileReader = null;
             fileReader = new FileReader(file);
             BufferedReader reader = new BufferedReader(fileReader);

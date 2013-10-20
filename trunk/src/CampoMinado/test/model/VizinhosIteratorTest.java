@@ -99,7 +99,6 @@ public class VizinhosIteratorTest {
 		System.out.println("remove");
 		quadrados = new Quadrado[1][1];
 		quadrados[0][0] = new Quadrado(0, 0);
-		
 		VizinhosIterator instance;
 		instance = new VizinhosIterator(quadrados, quadrados[0][0]);
 		instance.remove();

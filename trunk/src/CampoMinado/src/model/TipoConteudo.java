@@ -1,34 +1,25 @@
 package model;
 
 /**
- * Define os tipos de conteúdo possíveis para um quadrado. Esses conteúdos podem
- * ser de 3 tipos:<br/>
- * <code>NUMERO</code> - Indica que o conteúdo de um quadrado é um número,
- * diferente de zero, que indica a quantidade de minas na vizinhança do
- * quadrado<br/>
- * <code>MINA</code> - Indica que o conteúdo de um quadrado é uma mina.<br/>
- * <code>VAZIO</code> - Indica que o conteúdo de um quadrado é vazio, ou seja, o
- * quadrado não contém mina e não tem nenhuma mina na vizinhança.<br/>
+ * Define os tipos possíveis para um conteúdo.
  *
  * @author Cleber
  */
 public enum TipoConteudo {
 
 	/**
-	 * Indica que o conteúdo de um quadrado é um número, diferente de zero, que
-	 * indica a quantidade de minas na vizinhança do quadrado.
+	 * Indica que o conteúdo é um número.
 	 */
 	NUMERO,
 	/**
-	 * Indica que o conteúdo de um quadrado é uma mina.
+	 * Indica que o conteúdo é uma mina.
 	 */
 	MINA,
 	/**
-	 * Indica que o conteúdo de um quadrado é vazio, ou seja, o quadrado não
-	 * contém mina e não tem nenhuma mina na vizinhança.
+	 * Indica que não existe conteúdo, ou seja, ele é vazio.
 	 */
 	VAZIO;
-
+	
 	/**
 	 * Verifica se o conteúdo é do tipo
 	 * <code>NUMERO</code>.
@@ -39,7 +30,7 @@ public enum TipoConteudo {
 	public boolean isNUMERO() {
 		return (this == NUMERO);
 	}
-
+	
 	/**
 	 * Verifica se o conteúdo é do tipo
 	 * <code>MINA</code>.
@@ -50,7 +41,7 @@ public enum TipoConteudo {
 	public boolean isMINA() {
 		return (this == MINA);
 	}
-
+	
 	/**
 	 * Verifica se o conteúdo é do tipo
 	 * <code>VAZIO</code>.

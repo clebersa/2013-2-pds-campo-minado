@@ -16,10 +16,10 @@ public class BandeirasIterator implements Iterator<Quadrado> {
 
     @Override
     public boolean hasNext() {
-        
+
         for (int cont_1 = linha; cont_1 < quadrados.length; cont_1++) {
-            for (int cont_2 = coluna; cont_2 < quadrados.length; cont_2++) {
-                if (quadrados[cont_1][cont_2].getTipoMarcacao() == TipoMarcacao.BANDEIRA) {
+            for (int cont_2 = coluna + 1; cont_2 < quadrados[linha].length; cont_2++) {
+                if (quadrados[cont_1][cont_2].getTipoMarcacao().isBANDEIRA()) {
                     linha = cont_1;
                     coluna = cont_2;
                     return true;
@@ -27,15 +27,17 @@ public class BandeirasIterator implements Iterator<Quadrado> {
             }
         }
         return false;
-        
+
     }
 
     @Override
     public Quadrado next() {
         return quadrados[linha][coluna];
+        
     }
 
     @Override
     public void remove() {
+        throw new UnsupportedOperationException("Not supported.");
     }
 }

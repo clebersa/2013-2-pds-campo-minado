@@ -15,27 +15,30 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-	model.ConteudoTest.class, 
-	model.JogadaTest.class, 
-	model.MarcacaoTest.class,
-	model.QuadradoTest.class, 
-	model.TipoConteudoTest.class, 
-	model.TipoJogadaTest.class, 
-	model.TipoMarcacaoTest.class, 
-	model.TipoTabuleiroTest.class, 
-	model.VizinhosIteratorTest.class,
-	model.DistribuiAleatorioTest.class,
-	model.DistribuiPorArquivoTest.class,
-	model.BandeirasIteratorTest.class,
-	model.MinasIteratorTest.class
+    model.BandeirasIteratorTest.class,
+    model.ConteudoTest.class,
+    model.DistribuiAleatorioTest.class,
+    model.DistribuiPorArquivoTest.class,
+    model.JogadaTest.class,
+    model.MarcacaoTest.class,
+    model.MinasIteratorTest.class,
+    model.QuadradoTest.class,
+    model.TabuleiroIteratorTest.class,
+    model.TipoConteudoTest.class,
+    model.TipoJogadaTest.class,
+    model.TipoMarcacaoTest.class,
+    model.TipoTabuleiroTest.class,
+    model.VizinhosIteratorTest.class
+    
+    
 })
 public class TestSuite {
 
-	@BeforeClass
-	public static void setUpClass() throws Exception {
-	}
+    @BeforeClass
+    public static void setUpClass() throws Exception {
+    }
 
-	@AfterClass
-	public static void tearDownClass() throws Exception {
-	}
+    @AfterClass
+    public static void tearDownClass() throws Exception {
+    }
 }
