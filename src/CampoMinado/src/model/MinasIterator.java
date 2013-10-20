@@ -18,7 +18,7 @@ public class MinasIterator implements Iterator<Quadrado> {
     public boolean hasNext() {
         // Procura a partir de uma dada linha e coluna por minas. Caso encontre retorna True.
         for (int cont_1 = linha; cont_1 < quadrados.length; cont_1++) {
-            for (int cont_2 = coluna; cont_2 < quadrados.length; cont_2++) {
+            for (int cont_2 = coluna + 1; cont_2 < quadrados.length; cont_2++) {
                 if (quadrados[cont_1][cont_2].contemMina()) {
                     linha = cont_1;
                     coluna = cont_2;

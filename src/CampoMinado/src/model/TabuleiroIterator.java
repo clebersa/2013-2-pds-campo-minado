@@ -20,11 +20,11 @@ public class TabuleiroIterator implements Iterator<Quadrado> {
             return true;
         } else {
             if (linha + 1 < quadrados.length) {
-                return false;
-            } else {
                 linha++;
                 coluna = 0;
                 return true;
+            } else {
+                return false;
             }
         }
     }

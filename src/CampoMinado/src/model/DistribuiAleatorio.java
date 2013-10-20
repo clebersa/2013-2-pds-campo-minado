@@ -24,7 +24,7 @@ public class DistribuiAleatorio implements DistribuidorMinas {
             linhaRandom = geradorNumerosRandomico.nextInt(tabuleiro.getLinhas());
             colunaRandom = geradorNumerosRandomico.nextInt(tabuleiro.getColunas());
             
-            while (tabuleiro.adicionarMina(linhaRandom, linhaRandom) == false) {
+            while (tabuleiro.adicionarMina(linhaRandom, colunaRandom) == false) {
                 linhaRandom = geradorNumerosRandomico.nextInt(tabuleiro.getLinhas());
                 colunaRandom = geradorNumerosRandomico.nextInt(tabuleiro.getColunas());
             }

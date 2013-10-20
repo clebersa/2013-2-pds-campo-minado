@@ -1,40 +1,24 @@
 package model;
 
 /**
- * Define os tipos de marcação possíveis para um quadrado. Essas marcações podem
- * ser de 3 tipos:<br/>
- * <code>BANDEIRA</code> - Indica que se julga que em um quadrado haja uma mina.<br/>
- * <code>DUVIDA</code> - Indica que não se tem certeza se em um quadrado existe
- * uma mina.<br/>
- * <code>NENHUMA</code> - Indica que um quadrado não está marcado.<br/>
+ * Define os tipos de marcação possíveis para um quadrado.
  *
  * @author Cleber
  */
 public enum TipoMarcacao {
 
 	/**
-	 * Indica que se julga que em um quadrado haja uma mina.
-	 */
-	BANDEIRA,
-	/**
-	 * Indica que não se tem certeza se em um quadrado existe uma mina.
+	 * Indica que a marcação é de dúvida.
 	 */
 	DUVIDA,
 	/**
-	 * Indica que um quadrado não está marcado.
+	 * Indica que a marcação é de bandeira, o que implica mina.
+	 */
+	BANDEIRA,
+	/**
+	 * Indica que não existe marcação.
 	 */
 	NENHUMA;
-
-	/**
-	 * Verifica se a marcação é do tipo
-	 * <code>BANDEIRA</code>.
-	 *
-	 * @return <code>TRUE</code> se a marcação é do tipo <code>BANDEIRA</code>
-	 * ou <code>FALSE</code>, caso contrário.
-	 */
-	public boolean isBANDEIRA() {
-		return (this == BANDEIRA);
-	}
 
 	/**
 	 * Verifica se a marcação é do tipo
@@ -45,6 +29,17 @@ public enum TipoMarcacao {
 	 */
 	public boolean isDUVIDA() {
 		return (this == DUVIDA);
+	}
+
+	/**
+	 * Verifica se a marcação é do tipo
+	 * <code>BANDEIRA</code>.
+	 *
+	 * @return <code>TRUE</code> se a marcação é do tipo <code>BANDEIRA</code>
+	 * ou <code>FALSE</code>, caso contrário.
+	 */
+	public boolean isBANDEIRA() {
+		return (this == BANDEIRA);
 	}
 
 	/**
