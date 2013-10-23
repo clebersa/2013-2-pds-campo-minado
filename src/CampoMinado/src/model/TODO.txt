@@ -23,13 +23,26 @@ diagrama de classes e o projeto.
 
 ##### Samuel #####
 + Implementação
+	- Usar nomes mais intuitivos para as variáveis nos laços de repetição, por
+exemplo.
 
 + Teste
-	- Criar testes para DistribuiAleatorio.java --  OK
+	- Testar novamente DistribuiAleatorio.java depois que a parte do iterador de
+minas estiver funcionando. Para testar essa classe, basta mandar o programa
+distribuir as minas e então iterar sobre as mesmas para verificar se a quantidade
+de minas distribuídas bate com a quantidade que era pra ter sido distribuída.
+
 	- Criar testes para DistribuiPorArquivo.java --  OK
-	- Criar testes para BandeirasIterator.java -- OK 
-	- Criar testes para MinasIterator.java -- OK
-	- Criar testes para TabuleiroIterator.java -- OK
+
+	- Corrigir a implementação dos testes para BandeirasIterator.java. Os erros
+encontrados aqui são basicamente os mesmos descriytos abaixo.
+
+	- Corrigir a implementação dos testes para MinasIterator.java. Se necessário,
+corrigir a implementação de MinasIterator.java. Fazer a implementação do mesmo
+semelhante ao do TabuleiroIterator.java e do teste do mesmo. Para o has next, 
+testa se a quantidade de quadrados com minas encontrado é o mesmo que o esperado.
+Aí,pra testar o next, basta verificar se os quadrados retornados contém mina ou 
+não. Só isso.
 
 
 ################################################################################

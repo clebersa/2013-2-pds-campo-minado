@@ -17,98 +17,73 @@ import static org.junit.Assert.*;
  */
 public class TabuleiroIteratorTest {
 
-    Quadrado quadrados[][];
-    int linhas;
-    int colunas;
+	Quadrado quadrados[][];
+	int linhas;
+	int colunas;
 
-    public TabuleiroIteratorTest() {
-        linhas = 3;
-        colunas = 3;
-    }
+	public TabuleiroIteratorTest() {
+		linhas = 3;
+		colunas = 3;
+	}
 
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
+	@BeforeClass
+	public static void setUpClass() throws Exception {
+	}
 
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
+	@AfterClass
+	public static void tearDownClass() throws Exception {
+	}
 
-    @Before
-    public void setUp() {
-        quadrados = new Quadrado[linhas][colunas];
-        for (int linha = 0; linha < linhas; linha++) {
-            for (int coluna = 0; coluna < colunas; coluna++) {
-                quadrados[linha][coluna] = new Quadrado(linha, coluna);
-            }
-        }
-    }
+	@Before
+	public void setUp() {
+		quadrados = new Quadrado[linhas][colunas];
+		for (int linha = 0; linha < linhas; linha++) {
+			for (int coluna = 0; coluna < colunas; coluna++) {
+				quadrados[linha][coluna] = new Quadrado(linha, coluna);
+			}
+		}
+	}
 
-    @After
-    public void tearDown() {
-    }
+	@After
+	public void tearDown() {
+	}
 
-    /**
-     * Test of hasNext method, of class TabuleiroIterator.
-     */
-    @Test
-    public void testHasNext() {
-        
-        System.out.println("hasNext");
-        TabuleiroIterator instance = new TabuleiroIterator(quadrados);
-        int quantidadeDeQuadrados = 0;
-        do {
-            quantidadeDeQuadrados++;;
-            instance.next();
-        } while (instance.hasNext());
-        
-        assertEquals(linhas * colunas,quantidadeDeQuadrados);
+	/**
+	 * Test of hasNext method, of class TabuleiroIterator.
+	 */
+	@Test
+	public void testHasNext() {
+		System.out.println("hasNext");
+		TabuleiroIterator instance = new TabuleiroIterator(quadrados);
+		int quantidadeDeQuadrados = 0;
+		do {
+			quantidadeDeQuadrados++;
+			instance.next();
+		} while (instance.hasNext());
 
-    }
+		assertEquals(linhas * colunas, quantidadeDeQuadrados);
 
-    /**
-     * Test of next method, of class TabuleiroIterator.
-     */
-    @Test
-    public void testNext() {
-        
-        System.out.println("next");
-        TabuleiroIterator instance = new TabuleiroIterator(quadrados);
-        int quantidadeDeQuadrados = 0;
-        Quadrado quadradoResp;
-        while (instance.hasNext()) {
-            quadradoResp = instance.next();
-            if (quadradoResp instanceof Quadrado) {
-                quantidadeDeQuadrados++;
-            }
-        }
-        assertEquals(9, quantidadeDeQuadrados);
+	}
 
-    }
+	/**
+	 * Test of next method, of class TabuleiroIterator.
+	 */
+	@Test
+	public void testNext() {
+		System.out.println("next");
+		TabuleiroIterator instance = new TabuleiroIterator(quadrados);
+		while (instance.hasNext()) {
+			assertTrue(instance.next() instanceof Quadrado);
+		}
+	}
 
-    /**
-     * Test of remove method, of class TabuleiroIterator.
-     */
-    @Test(expected = UnsupportedOperationException.class)
-    public void testRemove() {
-        System.out.println("remove");
-        TabuleiroIterator instance = new TabuleiroIterator(quadrados);
-        instance.remove();
-    }
-
-    /**
-     * Test of getLinhaVizinho method, of class TabuleiroIterator.
-     */
-    @Test
-    public void testGetLinhaVizinho() {
-        System.out.println("getLinhaVizinho");
-    }
-
-    /**
-     * Test of getColunaVizinho method, of class TabuleiroIterator.
-     */
-    @Test
-    public void testGetColunaVizinho() {
-        System.out.println("getColunaVizinho");
-    }
+	/**
+	 * Test of remove method, of class TabuleiroIterator.
+	 */
+	@Test(expected = UnsupportedOperationException.class)
+	public void testRemove() {
+		System.out.println("remove");
+		TabuleiroIterator instance = new TabuleiroIterator(quadrados);
+		instance.remove();
+	}
 }
