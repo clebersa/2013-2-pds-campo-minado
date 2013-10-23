@@ -20,7 +20,7 @@ public class Tabuleiro implements Exibivel {
     /**
      * Distribuidor de minas.
      */
-    private DistribuidorMinas distribuidorMinasInterface;
+    private DistribuidorMinas distribuidorMinas;
 
     /**
      * Constrói um novo tabuleiro com base no tipo recebido.
@@ -28,8 +28,8 @@ public class Tabuleiro implements Exibivel {
      * @param tipo Tipo do tabuleiro.
      */
     Tabuleiro(TipoTabuleiro tipo) {
-        distribuidorMinasInterface = new DistribuiAleatorio();
         tipoTabuleiro = tipo;
+		setDistribuidorMinas(new DistribuiAleatorio());
         inicializarTabuleiro();
         distribuirMinas();
         contabilizarMinasVizinhas();
@@ -82,7 +82,7 @@ public class Tabuleiro implements Exibivel {
      * @return Número de linhas do tabuleiro.
      */
     public int getLinhas() {
-        return this.tipoTabuleiro.getLinhas();
+        return tipoTabuleiro.getLinhas();
     }
 
     /**
@@ -91,7 +91,7 @@ public class Tabuleiro implements Exibivel {
      * @return Número de colunas do tabuleiro.
      */
     public int getColunas() {
-        return this.tipoTabuleiro.getColunas();
+        return tipoTabuleiro.getColunas();
     }
 
     /**
@@ -102,6 +102,17 @@ public class Tabuleiro implements Exibivel {
     public int getMinas() {
         return tipoTabuleiro.getMinas();
     }
+	
+	/**
+	 * Define o tipo do distribuidor de minas. Os possíveis distribuidores 
+	 * implementam a interface {@link model.DistribuidorMinas}.
+	 * @param distribuidor Objeto do tipo de alguma classe que implementa 
+	 * {@link model.DistribuidorMinas}
+	 * @see model.DistribuidorMinas
+	 */
+	public void setDistribuidorMinas(DistribuidorMinas distribuidor){
+		distribuidorMinas = distribuidor;
+	}
 
     /**
      * Adiciona uma mina a um determinado quadrado especificado por
@@ -138,23 +149,12 @@ public class Tabuleiro implements Exibivel {
      * Inicializa o tabuleiro com quadrados vazios.
      */
     private void inicializarTabuleiro() {
-
         quadrados = new Quadrado[getLinhas()][getColunas()];
 
-        /*for(int linha = 0; linha < getLinhas(); linha++){
-        for(int coluna = 0; coluna < getColunas(); coluna++){
-        Quadrado quadrado = getQuadrado(linha, coluna);
-        quadrado = new Quadrado(linha, coluna);
-        // Caso isso não dê certo, deve-se tentar atribuir o novo quadrado
-        //a um quadrado direto na matriz.
-        }
-        }*/
-
-        for (int cont = 0; cont < getLinhas(); cont++) {
-            for (int cont2 = 0; cont2 < getColunas(); cont2++) {
-                quadrados[cont][cont2] = new Quadrado(cont, cont2);
+        for (int linha = 0; linha < getLinhas(); linha++) {
+            for (int coluna = 0; coluna < getColunas(); coluna++) {
+                quadrados[linha][coluna] = new Quadrado(linha, coluna);
             }
-
         }
     }
 
@@ -162,7 +162,7 @@ public class Tabuleiro implements Exibivel {
      * Distribui as minas pelo tabuleiro.
      */
     private void distribuirMinas() {
-        distribuidorMinasInterface.distribuirMinas(this);
+        distribuidorMinas.distribuirMinas(this);
     }
 
     /**
