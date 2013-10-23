@@ -24,7 +24,7 @@ public class CampoMinado {
 
 		System.out.println("############### CAMPO MINADO ###############");
 		do {
-			System.out.print("Selecione uma ação:"
+			System.out.print("Selecione uma ação:\n"
 					+ "\t1 - Novo jogo\n\n"
 					+ "\t0 - Sair\n"
 					+ "Opção: ");
@@ -42,7 +42,7 @@ public class CampoMinado {
 				default:
 					System.out.println("Tipo de tabuleiro inválido!");
 			}
-		} while (opcao < 0 || opcao > 1);
+		} while (opcao != 0);
 	}
 
 	/**
@@ -54,7 +54,7 @@ public class CampoMinado {
 		Scanner leitor = new Scanner(System.in);
 
 		do {
-			System.out.print("Selecione o tipo de tabuleiro:"
+			System.out.print("Selecione o tipo de tabuleiro:\n"
 					+ "\t1 - Iniciante\n"
 					+ "\t2 - Intermediário\n"
 					+ "\t3 - Avançado\n\n"
@@ -71,10 +71,12 @@ public class CampoMinado {
 				case 3:
 					tabuleiro = new Tabuleiro(TipoTabuleiro.AVANCADO);
 					break;
+				case 0:
+					break;
 				default:
 					System.out.println("Tipo de tabuleiro inválido!");
 			}
-		} while (opcao < 1 || opcao > 3);
+		} while (opcao < 0 || opcao > 3);
 
 		if (opcao != 0) {
 			jogadas = new ArrayList<>();
@@ -99,7 +101,7 @@ public class CampoMinado {
 		do {
 			tabuleiro.exibir();
 
-			System.out.print("Selecione um tipo de jogada:"
+			System.out.print("Selecione um tipo de jogada:\n"
 					+ "\t1 - Abrir\n"
 					+ "\t2 - Marcar\n\n"
 					+ "\t0 - Parar de jogar\n"

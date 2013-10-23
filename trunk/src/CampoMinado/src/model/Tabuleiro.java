@@ -281,13 +281,27 @@ public class Tabuleiro implements Exibivel {
     @Override
     public void exibir() {
         TabuleiroIterator tabuleiroIterator = createTabuleiroIterator();
-        int coluna = 0;
+        int coluna, linha;
+		
+		System.out.print("   ");
+		for(coluna = 1; coluna<= getColunas(); coluna++){
+			System.out.print(String.format("%2d ", coluna-1));
+		}
+		System.out.println();
+		coluna = 0;
+		linha = 0;
+		System.out.print(String.format("%2d ", linha));
         while (tabuleiroIterator.hasNext()) {
             tabuleiroIterator.next().exibir();
             coluna++;
             if (coluna == tipoTabuleiro.getColunas()) {
                 coluna = 0;
-                System.out.println();
+				if(linha < getLinhas() - 1){
+					linha++;
+					System.out.print(String.format("\n%2d ", linha));
+				}else{
+					System.out.println();
+				}
             }
         }
 

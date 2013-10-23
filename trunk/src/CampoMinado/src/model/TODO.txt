@@ -17,21 +17,10 @@ quadrados.
 - Deve-se fazer uma varredura em todo o código visando coerência entre o 
 diagrama de classes e o projeto.
 
+- Conferir "jogabilidade" na classe principal.
 
 ##### Samuel #####
 + Implementação
-	- Corrigir a implementação de distribuirMinas() em DistribuiAleatorio.java.
-Caso tente-se adicioanr uma mina em um lugar que já tenha uma, deve-se sortear
-outro lugar para a mesma ser colocada. Essa informação já é retornada pelo
-método adicionarMina de tabuleiro, bastando assim, só tratar a informação. -- OK
-
-	- Corrigir a implementação de DistribuiPorArquivo.java. Deve-se abrir o
-arquivo indicado pelo caminho e nome de arquivos indicados dentro da própria
-classe. Atualmente tenta-se abrir uma arquivo "mapadasminas". -- OK
-
-	- Implementar a classe principal (CampoMinado.java, em model). Eu (Cleber) 
-tentei executar a mesma dia 17/10/13 e ela apresentou NullPointerException
-para qualquer um dos tabuleiros informados. -- OK
 
 + Teste
 	- Criar testes para DistribuiAleatorio.java --  OK
@@ -43,12 +32,6 @@ para qualquer um dos tabuleiros informados. -- OK
 
 ################################################################################
 							PERGUNTAS PARA O PROFESSOR
-- Um quadrado não sabe qual é a linha e coluna na qual ele se encontra.
-Entretanto, isso gera um certo problema: sempre que eu vou trabalhar nos
-iteradores, eu acabo ficando dependente dessa linha e coluna para retornar dados
-corretos para os objetos que chamam esses iteradores. Sendo assim, analisando 
-como o projeto está estruturado e implementado, não seria melhor permitir que os
-dados de linha e coluna?
 	
 
 ################################################################################
