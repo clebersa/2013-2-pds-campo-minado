@@ -19,6 +19,8 @@ diagrama de classes e o projeto.
 
 - Conferir "jogabilidade" na classe principal.
 
+- Exibir minas depois que o jogador perdeu.
+
 ##### Samuel #####
 + Implementação
 
