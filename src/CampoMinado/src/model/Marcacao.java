@@ -33,8 +33,8 @@ public class Marcacao {
 	 * <code>TipoMarcacao.NENHUMA</code>.
 	 */
 	Marcacao() {
-		icone = " ";
-		tipoMarcacao = TipoMarcacao.NENHUMA;
+		tipoMarcacao = TipoMarcacao.DUVIDA;
+		marcar();
 	}
 
 	/**
@@ -69,7 +69,7 @@ public class Marcacao {
 			icone = "?";
 			tipoMarcacao = TipoMarcacao.DUVIDA;
 		} else if (tipoMarcacao.isDUVIDA()) {
-			icone = " ";
+			icone = "#";
 			tipoMarcacao = TipoMarcacao.NENHUMA;
 		}
 	}

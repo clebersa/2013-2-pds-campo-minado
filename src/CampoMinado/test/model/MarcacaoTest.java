@@ -38,7 +38,7 @@ public class MarcacaoTest {
 		instance.marcar();
 		assertEquals("?", instance.getIcone());
 		instance.marcar();
-		assertEquals(" ", instance.getIcone());
+		assertEquals("#", instance.getIcone());
 		instance.marcar();
 		assertEquals("B", instance.getIcone());
 	}
@@ -50,7 +50,7 @@ public class MarcacaoTest {
 	public void testGetIcone() {
 		System.out.println("getIcone");
 		Marcacao instance = new Marcacao();
-		String expResult = " ";
+		String expResult = "#";
 		String result = instance.getIcone();
 		assertEquals(expResult, result);
 	}
@@ -63,22 +63,22 @@ public class MarcacaoTest {
 		System.out.println("limpar");
 		Marcacao instance = new Marcacao();
 		instance.limpar();
-		assertEquals(" ", instance.getIcone());
+		assertEquals("#", instance.getIcone());
 		
 		instance.marcar();
 		instance.limpar();
-		assertEquals(" ", instance.getIcone());
+		assertEquals("#", instance.getIcone());
 		
 		instance.marcar();
 		instance.marcar();
 		instance.limpar();
-		assertEquals(" ", instance.getIcone());
+		assertEquals("#", instance.getIcone());
 		
 		instance.marcar();
 		instance.marcar();
 		instance.marcar();
 		instance.limpar();
-		assertEquals(" ", instance.getIcone());
+		assertEquals("#", instance.getIcone());
 	}
 
 	/**
