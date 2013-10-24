@@ -16,20 +16,35 @@ public class MinasIterator implements Iterator<Quadrado> {
 
     @Override
     public boolean hasNext() {
-        for (int cont_1 = linha; cont_1 < quadrados.length; cont_1++) {
-            for (int cont_2 = coluna + 1; cont_2 < quadrados.length; cont_2++) {
-                if (quadrados[cont_1][cont_2].contemMina()) {
-                    linha = cont_1;
-                    coluna = cont_2;
+
+
+        while (true) {
+            if (coluna < quadrados[linha].length) {
+                if (quadrados[linha][coluna].contemMina()) {
                     return true;
                 }
+            } else {
+                if (linha + 1 < quadrados.length) {
+                    linha++;
+                    coluna = 0;
+                    if (quadrados[linha][coluna].contemMina()) {
+                        return true;
+                    }
+                } else {
+                    return false;
+                }
             }
+            coluna++;
         }
-        return false;
+
+
+
     }
 
     public Quadrado next() {
-        return quadrados[linha][coluna];
+        Quadrado quadrado = quadrados[linha][coluna];
+        coluna++;
+        return quadrado;
     }
 
     @Override
