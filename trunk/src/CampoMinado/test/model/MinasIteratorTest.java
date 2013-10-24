@@ -22,8 +22,8 @@ public class MinasIteratorTest {
     int colunas;
 
     public MinasIteratorTest() {
-        linhas = 3;
-        colunas = 3;
+        linhas = 6;
+        colunas = 6;
     }
 
     @BeforeClass
@@ -42,10 +42,16 @@ public class MinasIteratorTest {
                 quadrados[linha][coluna] = new Quadrado(linha, coluna);
             }
         }
+        quadrados[0][0].adicionarMina();
+        quadrados[5][5].adicionarMina();
+        quadrados[0][5].adicionarMina();
+        quadrados[5][0].adicionarMina();
 
         quadrados[1][2].adicionarMina();
         quadrados[1][1].adicionarMina();
+        quadrados[0][2].adicionarMina();
         quadrados[2][2].adicionarMina();
+        quadrados[3][5].adicionarMina();
     }
 
     @After
@@ -60,11 +66,25 @@ public class MinasIteratorTest {
         System.out.println("hasNext");
         MinasIterator instance = new MinasIterator(quadrados);
         int quantidadeDeMinas = 0;
-        do {
+        while (instance.hasNext()) {
             quantidadeDeMinas++;
+            instance.next();
+        }
+        assertEquals(9, quantidadeDeMinas); // Com nove minas
 
-        } while (instance.hasNext());
-        assertEquals(3, quantidadeDeMinas);
+        quadrados[3][3].adicionarMina();
+        quadrados[2][3].adicionarMina();
+        quadrados[1][3].adicionarMina();
+
+        instance = new MinasIterator(quadrados);
+
+        quantidadeDeMinas = 0;
+        while (instance.hasNext()) {
+            quantidadeDeMinas++;
+            instance.next();
+        }
+        assertEquals(12, quantidadeDeMinas); // Com 12 minas
+
     }
 
     /**
@@ -83,12 +103,24 @@ public class MinasIteratorTest {
                 quantidadeDeMinas++;
             }
         }
-        quadradoResp = instance.next();
-        if (quadradoResp.contemMina()) {
-            quantidadeDeMinas++;
-        }
+        assertEquals(9, quantidadeDeMinas);
 
-        assertEquals(3, quantidadeDeMinas);
+        quadrados[3][3].adicionarMina();
+        quadrados[2][3].adicionarMina();
+        quadrados[1][3].adicionarMina();
+
+        instance = new MinasIterator(quadrados);
+
+        quantidadeDeMinas = 0;
+        while (instance.hasNext()) {
+            quadradoResp = instance.next();
+            if (quadradoResp.contemMina()) {
+                quantidadeDeMinas++;
+            }
+        }
+        assertEquals(12, quantidadeDeMinas);
+
+
     }
 
     /**

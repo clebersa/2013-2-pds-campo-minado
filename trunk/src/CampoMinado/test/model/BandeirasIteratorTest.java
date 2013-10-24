@@ -22,8 +22,8 @@ public class BandeirasIteratorTest {
     int colunas;
 
     public BandeirasIteratorTest() {
-        linhas = 3;
-        colunas = 3;
+        linhas = 6;
+        colunas = 6;
     }
 
     @BeforeClass
@@ -45,8 +45,15 @@ public class BandeirasIteratorTest {
             }
         }
         quadrados[0][0].marcar();
+        quadrados[5][5].marcar();
+        quadrados[0][5].marcar();
+        quadrados[5][0].marcar();
+
+        quadrados[1][2].marcar();
         quadrados[1][1].marcar();
+        quadrados[0][2].marcar();
         quadrados[2][2].marcar();
+        quadrados[3][5].marcar();
     }
 
     @After
@@ -61,10 +68,26 @@ public class BandeirasIteratorTest {
         System.out.println("hasNext");
         BandeirasIterator instanceHasNext = new BandeirasIterator(quadrados);
         int quantidadeBandeirasContadas = 0;
-        do {
+        while (instanceHasNext.hasNext()) {
             quantidadeBandeirasContadas++;
-        } while (instanceHasNext.hasNext());
-        assertEquals(3, quantidadeBandeirasContadas);
+            instanceHasNext.next();
+        }
+        assertEquals(9, quantidadeBandeirasContadas);
+        
+        quadrados[3][3].marcar();
+        quadrados[2][3].marcar();
+        quadrados[1][3].marcar();
+        
+        instanceHasNext = new BandeirasIterator(quadrados);
+        quantidadeBandeirasContadas = 0;
+        
+        while (instanceHasNext.hasNext()) {
+            quantidadeBandeirasContadas++;
+            instanceHasNext.next();
+        }
+        
+        assertEquals(12, quantidadeBandeirasContadas);
+
 
     }
 
@@ -75,19 +98,26 @@ public class BandeirasIteratorTest {
     public void testNext() {
         System.out.println("next");
         BandeirasIterator instanceNext = new BandeirasIterator(quadrados);
-        Quadrado quadradoResp;
         int quantidadeBandeirasContadas = 0;
-        do {
-
-            if (instanceNext.next().getLinha() == 0 && instanceNext.next().getColuna() == 0) {
-                quantidadeBandeirasContadas++;
-            } else if (instanceNext.next().getLinha() == 1 && instanceNext.next().getColuna() == 1) {
-                quantidadeBandeirasContadas++;
-            } else if (instanceNext.next().getLinha() == 2 && instanceNext.next().getColuna() == 2) {
+        while (instanceNext.hasNext()) {
+            if (instanceNext.next().getTipoMarcacao().isBANDEIRA()) {
                 quantidadeBandeirasContadas++;
             }
-        } while (instanceNext.hasNext());
-        assertEquals(3, quantidadeBandeirasContadas);
+        }
+        assertEquals(9, quantidadeBandeirasContadas);
+        
+        quadrados[3][3].marcar();
+        quadrados[2][3].marcar();
+        quadrados[1][3].marcar();
+        
+        instanceNext = new BandeirasIterator(quadrados);
+        quantidadeBandeirasContadas = 0;
+        while (instanceNext.hasNext()) {
+            if (instanceNext.next().getTipoMarcacao().isBANDEIRA()) {
+                quantidadeBandeirasContadas++;
+            }
+        }
+        assertEquals(12,quantidadeBandeirasContadas);
     }
 
     /**
