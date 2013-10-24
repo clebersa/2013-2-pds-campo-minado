@@ -33,7 +33,7 @@ public enum TipoJogada {
 	 * Verifica se a jogada é do tipo
 	 * <code>MARCAR</code>.
 	 *
-	 * @return <code>TRUE</code> se a joagada é do tipo <code>MARCAR</code>
+	 * @return <code>TRUE</code> se a jogada é do tipo <code>MARCAR</code>
 	 * ou <code>FALSE</code>, caso contrário.
 	 */
 	public boolean isMARCAR() {
