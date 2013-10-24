@@ -32,7 +32,8 @@ public class TipoMarcacaoTest {
 	@Test
 	public void testValues() {
 		System.out.println("values");
-		TipoMarcacao[] expResult = {TipoMarcacao.DUVIDA, TipoMarcacao.BANDEIRA, TipoMarcacao.NENHUMA};
+		TipoMarcacao[] expResult = {TipoMarcacao.BANDEIRA, TipoMarcacao.DUVIDA,
+			TipoMarcacao.NENHUMA};
 		TipoMarcacao[] result = TipoMarcacao.values();
 		assertArrayEquals(expResult, result);
 	}
@@ -46,6 +47,24 @@ public class TipoMarcacaoTest {
 		assertEquals(TipoMarcacao.DUVIDA, TipoMarcacao.valueOf("DUVIDA"));
 		assertEquals(TipoMarcacao.BANDEIRA, TipoMarcacao.valueOf("BANDEIRA"));
 		assertEquals(TipoMarcacao.NENHUMA, TipoMarcacao.valueOf("NENHUMA"));
+	}
+
+	/**
+	 * Test of isBANDEIRA method, of class TipoMarcacao.
+	 */
+	@Test
+	public void testIsBANDEIRA() {
+		System.out.println("isBANDEIRA");
+		TipoMarcacao instance;
+
+		instance = TipoMarcacao.DUVIDA;
+		assertFalse(instance.isBANDEIRA());
+
+		instance = TipoMarcacao.BANDEIRA;
+		assertTrue(instance.isBANDEIRA());
+
+		instance = TipoMarcacao.NENHUMA;
+		assertFalse(instance.isBANDEIRA());
 	}
 
 	/**
@@ -67,31 +86,13 @@ public class TipoMarcacaoTest {
 	}
 
 	/**
-	 * Test of isBANDEIRA method, of class TipoMarcacao.
-	 */
-	@Test
-	public void testIsBANDEIRA() {
-		System.out.println("isBANDEIRA");
-		TipoMarcacao instance;
-		
-		instance = TipoMarcacao.DUVIDA;
-		assertFalse(instance.isBANDEIRA());
-
-		instance = TipoMarcacao.BANDEIRA;
-		assertTrue(instance.isBANDEIRA());
-
-		instance = TipoMarcacao.NENHUMA;
-		assertFalse(instance.isBANDEIRA());
-	}
-
-	/**
 	 * Test of isNENHUMA method, of class TipoMarcacao.
 	 */
 	@Test
 	public void testIsNENHUMA() {
 		System.out.println("isNENHUMA");
 		TipoMarcacao instance;
-		
+
 		instance = TipoMarcacao.DUVIDA;
 		assertFalse(instance.isNENHUMA());
 
