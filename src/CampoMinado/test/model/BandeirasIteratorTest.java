@@ -17,116 +17,115 @@ import static org.junit.Assert.*;
  */
 public class BandeirasIteratorTest {
 
-    Quadrado quadrados[][];
-    int linhas;
-    int colunas;
+	Quadrado quadrados[][];
+	int linhas;
+	int colunas;
 
-    public BandeirasIteratorTest() {
-        linhas = 6;
-        colunas = 6;
-    }
+	public BandeirasIteratorTest() {
+		linhas = 6;
+		colunas = 6;
+	}
 
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
+	@BeforeClass
+	public static void setUpClass() throws Exception {
+	}
 
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
+	@AfterClass
+	public static void tearDownClass() throws Exception {
+	}
 
-    @Before
-    public void setUp() {
+	@Before
+	public void setUp() {
 
-        quadrados = new Quadrado[linhas][colunas];
+		quadrados = new Quadrado[linhas][colunas];
 
-        for (int linha = 0; linha < linhas; linha++) {
-            for (int coluna = 0; coluna < colunas; coluna++) {
-                quadrados[linha][coluna] = new Quadrado(linha, coluna);
-            }
-        }
-        quadrados[0][0].marcar();
-        quadrados[5][5].marcar();
-        quadrados[0][5].marcar();
-        quadrados[5][0].marcar();
+		for (int linha = 0; linha < linhas; linha++) {
+			for (int coluna = 0; coluna < colunas; coluna++) {
+				quadrados[linha][coluna] = new Quadrado(linha, coluna);
+			}
+		}
+		quadrados[0][0].marcar();
+		quadrados[5][5].marcar();
+		quadrados[0][5].marcar();
+		quadrados[5][0].marcar();
 
-        quadrados[1][2].marcar();
-        quadrados[1][1].marcar();
-        quadrados[0][2].marcar();
-        quadrados[2][2].marcar();
-        quadrados[3][5].marcar();
-    }
+		quadrados[1][2].marcar();
+		quadrados[1][1].marcar();
+		quadrados[0][2].marcar();
+		quadrados[2][2].marcar();
+		quadrados[3][5].marcar();
+	}
 
-    @After
-    public void tearDown() {
-    }
+	@After
+	public void tearDown() {
+	}
 
-    /**
-     * Test of hasNext method, of class BandeirasIterator.
-     */
-    @Test
-    public void testHasNext() {
-        System.out.println("hasNext");
-        BandeirasIterator instanceHasNext = new BandeirasIterator(quadrados);
-        int quantidadeBandeirasContadas = 0;
-        while (instanceHasNext.hasNext()) {
-            quantidadeBandeirasContadas++;
-            instanceHasNext.next();
-        }
-        assertEquals(9, quantidadeBandeirasContadas);
-        
-        quadrados[3][3].marcar();
-        quadrados[2][3].marcar();
-        quadrados[1][3].marcar();
-        
-        instanceHasNext = new BandeirasIterator(quadrados);
-        quantidadeBandeirasContadas = 0;
-        
-        while (instanceHasNext.hasNext()) {
-            quantidadeBandeirasContadas++;
-            instanceHasNext.next();
-        }
-        
-        assertEquals(12, quantidadeBandeirasContadas);
+	/**
+	 * Test of hasNext method, of class BandeirasIterator.
+	 */
+	@Test
+	public void testHasNext() {
+		System.out.println("hasNext");
+		BandeirasIterator instanceHasNext = new BandeirasIterator(quadrados);
+		int quantidadeBandeirasContadas = 0;
+		while (instanceHasNext.hasNext()) {
+			quantidadeBandeirasContadas++;
+			instanceHasNext.next();
+		}
+		assertEquals(9, quantidadeBandeirasContadas);
 
+		quadrados[3][3].marcar();
+		quadrados[2][3].marcar();
+		quadrados[1][3].marcar();
 
-    }
+		instanceHasNext = new BandeirasIterator(quadrados);
+		quantidadeBandeirasContadas = 0;
 
-    /**
-     * Test of next method, of class BandeirasIterator.
-     */
-    @Test
-    public void testNext() {
-        System.out.println("next");
-        BandeirasIterator instanceNext = new BandeirasIterator(quadrados);
-        int quantidadeBandeirasContadas = 0;
-        while (instanceNext.hasNext()) {
-            if (instanceNext.next().getTipoMarcacao().isBANDEIRA()) {
-                quantidadeBandeirasContadas++;
-            }
-        }
-        assertEquals(9, quantidadeBandeirasContadas);
-        
-        quadrados[3][3].marcar();
-        quadrados[2][3].marcar();
-        quadrados[1][3].marcar();
-        
-        instanceNext = new BandeirasIterator(quadrados);
-        quantidadeBandeirasContadas = 0;
-        while (instanceNext.hasNext()) {
-            if (instanceNext.next().getTipoMarcacao().isBANDEIRA()) {
-                quantidadeBandeirasContadas++;
-            }
-        }
-        assertEquals(12,quantidadeBandeirasContadas);
-    }
+		while (instanceHasNext.hasNext()) {
+			quantidadeBandeirasContadas++;
+			instanceHasNext.next();
+		}
 
-    /**
-     * Test of remove method, of class BandeirasIterator.
-     */
-    @Test(expected = UnsupportedOperationException.class)
-    public void testRemove() {
-        System.out.println("remove");
-        BandeirasIterator instance = new BandeirasIterator(quadrados);
-        instance.remove();
-    }
+		assertEquals(12, quantidadeBandeirasContadas);
+
+	}
+
+	/**
+	 * Test of next method, of class BandeirasIterator.
+	 */
+	@Test
+	public void testNext() {
+		System.out.println("next");
+		BandeirasIterator instanceNext = new BandeirasIterator(quadrados);
+		int quantidadeBandeirasContadas = 0;
+		while (instanceNext.hasNext()) {
+			if (instanceNext.next().getTipoMarcacao().isBANDEIRA()) {
+				quantidadeBandeirasContadas++;
+			}
+		}
+		assertEquals(9, quantidadeBandeirasContadas);
+
+		quadrados[3][3].marcar();
+		quadrados[2][3].marcar();
+		quadrados[1][3].marcar();
+
+		instanceNext = new BandeirasIterator(quadrados);
+		quantidadeBandeirasContadas = 0;
+		while (instanceNext.hasNext()) {
+			if (instanceNext.next().getTipoMarcacao().isBANDEIRA()) {
+				quantidadeBandeirasContadas++;
+			}
+		}
+		assertEquals(12, quantidadeBandeirasContadas);
+	}
+
+	/**
+	 * Test of remove method, of class BandeirasIterator.
+	 */
+	@Test(expected = UnsupportedOperationException.class)
+	public void testRemove() {
+		System.out.println("remove");
+		BandeirasIterator instance = new BandeirasIterator(quadrados);
+		instance.remove();
+	}
 }
