@@ -11,9 +11,6 @@ personalizado de tabuleiro, a classe deve ser capaz de se adaptar a isso.
 - Atualizar geração de builds para também executar os testes e outras atividades
  necessárias para o projeto. Isso deve equivaler ao makefile em C.
 
-- Testar a implementação do método de inicialização do tabuleiro, na criação dos
-quadrados.
-
 - Deve-se fazer uma varredura em todo o código visando coerência entre o 
 diagrama de classes e o projeto.
 
@@ -23,31 +20,34 @@ diagrama de classes e o projeto.
 
 ##### Samuel #####
 + Implementação
-	- Usar nomes mais intuitivos para as variáveis nos laços de repetição, por
-exemplo.
 
 + Teste
-	- Testar novamente DistribuiAleatorio.java depois que a parte do iterador de
-minas estiver funcionando. Para testar essa classe, basta mandar o programa
-distribuir as minas e então iterar sobre as mesmas para verificar se a quantidade
-de minas distribuídas bate com a quantidade que era pra ter sido distribuída.
+	- Testar DistribuiAleatorio.java.
+	Para testar esta classe, basta mandar o programa distribuir as minas e então
+iterar sobre as mesmas para verificar se a quantidade de minas distribuídas bate
+com a quantidade que era pra ter sido distribuída.
+	- Testar DistribuiPorArquivo.java. 
+	No caso desta classe, temos um problema de como definir qual o tamanho do
+arquivo que será lido. Deixar o teste para depois, a menos que se encontre uma
+forma de fazê-lo que dê certo.
 
-	- Criar testes para DistribuiPorArquivo.java --  OK
-
-	- Corrigir a implementação dos testes para BandeirasIterator.java. Os erros
-encontrados aqui são basicamente os mesmos descriytos abaixo.
-
-	- Corrigir a implementação dos testes para MinasIterator.java. Se necessário,
-corrigir a implementação de MinasIterator.java. Fazer a implementação do mesmo
-semelhante ao do TabuleiroIterator.java e do teste do mesmo. Para o has next, 
-testa se a quantidade de quadrados com minas encontrado é o mesmo que o esperado.
-Aí,pra testar o next, basta verificar se os quadrados retornados contém mina ou 
-não. Só isso.
-
++ JAVADOC
+	- Criar o javadoc para todos os iteradores. Caso necessário, utilizar
+exemplos de outras classes que já estão com o javadoc concluído (classes azuis).
+		- BandeirasIterator
+		- MinasIterator
+		- TabuleiroIterator
+		- VizinhosIterator
 
 ################################################################################
 							PERGUNTAS PARA O PROFESSOR
-	
+- No caso da distribuição de minas, eu tenho um métod distribuirMinas que recebe
+um objeto que implementa a interface DustribuidorMinas. Entretanto, eu só vou
+utilizar este método uma única vez. Sendo assim, preciso armazenar o parâmetro
+ou eu posso só utilizá-lo e não armazená-lo dentro do Tabuleiro?
+
+- No caso da leitura por arquivo, eu terei um arquivo por tipo de tabuleiro ou
+será um arquivo único que pode ser utilizado para todos os tipos de tabuleiro?
 
 ################################################################################
 							SUGESTÕES/PRIORIDADE BAIXA
