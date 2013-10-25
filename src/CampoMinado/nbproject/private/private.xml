@@ -4,6 +4,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/home/cleber/svn/campo-minado-pds-2013-2/src/CampoMinado/test/model/DistribuiAleatorioTest.java</file>
+            <file>file:/home/cleber/svn/campo-minado-pds-2013-2/src/CampoMinado/test/model/DistribuiPorArquivoTest.java</file>
+            <file>file:/home/cleber/svn/campo-minado-pds-2013-2/src/CampoMinado/src/model/DistribuiPorArquivo.java</file>
+            <file>file:/home/cleber/svn/campo-minado-pds-2013-2/src/CampoMinado/src/model/Tabuleiro.java</file>
+            <file>file:/home/cleber/svn/campo-minado-pds-2013-2/src/CampoMinado/src/model/DistribuidorMinas.java</file>
+            <file>file:/home/cleber/svn/campo-minado-pds-2013-2/src/CampoMinado/src/model/DistribuiAleatorio.java</file>
             <file>file:/home/cleber/svn/campo-minado-pds-2013-2/src/CampoMinado/src/model/TODO.txt</file>
         </group>
     </open-files>
