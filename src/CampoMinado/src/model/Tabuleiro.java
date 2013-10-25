@@ -29,10 +29,58 @@ public class Tabuleiro implements Exibivel {
      */
     Tabuleiro(TipoTabuleiro tipo) {
         tipoTabuleiro = tipo;
-		setDistribuidorMinas(new DistribuiAleatorio());
-        inicializarTabuleiro();
-        distribuirMinas();
-        contabilizarMinasVizinhas();
+		
+		quadrados = new Quadrado[getLinhas()][getColunas()];
+
+        for (int linha = 0; linha < getLinhas(); linha++) {
+            for (int coluna = 0; coluna < getColunas(); coluna++) {
+                quadrados[linha][coluna] = new Quadrado(linha, coluna);
+            }
+        }
+    }
+
+    /**
+     * Distribui as minas pelo tabuleiro.
+	 * @param distribuidorMinas Distribuidor de minas que define o modo como as
+	 * minas serão distribuídas. Os possíveis distribuidores implementam a
+	 * interface {@link model.DistribuidorMinas}.
+	 * 
+	 * @see model.DistribuidorMinas
+     */
+    public void distribuirMinas(DistribuidorMinas distribuidorMinas) {
+		this.distribuidorMinas = distribuidorMinas;
+        this.distribuidorMinas.distribuirMinas(this);
+		contabilizarMinasVizinhas();
+    }
+	
+	/**
+     * Para todos os quadrados do tabuleiro, contabiliza o número de minas que
+     * há na vizinhança.
+     */
+    private void contabilizarMinasVizinhas() {
+        TabuleiroIterator tabuleiroIterator = createTabuleiroIterator();
+        while (tabuleiroIterator.hasNext()) {
+            contabilizarMinasVizinhas(tabuleiroIterator.next());
+        }
+    }
+
+    /**
+     * Para um quadrado específico, contabiliza a quantidade de minas que há na
+     * vizinhança.
+     *
+     * @param quadrado Quadrado que servirá como base para que as minhas vizinhas
+     * sejam contabilizadas.
+     */
+    private void contabilizarMinasVizinhas(Quadrado quadrado) {
+        VizinhosIterator interadorVizinhos;
+        interadorVizinhos = createVizinhosIterator(quadrado);
+        Quadrado vizinho;
+        while (interadorVizinhos.hasNext()) {
+            vizinho = interadorVizinhos.next();
+            if (vizinho.contemMina()) {
+                quadrado.contabilizarMinaVizinha();
+            }
+        }
     }
 
     /**
@@ -102,17 +150,6 @@ public class Tabuleiro implements Exibivel {
     public int getMinas() {
         return tipoTabuleiro.getMinas();
     }
-	
-	/**
-	 * Define o tipo do distribuidor de minas. Os possíveis distribuidores 
-	 * implementam a interface {@link model.DistribuidorMinas}.
-	 * @param distribuidor Objeto do tipo de alguma classe que implementa 
-	 * {@link model.DistribuidorMinas}
-	 * @see model.DistribuidorMinas
-	 */
-	public void setDistribuidorMinas(DistribuidorMinas distribuidor){
-		distribuidorMinas = distribuidor;
-	}
 
     /**
      * Adiciona uma mina a um determinado quadrado especificado por
@@ -143,56 +180,6 @@ public class Tabuleiro implements Exibivel {
      */
     private Quadrado getQuadrado(int linha, int coluna) throws ArrayIndexOutOfBoundsException {
         return quadrados[linha][coluna];
-    }
-
-    /**
-     * Inicializa o tabuleiro com quadrados vazios.
-     */
-    private void inicializarTabuleiro() {
-        quadrados = new Quadrado[getLinhas()][getColunas()];
-
-        for (int linha = 0; linha < getLinhas(); linha++) {
-            for (int coluna = 0; coluna < getColunas(); coluna++) {
-                quadrados[linha][coluna] = new Quadrado(linha, coluna);
-            }
-        }
-    }
-
-    /**
-     * Distribui as minas pelo tabuleiro.
-     */
-    private void distribuirMinas() {
-        distribuidorMinas.distribuirMinas(this);
-    }
-
-    /**
-     * Para todos os quadrados do tabuleiro, contabiliza o número de minas que
-     * há na vizinhança.
-     */
-    private void contabilizarMinasVizinhas() {
-        TabuleiroIterator tabuleiroIterator = createTabuleiroIterator();
-        while (tabuleiroIterator.hasNext()) {
-            contabilizarMinasVizinhas(tabuleiroIterator.next());
-        }
-    }
-
-    /**
-     * Para um quadrado específico, contabiliza a quantidade de minas que há na
-     * vizinhança.
-     *
-     * @param quadrado Quadrado que servirá como base para que as minhas vizinhas
-     * sejam contabilizadas.
-     */
-    private void contabilizarMinasVizinhas(Quadrado quadrado) {
-        VizinhosIterator interadorVizinhos;
-        interadorVizinhos = createVizinhosIterator(quadrado);
-        Quadrado vizinho;
-        while (interadorVizinhos.hasNext()) {
-            vizinho = interadorVizinhos.next();
-            if (vizinho.contemMina()) {
-                quadrado.contabilizarMinaVizinha();
-            }
-        }
     }
 
     /**

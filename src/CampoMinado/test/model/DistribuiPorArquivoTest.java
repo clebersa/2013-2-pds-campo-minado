@@ -53,4 +53,24 @@ public class DistribuiPorArquivoTest {
         tabuleiro = new Tabuleiro(TipoTabuleiro.AVANCADO);
         instance.distribuirMinas(tabuleiro);
     }
+	
+	/**
+	 * Contabiliza a quantidade de minas distribuídas num tabuleiro.
+	 *
+	 * @param tabuleiro Tabuleiro no qual deseja se contabilizar as minas.
+	 * @return Quantidade de minas distribuídas no tabuleiro.
+	 */
+	public int contabilizarMinasDistribuidas(Tabuleiro tabuleiro) {
+		int quantidadeMinasDistribuidas;
+
+		MinasIterator minasIterator = tabuleiro.createMinasIterator();
+
+		quantidadeMinasDistribuidas = 0;
+		while (minasIterator.hasNext()) {
+			quantidadeMinasDistribuidas++;
+			minasIterator.next();
+		}
+
+		return quantidadeMinasDistribuidas;
+	}
 }

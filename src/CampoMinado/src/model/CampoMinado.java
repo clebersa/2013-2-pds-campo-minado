@@ -64,12 +64,15 @@ public class CampoMinado {
 			switch (opcao) {
 				case 1:
 					tabuleiro = new Tabuleiro(TipoTabuleiro.INICIANTE);
+					tabuleiro.distribuirMinas(new DistribuiAleatorio());
 					break;
 				case 2:
 					tabuleiro = new Tabuleiro(TipoTabuleiro.INTERMEDIARIO);
+					tabuleiro.distribuirMinas(new DistribuiAleatorio());
 					break;
 				case 3:
 					tabuleiro = new Tabuleiro(TipoTabuleiro.AVANCADO);
+					tabuleiro.distribuirMinas(new DistribuiAleatorio());
 					break;
 				case 0:
 					break;
