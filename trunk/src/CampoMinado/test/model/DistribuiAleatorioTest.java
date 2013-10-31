@@ -17,64 +17,64 @@ import static org.junit.Assert.*;
  */
 public class DistribuiAleatorioTest {
 
-	public DistribuiAleatorioTest() {
-	}
+    public DistribuiAleatorioTest() {
+    }
 
-	@BeforeClass
-	public static void setUpClass() throws Exception {
-	}
+    @BeforeClass
+    public static void setUpClass() throws Exception {
+    }
 
-	@AfterClass
-	public static void tearDownClass() throws Exception {
-	}
+    @AfterClass
+    public static void tearDownClass() throws Exception {
+    }
 
-	@Before
-	public void setUp() {
-	}
+    @Before
+    public void setUp() {
+    }
 
-	@After
-	public void tearDown() {
-	}
+    @After
+    public void tearDown() {
+    }
 
-	/**
-	 * Test of distribuirMinas method, of class DistribuiAleatorio.
-	 */
-	@Test
-	public void testDistribuirMinas() {
-		System.out.println("distribuirMinas");
+    /**
+     * Test of distribuirMinas method, of class DistribuiAleatorio.
+     */
+    @Test
+    public void testDistribuirMinas() {
+        System.out.println("distribuirMinas");
 
-		Tabuleiro tabuleiro;
+        Tabuleiro tabuleiro;
 
-		tabuleiro = new Tabuleiro(TipoTabuleiro.INICIANTE);
-		assertEquals(tabuleiro.getMinas(),
-				contabilizarMinasDistribuidas(tabuleiro));
+        tabuleiro = new Tabuleiro(TipoTabuleiro.INICIANTE);
+        tabuleiro.distribuirMinas(new DistribuiAleatorio());
+        assertEquals(tabuleiro.getMinas(), contabilizarMinasDistribuidas(tabuleiro));
 
-		tabuleiro = new Tabuleiro(TipoTabuleiro.INTERMEDIARIO);
-		assertEquals(tabuleiro.getMinas(),
-				contabilizarMinasDistribuidas(tabuleiro));
-		
-		tabuleiro = new Tabuleiro(TipoTabuleiro.AVANCADO);
-		assertEquals(tabuleiro.getMinas(),
-				contabilizarMinasDistribuidas(tabuleiro));
-	}
+        tabuleiro = new Tabuleiro(TipoTabuleiro.INTERMEDIARIO);
+        tabuleiro.distribuirMinas(new DistribuiAleatorio());
+        assertEquals(tabuleiro.getMinas(), contabilizarMinasDistribuidas(tabuleiro));
 
-	/**
-	 * Contabiliza a quantidade de minas distribuídas num tabuleiro.
-	 *
-	 * @param tabuleiro Tabuleiro no qual deseja se contabilizar as minas.
-	 * @return Quantidade de minas distribuídas no tabuleiro.
-	 */
-	public int contabilizarMinasDistribuidas(Tabuleiro tabuleiro) {
-		int quantidadeMinasDistribuidas;
+        tabuleiro = new Tabuleiro(TipoTabuleiro.AVANCADO);
+        tabuleiro.distribuirMinas(new DistribuiAleatorio());
+        assertEquals(tabuleiro.getMinas(), contabilizarMinasDistribuidas(tabuleiro));
+    }
 
-		MinasIterator minasIterator = tabuleiro.createMinasIterator();
+    /**
+     * Contabiliza a quantidade de minas distribuídas num tabuleiro.
+     *
+     * @param tabuleiro Tabuleiro no qual deseja se contabilizar as minas.
+     * @return Quantidade de minas distribuídas no tabuleiro.
+     */
+    public int contabilizarMinasDistribuidas(Tabuleiro tabuleiro) {
+        int quantidadeMinasDistribuidas;
 
-		quantidadeMinasDistribuidas = 0;
-		while (minasIterator.hasNext()) {
-			quantidadeMinasDistribuidas++;
-			minasIterator.next();
-		}
+        MinasIterator minasIterator = tabuleiro.createMinasIterator();
 
-		return quantidadeMinasDistribuidas;
-	}
+        quantidadeMinasDistribuidas = 0;
+        while (minasIterator.hasNext()) {
+            quantidadeMinasDistribuidas++;
+            minasIterator.next();
+        }
+
+        return quantidadeMinasDistribuidas;
+    }
 }

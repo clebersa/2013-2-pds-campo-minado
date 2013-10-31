@@ -22,16 +22,16 @@ diagrama de classes e o projeto.
 + Implementação
 
 + Teste
-	- Testar DistribuiAleatorio.java.
+	- Testar DistribuiAleatorio.java. -- FEITO
 	Para testar esta classe, basta mandar o programa distribuir as minas e então
 iterar sobre as mesmas para verificar se a quantidade de minas distribuídas bate
 com a quantidade que era pra ter sido distribuída.
-	- Testar DistribuiPorArquivo.java. 
+	- Testar DistribuiPorArquivo.java. -- FEITO
 	No caso desta classe, temos um problema de como definir qual o tamanho do
 arquivo que será lido. Deixar o teste para depois, a menos que se encontre uma
 forma de fazê-lo que dê certo.
 
-+ JAVADOC
++ JAVADOC -- ACREDITO TER FEITO =D
 	- Criar o javadoc para todos os iteradores. Caso necessário, utilizar
 exemplos de outras classes que já estão com o javadoc concluído (classes azuis).
 		- BandeirasIterator

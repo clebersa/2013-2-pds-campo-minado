@@ -21,20 +21,34 @@ public class TabuleiroIteratorTest {
 	int linhas;
 	int colunas;
 
-	public TabuleiroIteratorTest() {
+    /**
+     * Iniciliza as variáveis linhas e colunas para o teste.
+     */
+    public TabuleiroIteratorTest() {
 		linhas = 3;
 		colunas = 3;
 	}
 
-	@BeforeClass
+    /**
+     *
+     * @throws Exception
+     */
+    @BeforeClass
 	public static void setUpClass() throws Exception {
 	}
 
-	@AfterClass
+    /**
+     *
+     * @throws Exception
+     */
+    @AfterClass
 	public static void tearDownClass() throws Exception {
 	}
 
-	@Before
+    /**
+     * Inicia a matriz de quadrados.
+     */
+    @Before
 	public void setUp() {
 		quadrados = new Quadrado[linhas][colunas];
 		for (int linha = 0; linha < linhas; linha++) {
@@ -44,7 +58,10 @@ public class TabuleiroIteratorTest {
 		}
 	}
 
-	@After
+    /**
+     *
+     */
+    @After
 	public void tearDown() {
 	}
 

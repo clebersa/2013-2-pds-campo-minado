@@ -21,20 +21,34 @@ public class BandeirasIteratorTest {
 	int linhas;
 	int colunas;
 
-	public BandeirasIteratorTest() {
+    /**
+     * Iniciliza as variáveis linhas e colunas para o teste.
+     */
+    public BandeirasIteratorTest() {
 		linhas = 6;
 		colunas = 6;
 	}
 
-	@BeforeClass
+    /**
+     *
+     * @throws Exception
+     */
+    @BeforeClass
 	public static void setUpClass() throws Exception {
 	}
 
-	@AfterClass
+    /**
+     *
+     * @throws Exception
+     */
+    @AfterClass
 	public static void tearDownClass() throws Exception {
 	}
 
-	@Before
+    /**
+     * Inicia a matriz de quadrados e posteriormente marca alguns quadrados como bandeiras para o teste.
+     */
+    @Before
 	public void setUp() {
 
 		quadrados = new Quadrado[linhas][colunas];
@@ -56,7 +70,10 @@ public class BandeirasIteratorTest {
 		quadrados[3][5].marcar();
 	}
 
-	@After
+    /**
+     *
+     */
+    @After
 	public void tearDown() {
 	}
 
@@ -91,7 +108,7 @@ public class BandeirasIteratorTest {
 	}
 
 	/**
-	 * Test of next method, of class BandeirasIterator.
+         * Teste do método next, da classe BandeirasIterator
 	 */
 	@Test
 	public void testNext() {
@@ -120,7 +137,7 @@ public class BandeirasIteratorTest {
 	}
 
 	/**
-	 * Test of remove method, of class BandeirasIterator.
+         * Teste do método remove da classe BandeirasIterator
 	 */
 	@Test(expected = UnsupportedOperationException.class)
 	public void testRemove() {

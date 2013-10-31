@@ -20,21 +20,34 @@ public class VizinhosIteratorTest {
 	Quadrado quadrados[][];
 	int linhas;
 	int colunas;
-	
-	public VizinhosIteratorTest() {
+
+    /**
+     * Inicia as variáveis: linhas e colunas para serem usadas nos testes.
+     */
+    public VizinhosIteratorTest() {
 		linhas = 3;
 		colunas = 3;
 	}
 
-	@BeforeClass
+    /**
+     * 
+     */
+    @BeforeClass
 	public static void setUpClass() {
 	}
 
-	@AfterClass
+    /**
+     *
+     */
+    @AfterClass
 	public static void tearDownClass() {
 	}
 
-	@Before
+    /**
+     * Inicia a matriz de quadrados.
+     * @throws Exception
+     */
+    @Before
 	public void setUp() throws Exception {
 		quadrados = new Quadrado[linhas][colunas];
 		for (int linha = 0; linha < linhas; linha++) {
@@ -44,12 +57,16 @@ public class VizinhosIteratorTest {
 		}
 	}
 
-	@After
+    /**
+     *
+     * @throws Exception
+     */
+    @After
 	public void tearDown() throws Exception {
 	}
 
 	/**
-	 * Test of hasNext method, of class VizinhosIterator.
+	 * Para cada quadrado e feito um teste de contagem da quantidade de vizinhos, posteriormente é feito a checagem de corretude da contagem dos vizinhos.
 	 */
 	@Test
 	public void testHasNext() {
@@ -73,7 +90,7 @@ public class VizinhosIteratorTest {
 	}
 
 	/**
-	 * Test of next method, of class VizinhosIterator.
+	 * Testa para cada quadrado da matriz sua respectiva quantidade de vizinhos retornados pelo método next().
 	 */
 	@Test
 	public void testNext() {

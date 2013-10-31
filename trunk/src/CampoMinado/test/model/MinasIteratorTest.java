@@ -21,20 +21,34 @@ public class MinasIteratorTest {
 	int linhas;
 	int colunas;
 
-	public MinasIteratorTest() {
+    /**
+     * Inicializa as variáveis linhas e coluna para serem usadas nos testes.
+     */
+    public MinasIteratorTest() {
 		linhas = 6;
 		colunas = 6;
 	}
 
-	@BeforeClass
+    /**
+     *
+     * @throws Exception
+     */
+    @BeforeClass
 	public static void setUpClass() throws Exception {
 	}
 
-	@AfterClass
+    /**
+     *
+     * @throws Exception
+     */
+    @AfterClass
 	public static void tearDownClass() throws Exception {
 	}
 
-	@Before
+    /**
+     * Inicia a matriz de quadrados e posteriormente adiciona minas em alguns quadrados para realizar os testes.
+     */
+    @Before
 	public void setUp() {
 		quadrados = new Quadrado[linhas][colunas];
 		for (int linha = 0; linha < linhas; linha++) {
@@ -54,7 +68,10 @@ public class MinasIteratorTest {
 		quadrados[3][5].adicionarMina();
 	}
 
-	@After
+    /**
+     *
+     */
+    @After
 	public void tearDown() {
 	}
 
