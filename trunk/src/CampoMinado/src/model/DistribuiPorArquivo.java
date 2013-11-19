@@ -17,11 +17,10 @@ public class DistribuiPorArquivo implements DistribuidorMinas {
 	 * Indica o caminho, absoluto ou relativo, do arquivo que contém a
 	 * distribuição das minas.
 	 */
-	private String caminhoArquivo = "./";
 	/**
 	 * Indica o nome do arquivo que contém a distribuição das minas.
 	 */
-	private String nomeArquivo = "distribuicaoMinas.txt";
+	private String nomeArquivo = "src/model/distribuicaoMinas.txt";
 
 	/**
 	 * Distribui as minas sobre o tabuleiro a partir da leitura de um arquivo. A
@@ -39,9 +38,9 @@ public class DistribuiPorArquivo implements DistribuidorMinas {
 		String dadosArquivos;
 
 		try {
-			File file = new File(caminhoArquivo + nomeArquivo);
+			File file = new File(nomeArquivo);
 			FileReader fileReader = null;
-			fileReader = new FileReader(file);
+			fileReader = new FileReader(file.getAbsolutePath());
 			BufferedReader reader = new BufferedReader(fileReader);
 
 			try {
