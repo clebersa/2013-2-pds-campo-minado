@@ -16,8 +16,8 @@ public class Quadrado implements Exibivel {
     private int minasVizinhas;
     private Conteudo conteudo;
     private Marcacao marcacao;
-	private int linha;
-	private int coluna;
+    private int linha;
+    private int coluna;
 
     /**
      * Cria um quadrado. Na criação, o quadrado é criado fechado, com nenhuma

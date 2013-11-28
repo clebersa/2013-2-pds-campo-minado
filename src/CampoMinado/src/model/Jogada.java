@@ -15,7 +15,7 @@ public class Jogada {
 	 * Cria uma nova jogada.
 	 *
 	 * @param linha Número da linha do quadrado.
-	 * @param coluna Número da coluna do quadrado.
+	 * @param coluna Númeror da coluna do quadrado.
 	 * @param tipo Tipo da jogada que será realizada sobre o quadrado.
 	 */
 	Jogada(int linha, int coluna, TipoJogada tipo) {

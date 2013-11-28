@@ -5,7 +5,7 @@ import java.util.Iterator;
 public class VizinhosIterator implements Iterator<Quadrado> {
 
     private Quadrado quadrados[][];
-	private Quadrado quadrado;
+    private Quadrado quadrado;
     private int linha;
     private int coluna;
 
