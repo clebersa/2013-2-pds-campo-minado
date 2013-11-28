@@ -15,6 +15,7 @@ public class CampoMinado {
 
 	/**
 	 * Executa o fluxo principal da aplicação Campo Minado
+     * @param args
 	 */
 	public static void main(String args[]) {
 		int opcao;
