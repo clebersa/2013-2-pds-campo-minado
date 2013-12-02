@@ -1,5 +1,16 @@
 package model;
 
+/**
+ * Define os tipos de resultado de jogada possíveis. Esses resultados podem
+ * ser de 3 tipos:<br/>
+ * <code>VITORIA</code> - Indica que a jogada permitiu ao jogador vencer a partida.<br/>
+ * <code>DERROTA</code> - Indica que a jogada fez com que o jogador perdesse.<br/>
+ * <code>CONTINUA</code> - Indica que a jogada não foi decisica, e o jogar pode
+ * continuar jogando.<br/>
+ *
+ * @author Cleber
+ */
+
 public enum ResultadoJogada {
 	
 	VITORIA,
@@ -9,7 +20,7 @@ public enum ResultadoJogada {
 	/**
 	 * Verifica se o resultado da jogada é do tipo <code>VITORIA</code>.
 	 *
-	 * @return <code>TRUE</code> se o resultado da joagada é do tipo
+	 * @return <code>TRUE</code> se o resultado da jogada é do tipo
 	 * <code>VITORIA</code> ou <code>FALSE</code>, caso contrário.
 	 */
 	public boolean isVITORIA() {

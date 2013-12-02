@@ -2,6 +2,11 @@ package model;
 
 import java.util.Iterator;
 
+/**
+ * Define um iterador para todos os quadrados com bandeira do tabuleiro.
+ * @author cleber
+ */
+
 public class BandeirasIterator implements Iterator<Quadrado> {
 
 	private Quadrado quadrados[][];
