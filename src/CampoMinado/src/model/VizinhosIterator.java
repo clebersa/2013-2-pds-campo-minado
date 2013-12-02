@@ -2,6 +2,11 @@ package model;
 
 import java.util.Iterator;
 
+/**
+ * Define um iterador para todos os quadrados vizinhos de um outro quadrado do tabuleiro.
+ * @author cleber
+ */
+
 public class VizinhosIterator implements Iterator<Quadrado> {
 
     private Quadrado quadrados[][];

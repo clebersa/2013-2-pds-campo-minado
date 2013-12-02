@@ -2,6 +2,11 @@ package model;
 
 import java.util.Iterator;
 
+/**
+ * Define um iterador para todos os quadrados com minas do tabuleiro.
+ * @author cleber
+ */
+
 public class MinasIterator implements Iterator<Quadrado> {
 
 	private Quadrado quadrados[][];

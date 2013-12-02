@@ -2,6 +2,11 @@ package model;
 
 import java.util.Iterator;
 
+/**
+ * Define um iterador para todos os quadrados do tabuleiro.
+ * @author cleber
+ */
+
 public class TabuleiroIterator implements Iterator<Quadrado> {
 
 	private Quadrado quadrados[][];
