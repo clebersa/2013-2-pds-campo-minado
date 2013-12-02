@@ -40,7 +40,6 @@ public class VizinhosIterator implements Iterator<Quadrado> {
 	@Override
 	public Quadrado next() {
 		return quadrados[linha][coluna++];
-
 	}
 
 	@Override

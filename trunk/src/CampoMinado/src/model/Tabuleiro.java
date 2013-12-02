@@ -37,6 +37,18 @@ public class Tabuleiro implements Exibivel {
                 quadrados[linha][coluna] = new Quadrado(linha, coluna);
             }
         }
+		
+		TabuleiroIterator tabuleiroIterator = createTabuleiroIterator();
+		VizinhosIterator iteradorVizinhos;
+		Quadrado atual, vizinho;
+        while (tabuleiroIterator.hasNext()) {
+			atual = tabuleiroIterator.next();
+			iteradorVizinhos = createVizinhosIterator(atual);
+			while (iteradorVizinhos.hasNext()) {
+				vizinho = iteradorVizinhos.next();
+				atual.adicionarObservador(vizinho);
+			}
+		}
     }
 
     /**
@@ -72,11 +84,11 @@ public class Tabuleiro implements Exibivel {
      * sejam contabilizadas.
      */
     private void contabilizarMinasVizinhas(Quadrado quadrado) {
-        VizinhosIterator interadorVizinhos;
-        interadorVizinhos = createVizinhosIterator(quadrado);
+        VizinhosIterator iteradorVizinhos;
+        iteradorVizinhos = createVizinhosIterator(quadrado);
         Quadrado vizinho;
-        while (interadorVizinhos.hasNext()) {
-            vizinho = interadorVizinhos.next();
+        while (iteradorVizinhos.hasNext()) {
+            vizinho = iteradorVizinhos.next();
             if (vizinho.contemMina()) {
                 quadrado.contabilizarMinaVizinha();
             }
@@ -200,13 +212,7 @@ public class Tabuleiro implements Exibivel {
             tipoConteudo = quadrado.abrir();
             if (tipoConteudo.isMINA()) {
                 resultado = false;
-            } else if (tipoConteudo.isNUMERO()) {
-                resultado = true;
             } else {
-                VizinhosIterator vizinhosIterator = createVizinhosIterator(quadrado);
-                while (vizinhosIterator.hasNext()) {
-                    abrirQuadrado(vizinhosIterator.next());
-                }
                 resultado = true;
             }
         }

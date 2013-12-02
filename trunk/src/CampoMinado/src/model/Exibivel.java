@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Define uma interface para os objetos que são exibíveis.
+ * Define uma interface para as classes que são exibíveis.
  *
  * @author Cleber
  */
