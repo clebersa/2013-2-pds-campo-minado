@@ -102,9 +102,9 @@ public class CampoMinado {
 
 		Scanner leitor = new Scanner(System.in);
 
-		do {
-			tabuleiro.exibir();
+		tabuleiro.exibir();
 
+		do {
 			System.out.print("Selecione um tipo de jogada:\n"
 					+ "\t1 - Abrir\n"
 					+ "\t2 - Marcar\n\n"
@@ -149,6 +149,7 @@ public class CampoMinado {
 					}else{
 						System.out.println("Continue jogando...");
 					}
+					tabuleiro.exibir();
 					break;
 				case 0:
 					break;
